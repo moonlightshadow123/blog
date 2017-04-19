@@ -1,0 +1,740 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="libact," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="This module contains a class that implements two of the most well-knownuncertainty sampling query strategies:">
+<meta name="keywords" content="libact">
+<meta property="og:type" content="article">
+<meta property="og:title" content="libact-1">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/04/19/libact-1/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="This module contains a class that implements two of the most well-knownuncertainty sampling query strategies:">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/04/19/libact-1/uncert_class.png">
+<meta property="og:updated_time" content="2017-04-19T08:22:30.517Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="libact-1">
+<meta name="twitter:description" content="This module contains a class that implements two of the most well-knownuncertainty sampling query strategies:">
+<meta name="twitter:image" content="http://moonlightshadow123.github.io/2017/04/19/libact-1/uncert_class.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/04/19/libact-1/"/>
+
+
+
+
+
+  <title> libact-1 | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/04/19/libact-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                libact-1
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-19T14:00:06+08:00">
+                2017-04-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This module contains a class that implements two of the most well-known<br>uncertainty sampling query strategies:   </p>
+<a id="more"></a>
+<ul>
+<li>the <strong>least confidence</strong> method</li>
+<li>the <strong>smallest margin</strong> method (margin sampling).</li>
+</ul>
+<p>This class implements Uncertainty Sampling active learning algorithm [1].</p>
+<h1 id="Class-Diagram"><a href="#Class-Diagram" class="headerlink" title="Class Diagram"></a>Class Diagram</h1><p><img src="uncert_class.png" alt="uncert_class"></p>
+<h1 id="Class-documentation"><a href="#Class-documentation" class="headerlink" title="Class documentation"></a>Class documentation</h1><h2 id="Parameters"><a href="#Parameters" class="headerlink" title="Parameters"></a>Parameters</h2><ol>
+<li>model: The base model is used for training.<ul>
+<li>:py:class:<code>libact.base.interfaces.ContinuousModel</code>  or</li>
+<li>:py:class:<code>libact.base.interfaces.ProbabilisticModel</code> object instance.  </li>
+</ul>
+</li>
+<li>method: {‘lc’, ‘sm’, ‘entropy’}, optional (default=’lc’). The method for uncertainty computing.   <ul>
+<li><strong>least confidence (lc)</strong>, it queries the instance whose posterior probability of being positive is nearest 0.5 (for binary classification);<br>$$<br>x_{LC}^* = \arg\max_x 1 - P_{\theta}(\hat{y} \mid x)<br>$$</li>
+<li><strong>smallest margin (sm)</strong>, it queries the instance whose posterior probability gap between the most and the second probable labels is minimal;<br>$$<br>x_{SM}^* = \arg\max_x P_{\theta}(\hat{y}_1 \mid x) - P_{\theta}(\hat{y}_2 \mid x)<br>$$</li>
+<li><strong>entropy</strong>, it requires :py:class:<code>libact.base.interfaces.ProbabilisticModel</code>to be passed in as model parameter;<br>$$<br>x_{H}^* = \arg\max_x - \sum_i P_{\theta}(\hat{y}_i \mid x)\log P_{\theta}(\hat{y}_i \mid x)<br>$$</li>
+</ul>
+</li>
+</ol>
+<h2 id="Attribute"><a href="#Attribute" class="headerlink" title="Attribute"></a>Attribute</h2><ol>
+<li>model: The model trained in last query.<ul>
+<li>:py:class:<code>libact.base.interfaces.ContinuousModel</code> or</li>
+<li>:py:class:<code>libact.base.interfaces.ProbabilisticModel</code> object instance.</li>
+</ul>
+</li>
+</ol>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><p>Here is an example of declaring a UncertaintySampling query_strategy object:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> libact.query_strategies <span class="keyword">import</span> UncertaintySampling</div><div class="line"><span class="keyword">from</span> libact.models <span class="keyword">import</span> LogisticRegression</div><div class="line"></div><div class="line">qs = UncertaintySampling(</div><div class="line">        dataset, <span class="comment"># Dataset object</span></div><div class="line">        model=LogisticRegression(C=<span class="number">0.1</span>)</div><div class="line">     )</div></pre></td></tr></table></figure>
+<p><strong>Note</strong> that the model given in the code <code>model</code> parameter must be a :py:class:<code>ContinuousModel</code> which supports predict_real method.</p>
+<h1 id="Snippets"><a href="#Snippets" class="headerlink" title="Snippets"></a>Snippets</h1><h2 id="init"><a href="#init" class="headerlink" title="init()"></a><strong>init</strong>()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="comment"># Super class constructor.</span></div><div class="line">    super(UncertaintySampling, self).__init__(*args, **kwargs)</div><div class="line"></div><div class="line">    <span class="comment"># Check the type of model.</span></div><div class="line">    self.model = kwargs.pop(<span class="string">'model'</span>, <span class="keyword">None</span>)</div><div class="line">    <span class="keyword">if</span> self.model <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">raise</span> TypeError(</div><div class="line">            <span class="string">"__init__() missing required keyword-only argument: 'model'"</span></div><div class="line">         )</div><div class="line">    <span class="keyword">if</span> <span class="keyword">not</span> isinstance(self.model, ContinuousModel) <span class="keyword">and</span> \</div><div class="line">            <span class="keyword">not</span> isinstance(self.model, ProbabilisticModel):</div><div class="line">        <span class="keyword">raise</span> TypeError(</div><div class="line">                <span class="string">"model has to be a ContinuousModel or ProbabilisticModel"</span></div><div class="line">        )</div><div class="line"></div><div class="line">    <span class="comment"># Train the model</span></div><div class="line">    self.model.train(self.dataset)</div><div class="line"></div><div class="line">    <span class="comment"># Check the method.</span></div><div class="line">    self.method = kwargs.pop(<span class="string">'method'</span>, <span class="string">'lc'</span>)</div><div class="line">    <span class="keyword">if</span> self.method <span class="keyword">not</span> <span class="keyword">in</span> [<span class="string">'lc'</span>, <span class="string">'sm'</span>, <span class="string">'entropy'</span>]:</div><div class="line">        <span class="keyword">raise</span> TypeError(</div><div class="line">            <span class="string">"supported methods are ['lc', 'sm', 'entropy'], the given one "</span></div><div class="line">            <span class="string">"is: "</span> + self.method</div><div class="line">        )</div><div class="line">    <span class="keyword">if</span> self.method==<span class="string">'entropy'</span> <span class="keyword">and</span> \</div><div class="line">            <span class="keyword">not</span> isinstance(self.model, ProbabilisticModel):</div><div class="line">        <span class="keyword">raise</span> TypeError(</div><div class="line">            <span class="string">"method 'entropy' requires model to be a ProbabilisticModel"</span></div><div class="line">        )</div></pre></td></tr></table></figure>
+<h2 id="make-query"><a href="#make-query" class="headerlink" title="make_query()"></a>make_query()</h2><p>Return the index of the sample to be queried and labeled and selection score of each sample. No modification to the internal states.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_query</span><span class="params">(self, return_score=False)</span>:</span></div><div class="line">    </div><div class="line">    <span class="comment"># Train the model.</span></div><div class="line">    dataset = self.dataset</div><div class="line">    self.model.train(dataset)</div><div class="line"></div><div class="line">    <span class="comment"># Get unlabeled ids and X.</span></div><div class="line">    unlabeled_entry_ids, X_pool = zip(*dataset.get_unlabeled_entries())</div><div class="line"></div><div class="line">    <span class="comment"># Determine decision value regarding to the type of the model.</span></div><div class="line">    <span class="keyword">if</span> isinstance(self.model, ProbabilisticModel):</div><div class="line">        dvalue = self.model.predict_proba(X_pool)</div><div class="line">    <span class="keyword">elif</span> isinstance(self.model, ContinuousModel):</div><div class="line">        dvalue = self.model.predict_real(X_pool)</div><div class="line"></div><div class="line">    <span class="comment"># Calculate score according to  dvalue and method.</span></div><div class="line">    <span class="keyword">if</span> self.method == <span class="string">'lc'</span>:  <span class="comment"># least confident</span></div><div class="line">        score = -np.max(dvalue, axis=<span class="number">1</span>)</div><div class="line">    <span class="keyword">elif</span> self.method == <span class="string">'sm'</span>:  <span class="comment"># smallest margin</span></div><div class="line">        <span class="keyword">if</span> np.shape(dvalue)[<span class="number">1</span>] &gt; <span class="number">2</span>:</div><div class="line">            <span class="comment"># Find 2 largest decision values</span></div><div class="line">            dvalue = -(np.partition(-dvalue, <span class="number">2</span>, axis=<span class="number">1</span>)[:, :<span class="number">2</span>])</div><div class="line">        score = -np.abs(dvalue[:, <span class="number">0</span>] - dvalue[:, <span class="number">1</span>])</div><div class="line">    <span class="keyword">elif</span> self.method == <span class="string">'entropy'</span>:</div><div class="line">        score = np.sum(-dvalue * np.log(dvalue), axis=<span class="number">1</span>)</div><div class="line"></div><div class="line">    <span class="comment"># Get the ask_id according to score.</span></div><div class="line">    ask_id = np.argmax(score)</div><div class="line"></div><div class="line">    <span class="keyword">if</span> return_score:</div><div class="line">        <span class="keyword">return</span> unlabeled_entry_ids[ask_id], \</div><div class="line">               list(zip(unlabeled_entry_ids, score))</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        <span class="keyword">return</span> unlabeled_entry_ids[ask_id]</div></pre></td></tr></table></figure>
+<h3 id="Returns"><a href="#Returns" class="headerlink" title="Returns"></a>Returns</h3><ul>
+<li>ask_id : int<br>  The index of the next unlabeled sample to be queried and labeled.</li>
+<li>score : list of (index, score) tuple<br>  Selection score of unlabeled entries, the larger the better.</li>
+</ul>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><ol>
+<li>The matrix <code>dvalue</code> is probably like a matrix <code>[entry_id, class_id]</code>, so <code>-np.max(dvalue, axis=1)</code> is to choose the smallest value (since <code>dvalue</code> is all positive) with <code>class_id</code> varying (<code>axis=1</code>).<br>See <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.amax.html#numpy.amax" target="_blank" rel="external">np.amax()</a> for more info.</li>
+<li>For <code>sm</code> method, we first get 2 greatest (absolute value) <code>dvalue</code> entry using <code>np.partition(-dvalue, 2, axis=1)[:, :2]</code>, then we assign different scores using the difference between 2 greatest value.<br>See <a href="https://docs.scipy.org/doc/numpy-dev/reference/generated/numpy.partition.html" target="_blank" rel="external">np.partition()</a> for more info.</li>
+<li>We can use <code>np.argmax()</code> to return the indices of the maximum values along an axis.<br>See <a href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.argmax.html" target="_blank" rel="external">np.argmax()</a> for more info.</li>
+</ol>
+<h1 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h1><p>[1] Settles, Burr. “Active learning literature survey.” University of Wisconsin, Madison 52.55-66 (2010): 11.<br>[2] <a href="https://github.com/ntucllab/libact" target="_blank" rel="external">https://github.com/ntucllab/libact</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/libact/" rel="tag"># libact</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/19/Story-1/" rel="prev" title="Story-1">
+                Story-1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Class-Diagram"><span class="nav-number">1.</span> <span class="nav-text">Class Diagram</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class-documentation"><span class="nav-number">2.</span> <span class="nav-text">Class documentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameters"><span class="nav-number">2.1.</span> <span class="nav-text">Parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attribute"><span class="nav-number">2.2.</span> <span class="nav-text">Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-number">2.3.</span> <span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Snippets"><span class="nav-number">3.</span> <span class="nav-text">Snippets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">3.1.</span> <span class="nav-text">init()</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#make-query"><span class="nav-number">3.2.</span> <span class="nav-text">make_query()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Returns"><span class="nav-number">3.2.1.</span> <span class="nav-text">Returns</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Note"><span class="nav-number">3.2.2.</span> <span class="nav-text">Note</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Reference"><span class="nav-number">4.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
