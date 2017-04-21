@@ -1,0 +1,732 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="libact," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="OverallThis module contains a class that implements Query by committee active learningalgorithm.">
+<meta name="keywords" content="libact">
+<meta property="og:type" content="article">
+<meta property="og:title" content="libact-2">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/04/21/libact-2/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="OverallThis module contains a class that implements Query by committee active learningalgorithm.">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/04/21/libact-2/qbc.png">
+<meta property="og:updated_time" content="2017-04-21T08:00:49.544Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="libact-2">
+<meta name="twitter:description" content="OverallThis module contains a class that implements Query by committee active learningalgorithm.">
+<meta name="twitter:image" content="http://moonlightshadow123.github.io/2017/04/21/libact-2/qbc.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/04/21/libact-2/"/>
+
+
+
+
+
+  <title> libact-2 | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/04/21/libact-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                libact-2
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T15:54:14+08:00">
+                2017-04-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Overall"><a href="#Overall" class="headerlink" title="Overall"></a>Overall</h1><p>This module contains a class that implements Query by committee active learning<br>algorithm.</p>
+<a id="more"></a>
+<h1 id="Class-diagram"><a href="#Class-diagram" class="headerlink" title="Class diagram"></a>Class diagram</h1><p><img src="qbc.png" alt="qbc"></p>
+<h1 id="Documentation"><a href="#Documentation" class="headerlink" title="Documentation"></a>Documentation</h1><h2 id="Parameter"><a href="#Parameter" class="headerlink" title="Parameter"></a>Parameter</h2><ol>
+<li>models : list of :py:mod:<code>libact.models</code> instances or <code>str</code>.<br>This parameter accepts <strong>a list of initialized libact Model instances</strong>,<br>or <strong>class names of libact Model classes</strong> to determine the models to be<br>included in the committee to vote for each unlabeled instance.</li>
+<li>disagreement : <code>[&#39;vote&#39;, &#39;kl_divergence&#39;]</code>, optional (<code>default=&#39;vote&#39;</code>).<br>Sets the method for measuring disagreement between models.<br><code>vote</code> represents vote entropy;<br><code>kl_divergence</code> requires models being <code>ProbabilisticModel</code>.</li>
+<li>random_state : <code>{int, np.random.RandomState instance, None}</code>, optional (<code>default=None</code>).<br>If <code>int</code> or <code>None</code>, <code>random_state</code> is passed as parameter to generate<br><code>np.random.RandomState</code> instance;<br>if <code>np.random.RandomState</code> instance,<br><code>random_state</code> is the random number generate.</li>
+</ol>
+<h2 id="Attribute"><a href="#Attribute" class="headerlink" title="Attribute"></a>Attribute</h2><ol>
+<li><code>students</code> : list, shape = (len(models)).<br>A list of the model instances used in this algorithm.</li>
+<li><code>random_state</code> : np.random.RandomState instance.<br>The random number generator using.</li>
+</ol>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><p>Here is an example of declaring a QueryByCommittee query_strategy object:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> libact.query_strategies <span class="keyword">import</span> QueryByCommittee</div><div class="line"><span class="keyword">from</span> libact.models <span class="keyword">import</span> LogisticRegression</div><div class="line"></div><div class="line">qs = QueryByCommittee(</div><div class="line">        dataset, <span class="comment"># Dataset object</span></div><div class="line">        models=[</div><div class="line">            LogisticRegression(C=<span class="number">1.0</span>),</div><div class="line">            LogisticRegression(C=<span class="number">0.1</span>),</div><div class="line">        ],</div><div class="line">    )</div></pre></td></tr></table></figure>
+<h1 id="Snippets"><a href="#Snippets" class="headerlink" title="Snippets"></a>Snippets</h1><h2 id="init"><a href="#init" class="headerlink" title="__init()__"></a>__init()__</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, *args, **kwargs)</span>:</span></div><div class="line">    <span class="comment"># Super class constructor.</span></div><div class="line">    super(QueryByCommittee, self).__init__(*args, **kwargs)</div><div class="line"></div><div class="line">    <span class="comment"># Get the disagreement.</span></div><div class="line">    self.disagreement = kwargs.pop(<span class="string">'disagreement'</span>, <span class="string">'vote'</span>)</div><div class="line"></div><div class="line">    <span class="comment"># Check the type of model.</span></div><div class="line">    models = kwargs.pop(<span class="string">'models'</span>, <span class="keyword">None</span>)</div><div class="line">    <span class="keyword">if</span> models <span class="keyword">is</span> <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">raise</span> TypeError(</div><div class="line">            <span class="string">"__init__() missing required keyword-only argument: 'models'"</span></div><div class="line">        )</div><div class="line">    <span class="keyword">elif</span> <span class="keyword">not</span> models:</div><div class="line">        <span class="keyword">raise</span> ValueError(<span class="string">"models list is empty"</span>)</div><div class="line"></div><div class="line">    <span class="comment"># If the disagreement type is `kl_divergence`, then the models should all be `ProbalilisticModel`</span></div><div class="line">    <span class="keyword">if</span> self.disagreement == <span class="string">'kl_divergence'</span>:</div><div class="line">        <span class="keyword">for</span> model <span class="keyword">in</span> models:</div><div class="line">            <span class="keyword">if</span> <span class="keyword">not</span> isinstance(model, ProbabilisticModel):</div><div class="line">                <span class="keyword">raise</span> TypeError(</div><div class="line">                    <span class="string">"Given disagreement set as 'kl_divergence', all models"</span></div><div class="line">                    <span class="string">"should be ProbabilisticModel."</span></div><div class="line">                )</div><div class="line"></div><div class="line">    <span class="comment"># Set self.random_state_, check util.seed_random_state() for more info.</span></div><div class="line">    random_state = kwargs.pop(<span class="string">'random_state'</span>, <span class="keyword">None</span>)</div><div class="line">    self.random_state_ = seed_random_state(random_state)</div><div class="line"></div><div class="line">    <span class="comment"># Set self.students</span></div><div class="line">    self.students = list()</div><div class="line">    <span class="keyword">for</span> model <span class="keyword">in</span> models:</div><div class="line">        <span class="keyword">if</span> isinstance(model, str):</div><div class="line">            self.students.append(getattr(libact.models, model)())</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.students.append(model)</div><div class="line">    self.n_students = len(self.students)</div><div class="line">    self.teach_students()</div></pre></td></tr></table></figure>
+<h3 id="Note"><a href="#Note" class="headerlink" title="Note"></a>Note</h3><h4 id="1"><a href="#1" class="headerlink" title="(1)"></a>(1)</h4><p>For <code>np.random.RandomStateheck</code> check <a href="http://stackoverflow.com/questions/22994423/difference-between-np-random-seed-and-np-random-randomstate" target="_blank" rel="external">this link</a> out.<br><code>random.RandomState</code> is similar to <code>random.seed()</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">r = np.random.RandomState(<span class="number">1234</span>)</div><div class="line">r.uniform(<span class="number">0</span>, <span class="number">10</span>, <span class="number">5</span>)</div><div class="line"><span class="comment">#array([ 1.9151945 ,  6.22108771,  4.37727739,  7.85358584,  7.79975808])</span></div></pre></td></tr></table></figure>
+<h4 id="2"><a href="#2" class="headerlink" title="(2)"></a>(2)</h4><p>This function is used to turn <code>seed</code> into <code>RandomState</code>. </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">seed_random_state</span><span class="params">(seed)</span>:</span></div><div class="line">    <span class="string">"""Turn seed into np.random.RandomState instance</span></div><div class="line">    """</div><div class="line">    <span class="keyword">if</span> (seed <span class="keyword">is</span> <span class="keyword">None</span>) <span class="keyword">or</span> (isinstance(seed, int)):</div><div class="line">        <span class="keyword">return</span> np.random.RandomState(seed)</div><div class="line">    <span class="keyword">elif</span> isinstance(seed, np.random.RandomState):</div><div class="line">        <span class="keyword">return</span> seed</div><div class="line">    <span class="keyword">raise</span> ValueError(<span class="string">"%r can not be used to generate numpy.random.RandomState"</span></div><div class="line">                     <span class="string">" instance"</span> % seed)</div></pre></td></tr></table></figure>
+<h2 id="disagreement"><a href="#disagreement" class="headerlink" title="disagreement"></a>disagreement</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_vote_disagreement</span><span class="params">(self, votes)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Return the disagreement measurement of the given number of votes.</div><div class="line">    It uses the vote vote to measure the disagreement.</div><div class="line"></div><div class="line">    Parameters</div><div class="line">    ----------</div><div class="line">    votes : list of int, shape==(n_samples, n_students)</div><div class="line">        The predictions that each student gives to each sample.</div><div class="line"></div><div class="line">    Returns</div><div class="line">    -------</div><div class="line">    disagreement : list of float, shape=(n_samples)</div><div class="line">        The vote entropy of the given votes.</div><div class="line">    """</div><div class="line">    ret = []</div><div class="line">    <span class="keyword">for</span> candidate <span class="keyword">in</span> votes:</div><div class="line">        ret.append(<span class="number">0.0</span>)</div><div class="line">        lab_count = &#123;&#125;</div><div class="line">        <span class="keyword">for</span> lab <span class="keyword">in</span> candidate:</div><div class="line">            lab_count[lab] = lab_count.setdefault(lab, <span class="number">0</span>) + <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="comment"># Using vote entropy to measure disagreement</span></div><div class="line">        <span class="keyword">for</span> lab <span class="keyword">in</span> lab_count.keys():</div><div class="line">            ret[<span class="number">-1</span>] -= lab_count[lab] / self.n_students * \</div><div class="line">                math.log(float(lab_count[lab]) / self.n_students)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ret</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_kl_divergence_disagreement</span><span class="params">(self, proba)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Calculate the Kullback-Leibler (KL) divergence disaagreement measure.</div><div class="line"></div><div class="line">    Parameters</div><div class="line">    ----------</div><div class="line">    proba : array-like, shape=(n_samples, n_students, n_class)</div><div class="line"></div><div class="line">    Returns</div><div class="line">    -------</div><div class="line">    disagreement : list of float, shape=(n_samples)</div><div class="line">        The kl_divergence of the given probability.</div><div class="line">    """</div><div class="line">    n_students = np.shape(proba)[<span class="number">1</span>]</div><div class="line">    consensus = np.mean(proba, axis=<span class="number">1</span>) <span class="comment"># shape=(n_samples, n_class)</span></div><div class="line">    <span class="comment"># average probability of each class across all students</span></div><div class="line">    consensus = np.tile(consensus, (n_students, <span class="number">1</span>, <span class="number">1</span>)).transpose(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>)</div><div class="line">    <span class="comment"># Now the shape of consensus is (n_samples, n_student, n_class)</span></div><div class="line">    kl = np.sum(proba * np.log(proba / consensus), axis=<span class="number">2</span>)</div><div class="line">    <span class="comment"># Now the spale of kl is (n_sample,n_student).</span></div><div class="line">    <span class="keyword">return</span> np.mean(kl, axis=<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h3 id="Note-1"><a href="#Note-1" class="headerlink" title="Note"></a>Note</h3><h4 id="1-1"><a href="#1-1" class="headerlink" title="(1)"></a>(1)</h4><p>Formula for <code>vote_entropy</code> and <code>kl_divergence</code>:  </p>
+<p>$$x_{VE}^* = \arg\max_x - \sum_i \frac{V(y_i)}{C} \log \frac{V(y_i)}{C}$$</p>
+<p>$$x_{KL}^* = \arg\max_x - \frac{1}{C} \sum_{c=1}^{C} D(P_{\theta^{(c)}} \Vert P_C)$$<br>where<br>$$ D(P_{\theta^{(c)}}|P_C ) = \sum_i P_{\theta^{(c)}}(y_i\mid x)\log\frac{P_{\theta^{(c)}}(y_i\mid x)}{P_C (y_i\mid x)}$$ and<br>$$P_C (y_i\mid x) = \frac{1}{C}\sum_{c=1}^C P_{\theta^{(c)}}(y_i\mid x)$$<br>Here $\theta^{(c)}$ represents a classifier in the committee, and $C$ represents the committee, so $P_C(y_i\mid x)$ is the “consensus” of the committee.</p>
+<h4 id="2-1"><a href="#2-1" class="headerlink" title="(2)"></a>(2)</h4><p>For the function <code>np.tile()</code>:<br>If A.ndim &lt; d, A is promoted to be d-dimensional by prepending new axes.<br>If A.ndim &gt; d, reps is promoted to A.ndim by pre-pending 1’s to it.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = np.array([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>],[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a.shape</div><div class="line">(<span class="number">2L</span>, <span class="number">3L</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a,(<span class="number">1</span>,<span class="number">2</span>)).shape</div><div class="line">(<span class="number">2L</span>, <span class="number">6L</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a,<span class="number">2</span>).shape</div><div class="line">(<span class="number">2L</span>, <span class="number">6L</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.tile(a,(<span class="number">1</span>,<span class="number">2</span>,<span class="number">1</span>)).shape</div><div class="line">(<span class="number">1L</span>, <span class="number">4L</span>, <span class="number">3L</span>)</div></pre></td></tr></table></figure></p>
+<h4 id="3"><a href="#3" class="headerlink" title="(3)"></a>(3)</h4><p>For the function <code>np.transpose()</code>:  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = np.ones((<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>))</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.transpose(x, (<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>)).shape</div><div class="line">(<span class="number">2</span>, <span class="number">1</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
+<h2 id="Sampling"><a href="#Sampling" class="headerlink" title="Sampling"></a>Sampling</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">_labeled_uniform_sample</span><span class="params">(self, sample_size)</span>:</span></div><div class="line">    <span class="string">"""sample labeled entries uniformly"""</span></div><div class="line">    labeled_entries = self.dataset.get_labeled_entries()</div><div class="line"></div><div class="line">    <span class="comment"># Sample `sample_size` entries for each bag.(each bag is a training set for each student)</span></div><div class="line">    samples = [labeled_entries[</div><div class="line">        self.random_state_.randint(<span class="number">0</span>, len(labeled_entries))</div><div class="line">    ]<span class="keyword">for</span> _ <span class="keyword">in</span> range(sample_size)]</div><div class="line">    <span class="keyword">return</span> Dataset(*zip(*samples))</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">teach_students</span><span class="params">(self)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    Train each model (student) with the labeled data using bootstrap</div><div class="line">    aggregating (bagging).</div><div class="line">    """</div><div class="line">    dataset = self.dataset</div><div class="line">    <span class="keyword">for</span> student <span class="keyword">in</span> self.students:</div><div class="line">        <span class="comment"># Get the training set for each student.</span></div><div class="line">        bag = self._labeled_uniform_sample(int(dataset.len_labeled()))</div><div class="line">        <span class="comment"># If the training set consists only of one type of entry(e.g. only positive entry), resample it.</span></div><div class="line">        <span class="keyword">while</span> bag.get_num_of_labels() != dataset.get_num_of_labels():</div><div class="line">            bag = self._labeled_uniform_sample(int(dataset.len_labeled()))</div><div class="line">            LOGGER.warning(<span class="string">'There is student receiving only one label,'</span></div><div class="line">                           <span class="string">'re-sample the bag.'</span>)</div><div class="line">        student.train(bag)</div></pre></td></tr></table></figure>
+<h3 id="Note-2"><a href="#Note-2" class="headerlink" title="Note"></a>Note</h3><h4 id="1-2"><a href="#1-2" class="headerlink" title="(1)"></a>(1)</h4><p> Here we only use the strategy of <code>bagging</code>, no <code>boosting</code> strategy implemented.</p>
+<h2 id="make-query"><a href="#make-query" class="headerlink" title="make_query()"></a>make_query()</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@inherit_docstring_from(QueryStrategy)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, entry_id, label)</span>:</span></div><div class="line">    <span class="comment"># Train each model with newly updated label.</span></div><div class="line">    self.teach_students()</div><div class="line"></div><div class="line"><span class="meta">@inherit_docstring_from(QueryStrategy)</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">make_query</span><span class="params">(self)</span>:</span></div><div class="line">    dataset = self.dataset</div><div class="line">    unlabeled_entry_ids, X_pool = zip(*dataset.get_unlabeled_entries())</div><div class="line"></div><div class="line">    <span class="keyword">if</span> self.disagreement == <span class="string">'vote'</span>:</div><div class="line">        <span class="comment"># Get the vote of each student for each unlabeled entry. </span></div><div class="line">        <span class="comment"># votes.shape = (n_sample, n_student).</span></div><div class="line">        votes = np.zeros((len(X_pool), len(self.students)))</div><div class="line">        <span class="keyword">for</span> i, student <span class="keyword">in</span> enumerate(self.students):</div><div class="line">            votes[:, i] = student.predict(X_pool)</div><div class="line">        </div><div class="line">        <span class="comment"># Get the vote_entropy and choose the entry with the largest entropy.</span></div><div class="line">        <span class="comment"># vote_entropy.shape = (n_sample,)</span></div><div class="line">        vote_entropy = self._vote_disagreement(votes)</div><div class="line">        ask_idx = self.random_state_.choice(</div><div class="line">                np.where(np.isclose(vote_entropy, np.max(vote_entropy)))[<span class="number">0</span>])</div><div class="line"></div><div class="line">    <span class="keyword">elif</span> self.disagreement == <span class="string">'kl_divergence'</span>:</div><div class="line">        <span class="comment"># Get the proba of each student for each unlabeled entry.</span></div><div class="line">        <span class="comment"># proba.shape = (n_sample, n_student, n_class)</span></div><div class="line">        proba = []</div><div class="line">        <span class="keyword">for</span> student <span class="keyword">in</span> self.students:</div><div class="line">            proba.append(student.predict_proba(X_pool))</div><div class="line">        proba = np.array(proba).transpose(<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>).astype(float)</div><div class="line"></div><div class="line">        <span class="comment"># Get the average kl_divergence and choose the entry with the largest divergence.</span></div><div class="line">        <span class="comment"># avg_kl.shape = (n_sample, )</span></div><div class="line">        avg_kl = self._kl_divergence_disagreement(proba)</div><div class="line">        ask_idx = self.random_state_.choice(</div><div class="line">                np.where(np.isclose(avg_kl, np.max(avg_kl)))[<span class="number">0</span>])</div><div class="line"></div><div class="line">    <span class="keyword">return</span> unlabeled_entry_ids[ask_idx]</div></pre></td></tr></table></figure>
+<h3 id="Note-3"><a href="#Note-3" class="headerlink" title="Note"></a>Note</h3><h4 id="1-3"><a href="#1-3" class="headerlink" title="(1)"></a>(1)</h4><p>To choose the max index of <code>avg_kl</code>, they use the method <code>np.where(np.isclose(avg_kl, np.max(avg_kl)))</code>.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line">array([<span class="number">2</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">1</span>, <span class="number">4</span>])</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.isclose(a, max(a))</div><div class="line">array([<span class="keyword">False</span>,  <span class="keyword">True</span>, <span class="keyword">False</span>, <span class="keyword">False</span>, <span class="keyword">False</span>], dtype=bool)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(np.isclose(a, max(a)))</div><div class="line">(array([<span class="number">1</span>], dtype=int64),)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.where(np.isclose(a, max(a)))[<span class="number">0</span>]</div><div class="line">array([<span class="number">1</span>], dtype=int64)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rs = np.random.RandomState(<span class="number">123</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>rs.choice(np.where(np.isclose(a, max(a)))[<span class="number">0</span>])</div><div class="line"><span class="number">1</span>  <span class="comment"># The max index of a is 1.</span></div></pre></td></tr></table></figure>
+<p>Instead, we can simply use the <code>argmax</code> of numpy.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>np.argmax(a)</div><div class="line"><span class="number">1</span>  <span class="comment"># The max index of a is 1.</span></div></pre></td></tr></table></figure>
+<h4 id="2-2"><a href="#2-2" class="headerlink" title="(2)"></a>(2)</h4><p>The fuction <code>np.where(condition[, x, y])</code> returns elements, either from x or y, depending on condition.<br>If x and y are given and input arrays are 1-D, where is equivalent to:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[xv <span class="keyword">if</span> c <span class="keyword">else</span> yv <span class="keyword">for</span> (c,xv,yv) <span class="keyword">in</span> zip(condition,x,y)]</div></pre></td></tr></table></figure></p>
+<h4 id="3-1"><a href="#3-1" class="headerlink" title="(3)"></a>(3)</h4><p>The function <code>np.isclose(a, b, rtol=1e-05, atol=1e-08, equal_nan=False)</code> returns a boolean array where two arrays are element-wise equal within a tolerance.<br>For finite values, isclose uses the following equation to test whether two floating point values are equivalent.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">absolute(a - b) &lt;= (atol + rtol * absolute(b))</div></pre></td></tr></table></figure></p>
+<p>Reference:<br>[1] Seung, H. Sebastian, Manfred Opper, and Haim Sompolinsky. “Query by committee.” Proceedings of the fifth annual workshop on Computational learning theory. ACM, 1992.<br>[2] Settles, Burr. “Active learning literature survey.” University of Wisconsin, Madison 52.55-66 (2010): 11.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/libact/" rel="tag"># libact</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/19/leetcode-1/" rel="prev" title="leetcode-1">
+                leetcode-1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Overall"><span class="nav-number">1.</span> <span class="nav-text">Overall</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Class-diagram"><span class="nav-number">2.</span> <span class="nav-text">Class diagram</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Documentation"><span class="nav-number">3.</span> <span class="nav-text">Documentation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Parameter"><span class="nav-number">3.1.</span> <span class="nav-text">Parameter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Attribute"><span class="nav-number">3.2.</span> <span class="nav-text">Attribute</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">3.3.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Snippets"><span class="nav-number">4.</span> <span class="nav-text">Snippets</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#init"><span class="nav-number">4.1.</span> <span class="nav-text">__init()__</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note"><span class="nav-number">4.1.1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1"><span class="nav-number">4.1.1.1.</span> <span class="nav-text">(1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2"><span class="nav-number">4.1.1.2.</span> <span class="nav-text">(2)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#disagreement"><span class="nav-number">4.2.</span> <span class="nav-text">disagreement</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-1"><span class="nav-number">4.2.1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-1"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">(1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-1"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">(2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3"><span class="nav-number">4.2.1.3.</span> <span class="nav-text">(3)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sampling"><span class="nav-number">4.3.</span> <span class="nav-text">Sampling</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-2"><span class="nav-number">4.3.1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-2"><span class="nav-number">4.3.1.1.</span> <span class="nav-text">(1)</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#make-query"><span class="nav-number">4.4.</span> <span class="nav-text">make_query()</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Note-3"><span class="nav-number">4.4.1.</span> <span class="nav-text">Note</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-3"><span class="nav-number">4.4.1.1.</span> <span class="nav-text">(1)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-2"><span class="nav-number">4.4.1.2.</span> <span class="nav-text">(2)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-1"><span class="nav-number">4.4.1.3.</span> <span class="nav-text">(3)</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
