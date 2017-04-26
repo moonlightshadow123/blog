@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="leetcode," />
 
 
 
@@ -88,13 +88,13 @@
 
 
 <meta name="description" content="This is a illustration of the 27th leetcode problem.27-Remove-Element.">
-<meta name="keywords">
+<meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode-3">
 <meta property="og:url" content="http://moonlightshadow123.github.io/2017/04/26/leetcode-3/index.html">
 <meta property="og:site_name" content="Small&Big">
 <meta property="og:description" content="This is a illustration of the 27th leetcode problem.27-Remove-Element.">
-<meta property="og:updated_time" content="2017-04-26T07:45:21.311Z">
+<meta property="og:updated_time" content="2017-04-26T07:59:43.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="leetcode-3">
 <meta name="twitter:description" content="This is a illustration of the 27th leetcode problem.27-Remove-Element.">
@@ -326,15 +326,11 @@
 <h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given an array and a value, remove all instances of that value in place and return the new length.<br>Do not allocate extra space for another array, you must do this in place with constant memory.<br>The order of elements can be changed. It doesn’t matter what you leave beyond the new length.</p>
 <p><strong>Example</strong>: Given input array nums = <code>[3,2,2,3]</code>, val = <code>3</code></p>
 <p>Your function should return length = 2, with the first two elements of nums being 2.</p>
-<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><!--slow-fast.py-->
-<!--
-<figure class="highlight plain"><figcaption><span>[title] [] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code snippet</div></pre></td></tr></table></figure>
-<p>–&gt;</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeElement</span><span class="params">(self, nums, val)</span>:</span></div><div class="line">        <span class="string">"""</div><div class="line">        :type nums: List[int]</div><div class="line">        :type val: int</div><div class="line">        :rtype: int</div><div class="line">        """</span></div><div class="line">        self.slow = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> fast <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="comment"># For each element in nums</span></div><div class="line">            <span class="keyword">if</span> nums[fast] != val:</div><div class="line">                <span class="comment"># If fast != val, add fast to slow, and increase slow.</span></div><div class="line">                nums[self.slow] = nums[fast]</div><div class="line">                self.slow += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> self.slow</div></pre></td></tr></table></figure>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeElement</span><span class="params">(self, nums, val)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type val: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        self.slow = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> fast <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="comment"># For each element in nums</span></div><div class="line">            <span class="keyword">if</span> nums[fast] != val:</div><div class="line">                <span class="comment"># If fast != val, add fast to slow, and increase slow.</span></div><div class="line">                nums[self.slow] = nums[fast]</div><div class="line">                self.slow += <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> self.slow</div></pre></td></tr></table></figure>
 <h1 id="Cases"><a href="#Cases" class="headerlink" title="Cases"></a>Cases</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">'Case 1 -----------'</span></div><div class="line">nums = [<span class="number">3</span>,<span class="number">2</span>,<span class="number">2</span>,<span class="number">3</span>]; val = <span class="number">3</span></div><div class="line">slt = Solution()</div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Removing value &#123;0&#125; in &#123;1&#125;, and return the number of remaining elements.'</span>.format(val, nums)</div><div class="line">answer = slt.removeElement(nums, val)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: 2'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the nums = &#123;0&#125;, with the pointer: slow = &#123;1&#125; showing the index of next insert position.'</span>.format(nums, slt.slow)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'Case 2 -----------'</span></div><div class="line">nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">1</span>]; val = <span class="number">1</span></div><div class="line">slt = Solution()</div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Removing value &#123;0&#125; in &#123;1&#125;, and return the number of remaining elements.'</span>.format(val, nums)</div><div class="line">answer = slt.removeElement(nums, val)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: 0'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the nums = &#123;0&#125;, with the pointer: slow = &#123;1&#125; showing the index of next insert position.'</span>.format(nums, slt.slow)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div></pre></td></tr></table></figure>
 <h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">27. Remove Element</div><div class="line"></div><div class="line">Case 1 -----------</div><div class="line">Description: Removing value 3 in [3, 2, 2, 3], and return the number of remaining elements.</div><div class="line">Expected: 2</div><div class="line">Return: 2</div><div class="line">Status: Now the nums = [2, 2, 2, 3], with the pointer: slow = 2 showing the index of next insert position.</div><div class="line"></div><div class="line">Case 2 -----------</div><div class="line">Description: Removing value 1 in [1, 1, 1, 1], and return the number of remaining elements.</div><div class="line">Expected: 0</div><div class="line">Return: 0</div><div class="line">Status: Now the nums = [1, 1, 1, 1], with the pointer: slow = 0 showing the index of next insert position.</div></pre></td></tr></table></figure>
 <h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Time $O(n)$, Space $O(1)$.</p>
--->
+
       
     </div>
 
@@ -360,6 +356,12 @@
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode/" rel="tag"># leetcode</a>
+          
+        </div>
       
 
       
@@ -502,7 +504,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cases"><span class="nav-number">3.</span> <span class="nav-text">Cases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">3.1.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">4.</span> <span class="nav-text">Analysis</span></a></li></ol></div>
             
 
           </div>
