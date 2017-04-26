@@ -87,17 +87,17 @@
 
 
 
-<meta name="description" content="This is a illustration of the 1st leetcode problem.1-Two-Sum.">
+<meta name="description" content="This is a illustration of the 26th leetcode problem.26-Remove-Duplicates-from-Sorted-Array.">
 <meta name="keywords" content="leetcode">
 <meta property="og:type" content="article">
-<meta property="og:title" content="leetcode-1">
-<meta property="og:url" content="http://moonlightshadow123.github.io/2017/04/19/leetcode-1/index.html">
+<meta property="og:title" content="leetcode-2">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/04/26/leetcode-2/index.html">
 <meta property="og:site_name" content="Small&Big">
-<meta property="og:description" content="This is a illustration of the 1st leetcode problem.1-Two-Sum.">
-<meta property="og:updated_time" content="2017-04-26T07:44:52.655Z">
+<meta property="og:description" content="This is a illustration of the 26th leetcode problem.26-Remove-Duplicates-from-Sorted-Array.">
+<meta property="og:updated_time" content="2017-04-26T07:45:07.257Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="leetcode-1">
-<meta name="twitter:description" content="This is a illustration of the 1st leetcode problem.1-Two-Sum.">
+<meta name="twitter:title" content="leetcode-2">
+<meta name="twitter:description" content="This is a illustration of the 26th leetcode problem.26-Remove-Duplicates-from-Sorted-Array.">
 
 
 
@@ -125,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/04/19/leetcode-1/"/>
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/04/26/leetcode-2/"/>
 
 
 
 
 
-  <title> leetcode-1 | Small&Big </title>
+  <title> leetcode-2 | Small&Big </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -250,7 +250,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/04/19/leetcode-1/">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/04/26/leetcode-2/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Xiaoda">
@@ -271,7 +271,7 @@
             
             
               
-                leetcode-1
+                leetcode-2
               
             
           </h1>
@@ -286,8 +286,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-19T19:27:29+08:00">
-                2017-04-19
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-26T15:39:19+08:00">
+                2017-04-26
               </time>
             
 
@@ -322,22 +322,20 @@
       
 
       
-        <p>This is a illustration of the <a href="https://leetcode.com/problems/two-sum/" target="_blank" rel="external">1st leetcode problem</a>.<br>1-Two-Sum.<br><a id="more"></a></p>
-<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given an array of integers, return indices of the <strong>two numbers</strong> such that they <strong>add up to a specific target</strong>.  </p>
-<p>You may assume that each input would have <strong>exactly one solution</strong>, and you may not use the same element twice.  </p>
-<p>Example:  </p>
-<pre><code>Given nums = [2, 7, 11, 15], target = 9,
-Because nums[0] + nums[1] = 2 + 7 = 9,
-return [0, 1].
-</code></pre><h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">twoSum</span><span class="params">(self, nums, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[int]</div><div class="line">        """</div><div class="line">        <span class="comment"># Create a record dict : Num |-&gt; Index</span></div><div class="line">        self.recd_dict = &#123;&#125;</div><div class="line"></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="comment"># For each index in nums</span></div><div class="line">            curNum = nums[i]</div><div class="line">            <span class="keyword">if</span> self.recd_dict.has_key(target - curNum):      </div><div class="line">                <span class="comment"># If dict has target, then return the index</span></div><div class="line">                <span class="keyword">return</span> [self.recd_dict[target - curNum], i]</div><div class="line">            <span class="keyword">else</span>:  </div><div class="line">                <span class="comment"># else put current number and the index in to the dict.</span></div><div class="line">                self.recd_dict[curNum] = i</div></pre></td></tr></table></figure>
-<h1 id="Cases"><a href="#Cases" class="headerlink" title="Cases"></a>Cases</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">'Case 1 -----------'</span></div><div class="line">nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>]; target = <span class="number">9</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Searching for two elements in nums = &#123;0&#125;, whose sum is target = &#123;1&#125;.'</span>.format(nums, target)</div><div class="line">slt = Solution()</div><div class="line">answer = slt.twoSum(nums, target)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: [0, 1]'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the "element-&gt;index" dictionary is recd_dict = &#123;0&#125;'</span>.format(slt.recd_dict)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'Case 2 -----------'</span></div><div class="line">nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>]; target = <span class="number">18</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Searching for two elements in nums = &#123;0&#125;, whose sum is target = &#123;1&#125;.'</span>.format(nums, target)</div><div class="line">slt = Solution()</div><div class="line">answer = slt.twoSum(nums, target)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: [1, 2]'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the "element-&gt;index" dictionary is recd_dict = &#123;0&#125;'</span>.format(slt.recd_dict)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div></pre></td></tr></table></figure>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">1. Two sum:</div><div class="line"></div><div class="line">Case 1 -----------</div><div class="line">Description: Searching for two elements in nums = [2, 7, 11, 15], whose sum is target = 9.</div><div class="line">Expected: [0, 1]</div><div class="line">Return: [0, 1]</div><div class="line">Status: Now the &quot;element-&gt;index&quot; dictionary is recd_dict = &#123;2: 0&#125;</div><div class="line"></div><div class="line">Case 2 -----------</div><div class="line">Description: Searching for two elements in nums = [2, 7, 11, 15], whose sum is target = 18.</div><div class="line">Expected: [1, 2]</div><div class="line">Return: [1, 2]</div><div class="line">Status: Now the &quot;element-&gt;index&quot; dictionary is recd_dict = &#123;2: 0, 7: 1&#125;</div></pre></td></tr></table></figure>
-<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><ul>
-<li>Time complexity: $O(n)$. We traverse the list containing $n$ elements only once. Each look up in the table costs only $O(1)$ time.</li>
-<li>Space complexity: $O(n)$. The extra space required depends on the number of items stored in the hash table, which stores at most $n$ elements.</li>
-</ul>
-<p>Refernece:<br>[1] <a href="https://leetcode.com/articles/two-sum/" target="_blank" rel="external">https://leetcode.com/articles/two-sum/</a></p>
-
+        <p>This is a illustration of the <a href="https://leetcode.com/problems/remove-duplicates-from-sorted-array/" target="_blank" rel="external">26th leetcode problem</a>.<br>26-Remove-Duplicates-from-Sorted-Array.<br><a id="more"></a></p>
+<h1 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h1><p>Given a sorted array, remove the duplicates in place such that each element appear only once and return the new length.</p>
+<p>Do not allocate extra space for another array, you must do this in place with constant memory.</p>
+<p>For example, Given input array nums = <code>[1,1,2]</code>,</p>
+<p>Your function should return length = <code>2</code>, with the first two elements of nums being <code>1</code> and <code>2</code> respectively. It doesn’t matter what you leave beyond the new length.</p>
+<h1 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h1><!--fast_slow.py-->
+<!--
+<figure class="highlight plain"><figcaption><span>[title] [] [url] [link text]</span></figcaption><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">code snippet</div></pre></td></tr></table></figure>
+<p>–&gt;</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">removeDuplicates</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: int</div><div class="line">        """</span></div><div class="line">        <span class="keyword">if</span> len(nums) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        self.slow = <span class="number">0</span></div><div class="line">        <span class="keyword">for</span> fast <span class="keyword">in</span> range(len(nums)):</div><div class="line">            <span class="comment"># For each element in nums</span></div><div class="line">            <span class="keyword">if</span> nums[fast] != nums[self.slow]:</div><div class="line">                <span class="comment"># If slow != fast, slow+1 ,and add the new value.</span></div><div class="line">                self.slow += <span class="number">1</span></div><div class="line">                nums[self.slow] = nums[fast]</div><div class="line">        <span class="keyword">return</span> self.slow+<span class="number">1</span></div></pre></td></tr></table></figure>
+<h1 id="Cases"><a href="#Cases" class="headerlink" title="Cases"></a>Cases</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">print</span> <span class="string">'Case 1 -----------'</span></div><div class="line">nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>]</div><div class="line">slt = Solution()</div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Removing duplicate elements in sorted list: nums = &#123;0&#125;'</span>.format(nums)</div><div class="line">answer = slt.removeDuplicates(nums)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: 2'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the nums = &#123;0&#125;, with the pointer: slow = &#123;1&#125; showing the index of last added element. '</span>.format(nums, slt.slow)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div><div class="line"></div><div class="line"><span class="keyword">print</span> <span class="string">'Case 2 -----------'</span></div><div class="line">nums = [<span class="number">2</span>, <span class="number">7</span>, <span class="number">11</span>, <span class="number">15</span>]</div><div class="line">slt = Solution()</div><div class="line"><span class="keyword">print</span> <span class="string">'Description: Removing duplicate elements in sorted list: nums = &#123;0&#125;'</span>.format(nums)</div><div class="line">answer = slt.removeDuplicates(nums)</div><div class="line"><span class="keyword">print</span> <span class="string">'Expected: 4'</span></div><div class="line"><span class="keyword">print</span> <span class="string">'Return: &#123;0&#125;'</span>.format(answer)</div><div class="line"><span class="keyword">print</span> <span class="string">'Status: Now the nums = &#123;0&#125;, with the pointer: slow = &#123;1&#125; showing the index of last added element. '</span>.format(nums, slt.slow)</div><div class="line"><span class="keyword">print</span> <span class="string">''</span></div></pre></td></tr></table></figure>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">26. Remove Duplicates from Sorted Array:</div><div class="line"></div><div class="line">Case 1 -----------</div><div class="line">Description: Removing duplicate elements in sorted list: nums = [1, 1, 2]</div><div class="line">Expected: 2</div><div class="line">Return: 2</div><div class="line">Status: Now the nums = [1, 2, 2], with the pointer: slow = 1 showing the index of last added element. </div><div class="line"></div><div class="line">Case 2 -----------</div><div class="line">Description: Removing duplicate elements in sorted list: nums = [2, 7, 11, 15]</div><div class="line">Expected: 4</div><div class="line">Return: 4</div><div class="line">Status: Now the nums = [2, 7, 11, 15], with the pointer: slow = 3 showing the index of last added element.</div></pre></td></tr></table></figure>
+<h1 id="Analysis"><a href="#Analysis" class="headerlink" title="Analysis"></a>Analysis</h1><p>Time $O(n)$, Space $O(1)$.</p>
+-->
       
     </div>
 
@@ -379,8 +377,8 @@ return [0, 1].
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/21/libact-2/" rel="next" title="libact-2">
-                <i class="fa fa-chevron-left"></i> libact-2
+              <a href="/2017/04/26/leetcode-3/" rel="next" title="leetcode-3">
+                <i class="fa fa-chevron-left"></i> leetcode-3
               </a>
             
           </div>
@@ -389,8 +387,8 @@ return [0, 1].
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/19/libact-1/" rel="prev" title="libact-1">
-                libact-1 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/21/libact-2/" rel="prev" title="libact-2">
+                libact-2 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -511,7 +509,7 @@ return [0, 1].
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Cases"><span class="nav-number">3.</span> <span class="nav-text">Cases</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">3.1.</span> <span class="nav-text">Output</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Analysis"><span class="nav-number">4.</span> <span class="nav-text">Analysis</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Description"><span class="nav-number">1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Solution"><span class="nav-number">2.</span> <span class="nav-text">Solution</span></a></li></ol></div>
             
 
           </div>
