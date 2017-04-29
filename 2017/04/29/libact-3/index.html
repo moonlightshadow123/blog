@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="Small&Big">
 <meta property="og:description" content="This module contains a class that implements an active learning algorithm(query strategy): QUIRE">
 <meta property="og:image" content="http://moonlightshadow123.github.io/2017/04/29/libact-3/quire.png">
-<meta property="og:updated_time" content="2017-04-29T10:34:06.248Z">
+<meta property="og:updated_time" content="2017-04-29T10:45:19.881Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="libact-3">
 <meta name="twitter:description" content="This module contains a class that implements an active learning algorithm(query strategy): QUIRE">
@@ -361,11 +361,11 @@
 <p>We use subscript $u$ to refer to the unlabeled rows/columns in a matrix $M$;<br>we use subscript $l$ to refer to the labeled rows/columns in a matrix $M$;<br>we use subscript $s$ to refer to the selected rows/columns in a matrix $M$.<br>So we can rewrite the objective function $y^{\intercal}Ly$:<br>$$y^{\intercal}Ly = y_lL_{l,l}y_l + L_{s,s} + y^{\intercal}_u L_{u,u}y_u + 2y^{\intercal}_u(L_{u,l}y_l + L_{u,s}y_s) + 2y_sy^{\intercal}_l L_{l,s}\tag{2}$$.</p>
 <p>Notice that the objective function is concave(linear) in $y_s$ and convex (quadratic) in $y_u$, we can switch the maximization of $y_u$ with the minimization of $y_s$. So the problem becomes:</p>
 <p>$$s^* = arg\min_{n_l &lt; s \leq n} \max_{y_s = \pm 1}  \min_{y_u \in {\pm1}^{n^u-1}} \frac{1}{2} y^{\intercal}Ly$$</p>
-<p> Then we relax $y_u$ to continuous variables, and substitute $y^{\intercal}Ly$ with $(1)$, we can solve the minimization of $y_u$:</p>
-<p> $$<br>\begin{align*}<br> \hat{y}_u &amp;= \arg \min_{y_u \in [-1, 1]^{n^u-1}} \frac{1}{2} y^{\intercal}Ly\\<br>&amp;= -L_{u,u}^{-1}(L_{u,l}y_l + L_{u,s}y_s) \tag{3}<br>\end{align*}<br> $$<br>Then we substitute $y_u$ in $(1)$ with $\hat{y}_u$ using $(2)$, the evaluation function becomes like this:</p>
+<p> Then we relax $y_u$ to continuous variables, and substitute $y^{\intercal}Ly$ with $(2)$, we can solve the minimization of $y_u$:</p>
+<p> $$<br>\begin{align*}<br> \hat{y}_u &amp;= \arg \min_{y_u \in [-1, 1]^{n^u-1}} \frac{1}{2} y^{\intercal}Ly\\<br>&amp;= -L_{u,u}^{-1}(L_{u,l}y_l + L_{u,s}y_s) \tag{3}<br>\end{align*}<br> $$<br>Then we substitute $y_u$ in $(2)$ with $\hat{y}_u$ using $(3)$, the evaluation function becomes like this:</p>
 <p>$$<br>\begin{align*}<br>\hat{L}(D_l, D_u, x_s) &amp;=  \max_{y_s = \pm 1}\min_{y_u \in [-1, 1]^{n^u-1}} \frac{1}{2} y^{\intercal}Ly \\<br>    &amp;=  \max_{y_s = \pm 1}{ L_{s,s} + y^{\intercal}_lL_{l,l}y_l + 2y_sL_{s,l}y_l - (L_{u,l}y_l + L_{u,s}y_s)^{\intercal}L_{u,u}^{-1}(L_{u,l}y_l + L_{u,s}y_s)}\\<br>    &amp;=  L_{s,s} + y^{\intercal}_lL_{l,l}y_l + \max_{y_s = \pm 1}{ 2y_sL_{s,l}y_l - (L_{u,l}y_l + L_{u,s}y_s)^{\intercal}L_{u,u}^{-1}(L_{u,l}y_l + L_{u,s}y_s) } \\<br>    &amp; \propto  L_{s,s} - \frac{\det L_{a,a}}{L_{s,s}} + 2 \vert (L_{s,l} - L_{s,u}L_{u,u}^{-1}L_{u,l})y_l\vert \tag{4}<br>\end{align*}<br>$$</p>
 <p>where the last step follows the relation:<br>$$\det<br>\begin{pmatrix}<br>A_{11} &amp; A_{12} \\<br>A_{21} &amp; A_{22}<br>\end{pmatrix} = \det(A_{22})\det(A_{11} - A_{12}A_{22}^{-1}A_{21})<br>\tag{?}<br>$$</p>
-<h3 id="The-algorithm"><a href="#The-algorithm" class="headerlink" title="The algorithm"></a>The algorithm</h3><p>We are going to use $(3)$ to compute the evaluation function, but every round we choose a instance to query we have to compute $L_{u,u}^{-1}$ (since unlabeled instances change when we change $s$). It could be inefficient. So we use the following equation to reduce the computational cost.</p>
+<h3 id="The-algorithm"><a href="#The-algorithm" class="headerlink" title="The algorithm"></a>The algorithm</h3><p>We are going to use $(4)$ to compute the evaluation function, but every round we choose a instance to query we have to compute $L_{u,u}^{-1}$ (since unlabeled instances change when we change $s$). It could be inefficient. So we use the following equation to reduce the computational cost.</p>
 <p>$$L_{u,u}^{-1} = D - \frac{1}{a} bb^{\intercal}\tag{5}$$</p>
 <p>where<br>$$L_{a,a}^{-1} =<br>\begin{pmatrix}<br>L_{s,s} &amp; L_{s,u} \\<br>L_{u,s} &amp; L_{u,u}<br>\end{pmatrix}<br>=<br>\begin{pmatrix}<br>a &amp; -b^{\intercal} \\<br>-b &amp; D<br>\end{pmatrix}<br>$$</p>
 <p>Also,  we use the following equation to compute $L_{a,a}^{-1}$:<br>$$L_{a,a}^{-1} = (\lambda I_a + K_{a,a}) - K_{a,l}(\lambda I_l + K_{l,l})^{-1} K_{l,a} \tag{6}$$</p>
