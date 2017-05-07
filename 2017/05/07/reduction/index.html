@@ -1,0 +1,736 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="raccoon," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="This post is intended for the illustration of the variance reduction method.">
+<meta name="keywords" content="raccoon">
+<meta property="og:type" content="article">
+<meta property="og:title" content="variance reduction">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/05/07/reduction/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="This post is intended for the illustration of the variance reduction method.">
+<meta property="og:updated_time" content="2017-05-07T15:08:10.689Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="variance reduction">
+<meta name="twitter:description" content="This post is intended for the illustration of the variance reduction method.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/05/07/reduction/"/>
+
+
+
+
+
+  <title> variance reduction | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/05/07/reduction/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                variance reduction
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-05-07T21:39:02+08:00">
+                2017-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>This post is intended for the illustration of the variance reduction method.<br><a id="more"></a></p>
+<h1 id="The-bias-variance-trade-off"><a href="#The-bias-variance-trade-off" class="headerlink" title="The bias-variance trade-off"></a>The bias-variance trade-off</h1><p>First, note that for any random variable $X$, we have:<br>$$Var[X] = E[X_2] - E[X]_2$$<br>Rearranging:<br>$$E[X_2] = Var[X] + E[X]_2$$<br>Since f is deterministic:<br>$$E[f] = f$$<br>Given $y = f + \epsilon$ and $E[\epsilon] = 0$, implies $E[y] = E[f + \epsilon] = E[f] = f$.<br>Also, since $Var[\epsilon] = \sigma^2$<br>$$Var[y] = E[(y - E[y])^2] = E[(y - f)^2] = E[(f + \epsilon - f)^2] = E[\epsilon^2] = Var[\epsilon] = \sigma^2$$</p>
+<p>Thus, since $\epsilon$ and $\hat{f}$ are independent, we can write:<br>$$<br>\begin{align*}<br>E[(y - \hat{f})^2] &amp;= E[y^2 + \hat{f}^2 -2y\hat{f}]\\<br>&amp;= E[y^2] + E[\hat{f}_2] - E[2y\hat{f}]\\<br>&amp;= Var[y] + E[y]^2 + Var[\hat{f}] + E[\hat{f}]^2 - 2fE[\hat{f}]\\<br>&amp;= Var[y] + Var[\hat{f}] + (f^2 - 2fE[\hat{f}] + E[\hat{f}]^2)\\<br>&amp;= Var[y] + Var[\hat{f}] + (f - E[\hat{f}])^2\\<br>&amp;= Var[y] + Var[\hat{f}] + E[f-\hat{f}]^2\\<br>&amp;= \sigma^2 + Var[\hat{f}] + E[f-\hat{f}]^2\\<br>\end{align*}<br>$$</p>
+<p>You can also write the decomposition that way:<br>$$<br>\begin{align*}<br>E_T[(\hat{y} - y) \vert x] &amp;= E[(y - E[y \vert x])^2]\\<br>&amp; + E_L[(\hat{y} - E_L[\hat{y}])^2]\\<br>&amp; + (E_L[\hat{y}] - E[y\vert x])^2<br>\end{align*}<br>$$</p>
+<p>The first term on the right-hand side of this equation is noise, i.e. the variance of the true label $y$ given only $x$, which does not depend on the model or training data. Such noise may result from stochastic effects of the method used to obtain the labels, for example, or because the feature representation is inadequate.</p>
+<p>The second term is the model’s variance, which is the remaining component of the learner’s squared-loss with respect to the target function. Minimizing the variance, then, is guaranteed to minimize the future generalization error of the model(since the learner itself can do nothing about the noise or bias components).</p>
+<p>The third term is the bias, which represents the error due to the model class itself, e.g., if a linear model is used to learn a function that is only approximately linear. This component of the overall error is invariant given a fixed model class.</p>
+<h1 id="Fisher-Imformation"><a href="#Fisher-Imformation" class="headerlink" title="Fisher Imformation"></a>Fisher Imformation</h1><p>As we know, the likelihood function can be written like this:<br>$$L(X; \theta) = f(X; \theta) = \prod^n_{i=1} f(x_i; \theta)$$<br>So we define the <code>score</code> function to be the partial derivative of the log likelihood:<br>$$S(X; \theta) = \frac{\partial \log f(X; \theta)}{\partial \theta}$$<br>Under certain regularity condition, it can be shown that the expected value(the first moment) of the score is 0:<br>$$<br>\begin{align*}<br>E[S] = E \left [\frac{\partial \log f(X; \theta)}{\partial \theta} \vert \theta \right] &amp;= \int \frac{\frac{\partial}{\partial \theta} f(x; \theta)}{f(x;\theta)} f(x;\theta) dx\\<br>&amp;= \int \frac{\partial}{\partial \theta} f(x; \theta) dx = \frac{\partial}{\partial \theta} \int f(x; \theta) dx\\<br>&amp;= \frac{\partial}{\partial \theta} 1 = 0<br>\end{align*}<br>$$</p>
+<hr>
+<p>For further illustration, assume there is a Binomial Distribution with parameter $p$ and $n$.<br>Likelihood function is like this:<br>$$L(X;p) = p^{k}(1-p)^{n-k}$$<br>Log likelihood function is like this:<br>$$\log L = k\log p + (n-k)\log(1-p)$$<br>Score function is like this:<br>$$S(X;p) = \frac{\partial}{\partial p} \log L = \frac{k}{p} - \frac{n-k}{1-p} = \frac{k-np}{p(1-p)}$$<br>The expectation of $k$ is $np$ ,given $p$. So the expectation of score is:<br>$$E[S] = \frac{np}{p} - \frac{n-np}{1-p} = n-n = 0$$ </p>
+<hr>
+<p>The variance (which equals the second raw monent) is defined to be the **Fisher Information**.</p>
+<p>$$I(\theta) = E[S^2] = E\left[ \left( \frac{\partial}{\partial \theta} \log f(X;\theta) \right)^2 \vert \theta\right] = \int \left( \frac{\partial}{\partial \theta} \log f(x;\theta) \right)^2 f(x;\theta) dx$$</p>
+<p>Note:  </p>
+<ul>
+<li>$0\leq I(\theta) &lt; \infty$, and a random variable carrying high Fisher information implies that the absolute value of the score is often high.   </li>
+<li>The Fisher information is not a function of a particular observation, as the random variable $x$ has been averaged out.</li>
+</ul>
+<p>If log likelihood function is twice differentiable with respect to $\theta$, then since:<br>$$<br>\frac{\partial^2}{\partial \theta^2} \log f(X;\theta) = \frac{\frac{\partial^2}{\partial \theta^2} f(X; \theta)}{ f(X;\theta)} - \left( \frac{\frac{\partial}{\partial \theta} f(X; \theta)}{ f(X;\theta)} \right) =<br>\frac{\frac{\partial^2}{\partial \theta^2} f(X; \theta)}{ f(X;\theta)} -<br>\left( \frac{\partial}{\partial \theta} \log f(X;\theta) \right)^2<br>$$<br>and<br>$$E\left[ \frac{\frac{\partial^2}{\partial \theta^2} f(X; \theta)}{ f(X;\theta)} \vert \theta \right] = \frac{\partial^2}{\partial \theta} \int f(x;\theta) dx = 0$$<br>We can rewrite the Fisher information as:<br>$$I(\theta) = - E\left[ \frac{\partial^2}{\partial \theta^2} \log f(X;\theta) \vert \theta \right] = -E\left[ \frac{\partial}{\partial \theta} S \right]$$</p>
+<hr>
+<p>Continue the example, the fisher information of the example can be computed in the following ways:</p>
+<ol>
+<li>S $\to$ derivative $\to$ E<br>$$<br>\begin{align*}<br>I(p) &amp;= - E\left[ \frac{\partial}{\partial p} S\right]\\<br>&amp;= - E\left[ \frac{-np(1-p) - (k-np)(p(1-p)^{‘})}{p^2(1-p)^2} \right]\\<br>&amp;= \frac{n}{p(1-p)} + E\left[ \frac{(k-np)(p(1-p)^{‘})}{p^2(1-p)^2} \right]\\<br>&amp;= \frac{n}{p(1-p)}<br>\end{align*}<br>$$</li>
+<li>S $\to$ square $\to$ E<br>$$<br>\begin{align*}<br>I(p) &amp;= E\left[ S^2 \right]\\<br>&amp;= E\left[ \frac{k^2 - sknp + n^2p^2}{p^2(1-p)^2} \right]\\<br>&amp;= \frac{E[k^2] - 2E[k]np + n^2p^2}{p^2(1-p)^2}\\<br>&amp;= \frac{np(1-p) + n^2p^2 -2n^2p^2 + n^2p^2}{p^2(1-p)^2}\\<br>&amp;= \frac{n}{p(1-p)}<br>\end{align*}<br>$$<br>Note that $Var[k] = np(1-p)$ and $E[k^2] = Var[k] + E[k]^2 = np(1-p) + n^2p^2$</li>
+<li>S $\to$ variance<br>$$<br>\begin{align*}<br>I(p) &amp;= Var[S]\\<br>&amp;= Var\left[\frac{k-np}{p(1-p)}\right]\\<br>&amp;= \frac{Var[k]}{p^2(1-p)^2}\\<br>&amp;= \frac{np(1-p)}{p^2(1-p)^2}\\<br>&amp;= \frac{n}{p(1-p)}<br>\end{align*}<br>$$</li>
+</ol>
+<hr>
+<h1 id="Variance-Reduction-Method"><a href="#Variance-Reduction-Method" class="headerlink" title="Variance Reduction Method"></a>Variance Reduction Method</h1><p>We define a probability model as follows:<br>$$p(y_n = c \vert \pi_n) = \pi(c, x_n, w) = \frac{\exp(w_c \cdot x_n)}{\sum_{c’} \exp(w_{c’} \cdot x_n)}$$</p>
+<p>The parameter vector $w$ subdivides into a set of vectors $w_c$: one for each category. The resulting likelihood is:<br>$$p(y\vert x_n, n= 1,\dots, N) = \prod_{nc} \pi(c,x_n,w)^{y_{nc}}$$</p>
+<p>The MSE decomposes as follows: (slightly different from the former decomposition, lacking the inherent bias term).<br>$$<br>\begin{align*}<br>MSE &amp;= \sum_c \left(E_D\left[\pi(c, x, D)\right] - D[c\vert x]\right)^2\\<br>&amp;+ \sum_c E_D \left[ (\pi(c, x; D) -  E_D[\pi(c, x; D)])^2 \right]<br>\end{align*}<br>$$<br>Taking two terms of a Taylor expansion of $\pi(c,x,w; D)$:<br>$$\pi(c, x, \hat{w}; D) = \pi(c,x,w) + g(c)(\hat{w} - w) + O(\frac{1}{\sqrt{S}}) \tag{1}$$<br>The gradient vector $g(c)$ indexed by category/predictor pairs $(c’ i)$ is defined as follows:<br>$$<br>\begin{align*}<br>g’_{c’i}(c) &amp;= \frac{\partial}{\partial w_{c’i}} \pi(c, x, w)\\<br>&amp;=<br>\begin{cases}<br>\pi(c,x,w)\left(1-\pi(c,x,w)\right)x_i &amp;\text{if } c=c’ \\<br>-\pi(c,x,w)\pi(c’, x, w) xi &amp; \text{if } c \neq c’<br>\end{cases}<br>\end{align*}<br>$$</p>
+<p>Computing the variance of the Taylor approximation produces:</p>
+<p>$$<br>\begin{align*}<br>Var[\pi(c, x, \hat{w})] &amp;\simeq Var[g_c(c)(\hat{w} - w_c)]\\<br>&amp;= g(c)’F^{-1}g(c).<br>\end{align*}<br>\tag{2}<br>$$</p>
+<p>Equations $(1)$ and $(2)$ follow from normality of the maximum likelihood estimate:<br>$$<br>\hat{w} \sim N(w, F^{-1})<br>$$<br>$F$ is the Fisher information matrix with dimensions $(k\cdot d) \times (k \cdot d)$ defined as follows:<br>$$<br>F_{(c_i),(c_j)} = E_{(x,y) \sim D}<br>\begin{cases}<br>x_i^2 \pi(c,x,w)\pi(\neg c,x,w) + \frac{1}{\sigma^2_p}, &amp;c = c’ and i = j\\<br>x_jx_i\pi(c,x,w)\pi(\neg c,x,w), &amp;c = c’ and j \neq i\\<br>x_ix_j\pi(c,x,w)\pi(c’, x, w), &amp;c\neq c’<br>\end{cases}<br>\tag{3}<br>$$</p>
+<hr>
+<p>FYI:<br>Suppose some conditions for maximum likelihood estimator are satisfied (check the <a href="https://en.wikipedia.org/wiki/Maximum\_likelihood\_estimation#Increasing\_information" target="_blank" rel="external">wiki link</a> for maximum likelihood estimation for more info), then the maximum likelihood estimator has asymptotically normal distribution:<br>$$<br>\sqrt{n}(\hat{\theta}_{mle} - \theta_0)\stackrel{d}{\to} N(0, F^{-1})<br>$$<br>What’s more, I think there may be some relations with the Alpha method(check this <a href="">wiki link</a>) for the variance reduction method.</p>
+<hr>
+<p>One final bit of algebra allows more efficient computation of the variance. Define $$A_n(c) = g_n(c)g_n(c)’ \\ A_n = \sum_c A_n(c) \\ A = \sum_n A_n \tag{4}$$<br>Where $n$ indexes individual observations in the pool. With these few tricks, a compact representation of the variance computation follows:<br>$$<br>\begin{align*}<br>\sum_{n \in pool} \sum_c Var[\hat{\pi}(c \vert x_n)] &amp;\simeq \sum_{nc} g_n(c)’F^{-1} g_n(c)\\<br>&amp;= \sum_{nc} tr{g_n(c)g_n(c)’F^{-1}}\\<br>&amp;= \sum_{nc} tr{ A_n(c)F^{-1} }\\<br>&amp;= tr{ AF^{-1} }\\<br>&amp;= \phi(D, A)<br>\end{align*}<br>\tag{5}<br>$$<br>Equation $(5)$ shows how to compute the expected variance of a fitted modle using a fixed training set. We now need to derive a quantity that describes the expected benefit of labeling a new observation. The training set $D$ consists of a sequence of observations: ${(x_n, y_n)}^N_1$. Using the current estimated method $\pi(y,x,\hat{w})$, the expected benefit of labeling observation $x$ is:</p>
+<p>$$<br>\begin{align*}<br>E[loss] &amp;= \pi(c_0, x, \hat{w}) \phi(D \cup (x,c_0), A)\\<br>&amp;+ \dots\\<br>&amp;+ \pi(c_k, x, \hat{w})\phi(D \cup (x, c_k), A)<br>\end{align*}<br>\tag{6}<br>$$<br>Informally, $(6)$ represents the possible changes in $\pi$ weighted by current estimates of the scenario’s likelihood.</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/raccoon/" rel="tag"># raccoon</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/05/07/clt/" rel="next" title="lln and clt">
+                <i class="fa fa-chevron-left"></i> lln and clt
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/29/libact-3/" rel="prev" title="libact-3">
+                libact-3 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#The-bias-variance-trade-off"><span class="nav-number">1.</span> <span class="nav-text">The bias-variance trade-off</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fisher-Imformation"><span class="nav-number">2.</span> <span class="nav-text">Fisher Imformation</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Variance-Reduction-Method"><span class="nav-number">3.</span> <span class="nav-text">Variance Reduction Method</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
