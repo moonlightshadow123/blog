@@ -1,0 +1,678 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="用这个函数，仅需几行代码就能实现复杂的公式。">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="A fast way to implement equations">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/08/07/equations/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="用这个函数，仅需几行代码就能实现复杂的公式。">
+<meta property="og:updated_time" content="2017-08-07T11:34:34.205Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="A fast way to implement equations">
+<meta name="twitter:description" content="用这个函数，仅需几行代码就能实现复杂的公式。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/08/07/equations/"/>
+
+
+
+
+
+  <title> A fast way to implement equations | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/08/07/equations/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                A fast way to implement equations
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-07T18:24:39+08:00">
+                2017-08-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>用这个函数，仅需几行代码就能实现复杂的公式。<br><a id="more"></a><br>To get started, check out this equation<br>$$<br>gradient = \sum_i I_{ij}(u_i^Tv_j - R_{ij}) v_j - \lambda_u u_j<br>$$<br>变量的shapes如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># lambda_u.shape = ()</span></div><div class="line"><span class="comment"># I.shape        = (n_sample, n_user)</span></div><div class="line"><span class="comment"># u.shape        = (          n_user, d)</span></div><div class="line"><span class="comment"># v.shape        = (n_sample,         d)</span></div><div class="line"><span class="comment"># Rcd.shape      = (n_sample, n_user)</span></div></pre></td></tr></table></figure></p>
+<p>To implement the above equation, we just have to write a single line （不要998，只要一行码）:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">grad_u = oper((I,u,v,Rcd), ((<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>),(<span class="number">-1</span>,<span class="number">0</span>,<span class="number">1</span>),(<span class="number">0</span>,<span class="number">-1</span>,<span class="number">1</span>),(<span class="number">0</span>,<span class="number">1</span>,<span class="number">-1</span>)), <span class="keyword">lambda</span> I,u,v,Rcd: I * (mat_x(u,v,axis=<span class="number">2</span>)-R) * v, red_func=<span class="keyword">lambda</span> res: np.sum(res,axis=<span class="number">0</span>)) - lambda_u*u</div></pre></td></tr></table></figure></p>
+<p>于是<code>grad_u</code>的shape变成了<code>(n_user, d)</code>。</p>
+<p>Actually, if the equation is comprised of <strong>just one summation (or production)</strong>, we can easily implement it in one line. If there are two or more summations (or productions), we need two or more lines to realize it.<br>理论上有几个求和（或求积）符号就需要几行代码。</p>
+<p>介绍一下我写的函数 Check out the functions I used.<br><code>oper()</code> 是主要的操作函数. Take the former example,   </p>
+<ul>
+<li><code>xs_tup = (I,u,v,Rcd)</code>  is the tuple of variables;   </li>
+<li><code>tobes_tup = ((0,1,-1),(-1,0,1),(0,-1,1),(0,1,-1))</code> is the tuple of shapes-to-be (semi-positive numbers such as <code>0</code>,<code>1</code> indicate the original dimension, while <code>-1</code> refers to dimension to expand);    </li>
+<li><code>map_func = lambda I,u,v,Rcd: I * (mat_x(u,v,axis=2)-R) * v</code> refers to the map function that guides the operation (I used the same variable names in the lambda function just for simplicity);  </li>
+<li><code>sclar_tup = ()</code>  is optional. In cases that you want to use a scalar (which can’t be expanded in any dimension), you can add the scalar to <code>sclar_tup</code>, and refer to it in <code>map_func</code>;  </li>
+<li><code>red_func = lambda res: np.sum(res,axis=0))</code> is the reduce function that reduces the extra expanded dimensions.<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">oper</span><span class="params">(xs_tup, tobes_tup, map_func, sclar_tup=<span class="params">()</span>, red_func=None)</span>:</span></div><div class="line"></div><div class="line">    tobe_mat  = []</div><div class="line">    shape_mat = np.zeros((len(tobes_tup), len(tobes_tup[<span class="number">0</span>])) )</div><div class="line"></div><div class="line">    <span class="keyword">for</span> idx,(x,tobe) <span class="keyword">in</span> enumerate(zip(xs_tup, tobes_tup)):</div><div class="line">        tobe_mat.append(list(tobe))</div><div class="line">        shape_mat[idx,:len(x.shape)] = list(x.shape)</div><div class="line"></div><div class="line"></div><div class="line">    shape_mat = np.array(shape_mat) <span class="comment"># [[n_sample, n_suer, ...], [n_user, n_sample, d], ...]</span></div><div class="line">    tobe_mat = np.array(tobe_mat)   <span class="comment"># [[-1,0,1,2,-1],           [0,-1,1,2,-1],         ...]</span></div><div class="line"></div><div class="line">    <span class="comment">######### e_xs_mat</span></div><div class="line">    </div><div class="line">    e_xs_mat = []</div><div class="line"></div><div class="line">    <span class="keyword">for</span> idx, x <span class="keyword">in</span> enumerate(xs_tup):</div><div class="line">        shape = shape_mat[idx]</div><div class="line">        tobe =  tobe_mat[idx]</div><div class="line"></div><div class="line">        <span class="comment">########</span></div><div class="line">        add_dim = np.where(tobe == <span class="number">-1</span>)[<span class="number">0</span>].astype(int) <span class="comment"># [0,4]</span></div><div class="line">        <span class="keyword">for</span> idx, each_dim <span class="keyword">in</span> enumerate(add_dim):</div><div class="line">            <span class="comment"># each_dim is the '-1' dimension in tobe_mat</span></div><div class="line">            each_dim_0 = np.where(tobe_mat[:,each_dim] != <span class="number">-1</span>)[<span class="number">0</span>].astype(int)[<span class="number">0</span>]</div><div class="line">            <span class="comment"># each_dim_0 is the row index of the first non-'-1' value in the '-1' column, in tobe_mat.</span></div><div class="line">            each_dim_1 = tobe_mat[each_dim_0, each_dim]</div><div class="line">            <span class="comment"># each_dim_1 is the value     of the first non-'-1' value in the '-1' column, in tobe_mat.</span></div><div class="line">            add_dim[idx] = shape_mat[each_dim_0, each_dim_1]</div><div class="line">        <span class="comment"># add_dim = [n_user, d]</span></div><div class="line">        </div><div class="line">        <span class="comment"># Tile</span></div><div class="line">        tile_dim = np.ones(len(tobe))</div><div class="line">        tile_dim[:len(add_dim)] = add_dim</div><div class="line">        <span class="comment"># Transpose</span></div><div class="line">        tran_dim = copy.copy(tobe)</div><div class="line">        tran_dim[np.where(tobe== <span class="number">-1</span>)] = range(len(add_dim))</div><div class="line">        tran_dim[np.where(tobe != <span class="number">-1</span>)] += len(add_dim)</div><div class="line"></div><div class="line">        e_x = np.tile(x, tile_dim.astype(int)).transpose(tran_dim.astype(int))</div><div class="line">        e_xs_mat.append(e_x)</div><div class="line"></div><div class="line">    map_mat = map_func(*(e_xs_mat + list(sclar_tup)))</div><div class="line">    red_mat = map_mat <span class="keyword">if</span> red_func == <span class="keyword">None</span> <span class="keyword">else</span> red_func(map_mat)</div><div class="line">    <span class="keyword">return</span> red_mat</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>mat_x()</code> 是为了处理公式中的矩阵相乘。In order to handle matix multiplication in <code>oper()</code>, I use another function <code>mat_x()</code>. <code>a, b</code> are variables to do multiplication, <code>axis</code> is the axis of the multiplication. If we simply use <code>np.sum(a*b, axis=axis)</code>, the shape will be incomplete for the resulted matrix, so we have to complete its dimensions afterwards.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">def mat_x(a, b, axis):</div><div class="line">    ori_shape = np.array(a.shape).astype(int)</div><div class="line">    tle_shape = np.ones(ori_shape.shape).astype(int)</div><div class="line">    tle_shape[axis] = ori_shape[axis]</div><div class="line">    res = np.sum(a * b, axis=axis)</div><div class="line">    res = np.expand_dims(res, axis=axis)</div><div class="line">    res = np.tile(res, tle_shape)</div></pre></td></tr></table></figure></p>
+<p>虽然这一行看起来还是有点让人发晕，但是比起以前的<code>for</code>循环，我觉得这个函数可以减轻我60%左右的工作量，我觉得很不错了。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/17/story-4/" rel="prev" title="story-4">
+                story-4 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">11</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
