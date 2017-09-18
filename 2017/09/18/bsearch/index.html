@@ -94,7 +94,7 @@
 <meta property="og:url" content="http://moonlightshadow123.github.io/2017/09/18/bsearch/index.html">
 <meta property="og:site_name" content="Small&Big">
 <meta property="og:description" content="Leetcode-153,154,162,167,278,34,367,374.">
-<meta property="og:updated_time" content="2017-09-18T12:35:58.042Z">
+<meta property="og:updated_time" content="2017-09-18T15:08:42.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="B-search Summary">
 <meta name="twitter:description" content="Leetcode-153,154,162,167,278,34,367,374.">
@@ -344,7 +344,7 @@
       
 
       
-        <p>Leetcode-153,154,162,167,278,34,367,374.<br><a id="more"></a></p>
+        <p>Leetcode-<code>153</code>,<code>154</code>,<code>162</code>,<code>167</code>,<code>278</code>,<code>34</code>,<code>367</code>,<code>374</code>.<br><a id="more"></a></p>
 <h1 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h1><p>The whole point of b-search resides in not letting <code>target index</code> out of the range(low-high) (including high). In order to keep <code>target index</code> inside of range(low-high), we have to be careful when choosing the <code>low-mid-high</code> transformation formula. As listed below, there are three set of transformation in b-search.</p>
 <ol>
 <li>If set 1 (e.g. <code>high = mid - 1</code> <code>low = mid + 1</code>) will keep <code>target index</code> inside, then we use set 1. Set 1 won’t get into a dead loop in any cases when <code>low = high</code> or <code>low+1=high</code> or <code>low+2=high</code>, so we can use <code>while low &lt;= high</code> to be the loop termination condition. (You can use termination 2 or 3 if you like, but that way you may have to check the result after termination).</li>
@@ -489,6 +489,10 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/09/18/tree/" rel="next" title="Tree Summary">
+                <i class="fa fa-chevron-left"></i> Tree Summary
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
@@ -576,7 +580,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-count">13</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

@@ -1,0 +1,1018 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Leetcode-98,257,129,112,102,107,103,105,106,100,110,111,124,113,114,257,99.">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Tree Summary">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/09/18/tree/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="Leetcode-98,257,129,112,102,107,103,105,106,100,110,111,124,113,114,257,99.">
+<meta property="og:updated_time" content="2017-09-18T15:08:10.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Tree Summary">
+<meta name="twitter:description" content="Leetcode-98,257,129,112,102,107,103,105,106,100,110,111,124,113,114,257,99.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/09/18/tree/"/>
+
+
+
+
+
+  <title> Tree Summary | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/09/18/tree/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Tree Summary
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-18T21:58:44+08:00">
+                2017-09-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/18/tree/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/18/tree/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/18/tree/" class="leancloud_visitors" data-flag-title="Tree Summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Leetcode-<code>98</code>,<code>257</code>,<code>129</code>,<code>112</code>,<code>102</code>,<code>107</code>,<code>103</code>,<code>105</code>,<code>106</code>,<code>100</code>,<code>110</code>,<code>111</code>,<code>124</code>,<code>113</code>,<code>114</code>,<code>257</code>,<code>99</code>.<br><a id="more"></a><br>There are many methods handling tree problems. We will summarize the <code>recursive</code> and <code>stack and queue</code> methods.</p>
+<h1 id="Recursive-method"><a href="#Recursive-method" class="headerlink" title="Recursive method"></a>Recursive method</h1><p>There are mainly 3 kind of techniques for recursive method.</p>
+<table>
+<thead>
+<tr>
+<th>Tech Index</th>
+<th>Usage Intention</th>
+<th>How to implement</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>info from <strong>parent node</strong></td>
+<td>parameters of function <code>dfs(info)</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>info from <strong>children node</strong></td>
+<td>returns of function <code>return info</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>info from <strong>orderly previous node</strong></td>
+<td>global variables <code>self.info</code></td>
+</tr>
+</tbody>
+</table>
+<p>Note that you can <em>combine 2 or more kind of tech</em> in you solution, which is often the case when the problem is difficult to handle. Also, if you think the solution should involve pre-in-post order traversal, then you should use <em>Tech3</em>, while in other cases of <em>Tech3</em>, traversal is order-irrelevant. </p>
+<p>After determining which of the three tech you gonna use, you should start writing. And when approaching finishing line, the last thing for you to check is the termination condition of the recursive function. There are 2 kind of common condition:</p>
+<ul>
+<li><p><code>None</code>-allowed edition.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(...)</span>:</span></div><div class="line">    <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span></div><div class="line">    ...</div><div class="line">    self.dfs(node.left)</div><div class="line">    self.dfs(node.right)</div><div class="line">    ...</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>None</code>-not-allowed edition.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(...)</span>:</span></div><div class="line"></div><div class="line">    ...</div><div class="line">    <span class="keyword">if</span> node.left:</div><div class="line">        self.dfs(node.left)</div><div class="line">    <span class="keyword">if</span> node.right:</div><div class="line">        self.dfs(node.right)</div><div class="line">    ...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>Let’s see some examples in leetcode.</p>
+<h2 id="Tech-1"><a href="#Tech-1" class="headerlink" title="Tech 1"></a>Tech 1</h2><h3 id="Leetcode-98"><a href="#Leetcode-98" class="headerlink" title="Leetcode-98"></a>Leetcode-98</h3><p><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="external">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
+<div class="note info"><p>Given a binary tree, determine if it is a valid binary search tree (BST).<br>Assume a BST is defined as follows:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+</div>
+<p><strong>Example 1</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  2  </div><div class="line"> / \  </div><div class="line">1   3</div></pre></td></tr></table></figure></p>
+<p>Binary tree <code>[2,1,3]</code>, return true.<br><strong>Example 2</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  1  </div><div class="line"> / \  </div><div class="line">2   3</div></pre></td></tr></table></figure></p>
+<p>Binary tree <code>[1,2,3]</code>, return false.</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get lowbound and highhound from parent.</span></div><div class="line">        <span class="comment"># Tech 2: get if the child tree is bst.</span></div><div class="line">        </div><div class="line">        <span class="keyword">return</span>  self.recur_check(-float(<span class="string">'inf'</span>), root, float(<span class="string">'inf'</span>))</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur_check</span><span class="params">(self, lowbound, node, highbound)</span>:</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">return</span> lowbound &lt; node.val <span class="keyword">and</span> node.val &lt; highbound <span class="keyword">and</span> \</div><div class="line">            self.recur_check(lowbound, node.left,  node.val) <span class="keyword">and</span> \</div><div class="line">            self.recur_check(node.val, node.right, highbound)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-257"><a href="#Leetcode-257" class="headerlink" title="Leetcode-257"></a>Leetcode-257</h3><p><a href="https://leetcode.com/problems/binary-tree-paths/" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-paths/</a></p>
+<div class="note default"><p>Given a binary tree, return all root-to-leaf paths.</p>
+</div>
+<p>For example, given the following binary tree:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   1</div><div class="line"> /   \</div><div class="line">2     3</div><div class="line"> \</div><div class="line">  5</div></pre></td></tr></table></figure></p>
+<p>All root-to-leaf paths are:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode:</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="comment"># @param &#123;TreeNode&#125; root</span></div><div class="line">        <span class="comment"># @return &#123;string[]&#125;</span></div><div class="line">        <span class="comment"># Tech 1: get above_path from parent.</span></div><div class="line">        </div><div class="line">        self.paths = []</div><div class="line">        <span class="comment"># self.curpath = ''</span></div><div class="line">        self.treepath(root, <span class="string">''</span>)</div><div class="line">        <span class="keyword">return</span> self.paths</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">treepath</span><span class="params">(self, node, above_path)</span>:</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> above_path == <span class="string">''</span>: above_path += str(node.val)</div><div class="line">        <span class="keyword">else</span>:                above_path += (<span class="string">'-&gt;'</span>+str(node.val))</div><div class="line">        <span class="keyword">if</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span>:</div><div class="line">            self.paths.append(above_path)</div><div class="line">        self.treepath(node.left,  above_path)</div><div class="line">        self.treepath(node.right, above_path)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-129"><a href="#Leetcode-129" class="headerlink" title="Leetcode-129"></a>Leetcode-129</h3><p><a href="https://leetcode.com/problems/sum-root-to-leaf-numbers/#/description" target="_blank" rel="external">https://leetcode.com/problems/sum-root-to-leaf-numbers/#/description</a><br><div class="note primary"><p>Given a binary tree containing digits from <code>0-9</code> only, each root-to-leaf path could represent a number.<br>An example is the root-to-leaf path <code>1-&gt;2-&gt;3</code> which represents the number <code>123</code>.</p>
+<p>Find the total sum of all root-to-leaf numbers.</p>
+</div><br>For example,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  1</div><div class="line"> / \</div><div class="line">2   3</div></pre></td></tr></table></figure></p>
+<p>The root-to-leaf path <code>1-&gt;2</code> represents the number <code>12</code>.<br>The root-to-leaf path <code>1-&gt;3</code> represents the number <code>13</code>.</p>
+<p>Return the sum = 12 + 13 = <code>25</code>.<br></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sumNumbers</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get cur path sum from parent.</span></div><div class="line">        <span class="comment"># Tech 3: add to global totalsum no matter order.</span></div><div class="line">        self.totalsum = <span class="number">0</span></div><div class="line">        self.dfs(root, <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.totalsum</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, node, cursum)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cursum = <span class="number">10</span> * cursum+node.val</div><div class="line">        <span class="keyword">if</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span>:</div><div class="line">            self.totalsum += cursum</div><div class="line">        self.dfs(node.left, cursum)</div><div class="line">        self.dfs(node.right, cursum)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-112"><a href="#Leetcode-112" class="headerlink" title="Leetcode-112"></a>Leetcode-112</h3><p><a href="https://leetcode.com/problems/path-sum/" target="_blank" rel="external">https://leetcode.com/problems/path-sum/</a></p>
+<div class="note success"><p>Given a binary tree and a sum, determine if the tree has a root-to-leaf path such that adding up all the values along the path equals the given sum.</p>
+</div>
+<p>For example: Given the below binary tree and <code>sum = 22</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      5</div><div class="line">     / \</div><div class="line">    4   8</div><div class="line">   /   / \</div><div class="line">  11  13  4</div><div class="line"> /  \      \</div><div class="line">7    2      1</div></pre></td></tr></table></figure></p>
+<p>return true, as there exist a root-to-leaf path <code>5-&gt;4-&gt;11-&gt;2</code> which sum is 22.</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasPathSum</span><span class="params">(self, root, sum)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :type sum: int</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get sum_remaining from parent.</span></div><div class="line">        <span class="comment"># Tech 2: get if haspathsum from children.</span></div><div class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">if</span> root.left == <span class="keyword">None</span> <span class="keyword">and</span> root.right == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> sum == root.val</div><div class="line">        <span class="keyword">return</span>  self.hasPathSum(root.left, sum-root.val) <span class="keyword">or</span> self.hasPathSum(root.right, sum-root.val)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-102"><a href="#Leetcode-102" class="headerlink" title="Leetcode-102"></a>Leetcode-102</h3><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/#/description" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-level-order-traversal/#/description</a></p>
+<div class="note info"><p>Given a binary tree, return the level order traversal of its nodes’ values. (ie, from left to right, level by level).</p>
+</div>
+<p>For example: Given binary tree <code>[3,9,20,null,null,15,7]</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  3</div><div class="line"> / \</div><div class="line">9  20</div><div class="line">  /  \</div><div class="line"> 15   7</div></pre></td></tr></table></figure></p>
+<p>return its level order traversal as:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  [3],</div><div class="line">  [9,20],</div><div class="line">  [15,7]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">levelOrder</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: level num from parent.</span></div><div class="line">        <span class="comment"># Tech 3: res to return no matter order.</span></div><div class="line">        self.res = []</div><div class="line">        self.dfs(root, <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, node, level_num)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> </div><div class="line">        <span class="keyword">if</span> len(self.res)<span class="number">-1</span> &lt; level_num:</div><div class="line">            self.res.append([])</div><div class="line">        self.res[level_num].append(node.val)</div><div class="line">        self.dfs(node.left, level_num+<span class="number">1</span>)</div><div class="line">        self.dfs(node.right, level_num+<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-107"><a href="#Leetcode-107" class="headerlink" title="Leetcode-107"></a>Leetcode-107</h3><p><a href="https://leetcode.com/problems/binary-tree-level-order-traversal-ii/#/description" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-level-order-traversal-ii/#/description</a><br><div class="note warning"><p>Given a binary tree, return the bottom-up level order traversal of its nodes’ values. (ie, from left to right, level by level from leaf to root).</p>
+</div></p>
+<p>For example: Given binary tree <code>[3,9,20,null,null,15,7]</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  3</div><div class="line"> / \</div><div class="line">9  20</div><div class="line">  /  \</div><div class="line"> 15   7</div></pre></td></tr></table></figure></p>
+<p>return its bottom-up level order traversal as:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  [15,7],</div><div class="line">  [9,20],</div><div class="line">  [3]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">levelOrderBottom</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: level num from parent</span></div><div class="line">        <span class="comment"># Tech 3: res to return no matter order.</span></div><div class="line">        self.res = []</div><div class="line">        self.dfs(root, <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.res[::<span class="number">-1</span>]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, node, level_num)</span>:</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> len(self.res)<span class="number">-1</span> &lt; level_num:</div><div class="line">            self.res.append([])</div><div class="line">        self.res[level_num].append(node.val)</div><div class="line">        <span class="comment">###################################</span></div><div class="line">        self.dfs(node.left, level_num+<span class="number">1</span>)</div><div class="line">        self.dfs(node.right, level_num+<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-103"><a href="#Leetcode-103" class="headerlink" title="Leetcode-103"></a>Leetcode-103</h3><p><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/#/description" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/#/description</a></p>
+<div class="note danger"><p>Given a binary tree, return the zigzag level order traversal of its nodes’ values. (ie, from left to right, then right to left for the next level and alternate between).</p>
+</div>
+<p>For example: Given binary tree <code>[3,9,20,null,null,15,7]</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">  3</div><div class="line"> / \</div><div class="line">9  20</div><div class="line">  /  \</div><div class="line"> 15   7</div></pre></td></tr></table></figure></p>
+<p>return its zigzag level order traversal as:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  [3],</div><div class="line">  [20,9],</div><div class="line">  [15,7]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">zigzagLevelOrder</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get level num and reverse from parent node.</span></div><div class="line">        <span class="comment"># Tech 3: maintain res to return no matter order.</span></div><div class="line">        self.res = []</div><div class="line">        self.dfs(root, <span class="number">0</span>)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, node, level_num)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> </div><div class="line">        <span class="keyword">if</span> len(self.res)<span class="number">-1</span> &lt; level_num:</div><div class="line">            self.res.append([])</div><div class="line">        <span class="keyword">if</span> level_num % <span class="number">2</span> == <span class="number">0</span>:</div><div class="line">            self.res[level_num].append(node.val)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.res[level_num].insert(<span class="number">0</span>, node.val)</div><div class="line">        self.dfs(node.left, level_num+<span class="number">1</span>)</div><div class="line">        self.dfs(node.right, level_num+<span class="number">1</span>)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-105"><a href="#Leetcode-105" class="headerlink" title="Leetcode-105"></a>Leetcode-105</h3><p><a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/#/description" target="_blank" rel="external">https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/#/description</a></p>
+<div class="note info"><p>Given preorder and inorder traversal of a tree, construct the binary tree.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(self, preorder, inorder)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type preorder: List[int]</div><div class="line">        :type inorder: List[int]</div><div class="line">        :rtype: TreeNode</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get preStart and preEnd, inStart and inEnd from parent.</span></div><div class="line">        <span class="comment"># Tech 2: get tree node from children.</span></div><div class="line">        <span class="comment"># Tech 3: global preorder, inorder no matter order.</span></div><div class="line">        self.preorder = preorder</div><div class="line">        self.inorder  = inorder</div><div class="line">        <span class="keyword">return</span> self.dfs(<span class="number">0</span>, len(preorder)<span class="number">-1</span>, <span class="number">0</span>, len(inorder)<span class="number">-1</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, preStart, preEnd, inStart, inEnd)</span>:</span></div><div class="line">        <span class="keyword">if</span> preStart &gt; preEnd:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        curval = self.preorder[preStart]</div><div class="line">        in_idx = self.inorder.index(curval)</div><div class="line">        left_len  = in_idx - inStart</div><div class="line">        right_len = inEnd - in_idx </div><div class="line"></div><div class="line">        left_node  = self.dfs(preStart+<span class="number">1</span>, preStart+left_len, inStart, inStart+left_len<span class="number">-1</span>)</div><div class="line">        right_node = self.dfs(preEnd-right_len+<span class="number">1</span>, preEnd, inEnd-right_len+<span class="number">1</span>, inEnd)</div><div class="line"></div><div class="line">        curnode = TreeNode(curval)</div><div class="line">        curnode.left  = left_node</div><div class="line">        curnode.right = right_node</div><div class="line">        <span class="keyword">return</span> curnode</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-106"><a href="#Leetcode-106" class="headerlink" title="Leetcode-106"></a>Leetcode-106</h3><p><a href="https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/#/description" target="_blank" rel="external">https://leetcode.com/problems/construct-binary-tree-from-inorder-and-postorder-traversal/#/description</a></p>
+<div class="note primary"><p>Given inorder and postorder traversal of a tree, construct the binary tree.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">buildTree</span><span class="params">(self, inorder, postorder)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type inorder: List[int]</div><div class="line">        :type postorder: List[int]</div><div class="line">        :rtype: TreeNode</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 1: get inStart and inEnd, postStart and postEnd from parent</span></div><div class="line">        <span class="comment"># Tech 2: get root node from children tree.</span></div><div class="line">        <span class="comment"># Tech 3: get inorder and postorder no matter order.</span></div><div class="line">        <span class="keyword">if</span> inorder == []: <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        self.inorder = inorder</div><div class="line">        self.postorder = postorder</div><div class="line">        <span class="keyword">return</span> self.dfs(<span class="number">0</span>, len(inorder)<span class="number">-1</span>, <span class="number">0</span>, len(postorder)<span class="number">-1</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, inStart, inEnd, postStart, postEnd)</span>:</span></div><div class="line">        <span class="keyword">if</span> postStart &gt; postEnd:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        curval = self.postorder[postEnd]</div><div class="line">        in_idx = self.inorder.index(curval)</div><div class="line">        left_len  = in_idx - inStart</div><div class="line">        right_len = inEnd - in_idx</div><div class="line"></div><div class="line">        left_node = self.dfs(inStart, inStart+left_len<span class="number">-1</span>, postStart, postStart+left_len<span class="number">-1</span>)</div><div class="line">        right_node = self.dfs(inEnd-right_len+<span class="number">1</span>, inEnd, postEnd-right_len, postEnd<span class="number">-1</span>)</div><div class="line"></div><div class="line">        curnode = TreeNode(curval)</div><div class="line">        curnode.left  = left_node</div><div class="line">        curnode.right = right_node</div><div class="line">        <span class="keyword">return</span> curnode</div></pre></td></tr></table></figure>
+<h2 id="Tech-2"><a href="#Tech-2" class="headerlink" title="Tech 2"></a>Tech 2</h2><h3 id="Leetcode-100"><a href="#Leetcode-100" class="headerlink" title="Leetcode-100"></a>Leetcode-100</h3><p><a href="https://leetcode.com/problems/same-tree/" target="_blank" rel="external">https://leetcode.com/problems/same-tree/</a></p>
+<div class="note default"><p>Given two binary trees, write a function to check if they are equal or not.</p>
+<p>Two binary trees are considered equal if they are structurally identical and the nodes have the same value.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isSameTree</span><span class="params">(self, p, q)</span>:</span></div><div class="line">        <span class="comment"># Tech 2: get issamtree from children.</span></div><div class="line">        </div><div class="line">        <span class="keyword">if</span> p == <span class="keyword">None</span> <span class="keyword">and</span> q == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">elif</span> p == <span class="keyword">None</span> <span class="keyword">or</span> q == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> p.val == q.val <span class="keyword">and</span> self.isSameTree(p.left, q.left) <span class="keyword">and</span> self.isSameTree(p.right, q.right)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-104"><a href="#Leetcode-104" class="headerlink" title="Leetcode-104"></a>Leetcode-104</h3><p><a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" rel="external">https://leetcode.com/problems/maximum-depth-of-binary-tree/</a></p>
+<div class="note info"><p>Given a binary tree, find its maximum depth.</p>
+<p>The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxDepth</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get maxdepth from children.</span></div><div class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        <span class="keyword">return</span> max(self.maxDepth(root.left), self.maxDepth(root.right))+<span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="Leetcode-110"><a href="#Leetcode-110" class="headerlink" title="Leetcode-110"></a>Leetcode-110</h3><p><a href="https://leetcode.com/problems/balanced-binary-tree/" target="_blank" rel="external">https://leetcode.com/problems/balanced-binary-tree/</a></p>
+<div class="note danger"><p>Given a binary tree, determine if it is height-balanced.</p>
+<p>For this problem, a height-balanced binary tree is defined as a binary tree in which the depth of the two subtrees of every node never differ by more than 1</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isBalanced</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get dpt of children.</span></div><div class="line">        <span class="comment"># Tech 3: maintain global isBalanced no matter order.</span></div><div class="line">        self.bool = <span class="keyword">True</span></div><div class="line">        self.depth(root)</div><div class="line">        <span class="keyword">return</span> self.bool</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">depth</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        left_dpt  = self.depth(node.left)</div><div class="line">        right_dpt = self.depth(node.right)</div><div class="line">        self.bool = self.bool <span class="keyword">and</span> abs(left_dpt-right_dpt) &lt;= <span class="number">1</span></div><div class="line">        <span class="keyword">return</span> max(left_dpt, right_dpt) + <span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="Leetcode-111"><a href="#Leetcode-111" class="headerlink" title="Leetcode-111"></a>Leetcode-111</h3><p><a href="https://leetcode.com/problems/minimum-depth-of-binary-tree/" target="_blank" rel="external">https://leetcode.com/problems/minimum-depth-of-binary-tree/</a></p>
+<div class="note primary"><p>Given a binary tree, find its minimum depth.</p>
+<p>The minimum depth is the number of nodes along the shortest path from the root node down to the nearest leaf node.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">minDepth</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get mindpt from children.</span></div><div class="line">        </div><div class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        <span class="keyword">if</span> root.left == <span class="keyword">None</span> <span class="keyword">and</span> root.right == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="comment"># Calc left_mindpt</span></div><div class="line">        <span class="keyword">if</span> root.left != <span class="keyword">None</span>:</div><div class="line">            left_mindpt = self.minDepth(root.left)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            left_mindpt = float(<span class="string">'inf'</span>)</div><div class="line"></div><div class="line">        <span class="comment"># Calc right_mindpt</span></div><div class="line">        <span class="keyword">if</span> root.right != <span class="keyword">None</span>:</div><div class="line">            right_mindpt = self.minDepth(root.right)</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            right_mindpt = float(<span class="string">'inf'</span>)</div><div class="line"></div><div class="line">        <span class="keyword">return</span> min(left_mindpt, right_mindpt) + <span class="number">1</span></div></pre></td></tr></table></figure>
+<h3 id="Leetcode-124"><a href="#Leetcode-124" class="headerlink" title="Leetcode-124"></a>Leetcode-124</h3><p><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-maximum-path-sum/</a></p>
+<div class="note success"><p>Given a binary tree, find the maximum path sum.</p>
+<p>For this problem, a path is defined as any sequence of nodes from some starting node to any node in the tree along the parent-child connections. The path must contain <strong>at least one node</strong> and does not need to go through the root.</p>
+</div>
+<p>For example: Given the below binary tree,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  1</div><div class="line"> / \</div><div class="line">2   3</div></pre></td></tr></table></figure></p>
+<p>Return <code>6</code>.</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxPathSum</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get addable path val (left_val and right_val) from children.</span></div><div class="line">        <span class="comment"># Tech 3: maintain global maximum no matter the order. </span></div><div class="line">        self.maxval = -float(<span class="string">'inf'</span>)</div><div class="line">        self.maxsum(root)</div><div class="line">        <span class="keyword">return</span> self.maxval</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">maxsum</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="keyword">if</span> root == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        left_val  = self.maxsum(root.left)</div><div class="line">        right_val = self.maxsum(root.right)</div><div class="line">        <span class="comment"># Update only the paths that containing root.val.</span></div><div class="line">        self.maxval = max(self.maxval, root.val+left_val, root.val+right_val, root.val+left_val+right_val, root.val)</div><div class="line">        <span class="comment"># We have to get addable path values from child nodes, so just return addable values.</span></div><div class="line">        <span class="keyword">return</span> max(root.val, root.val+left_val, root.val+right_val)</div></pre></td></tr></table></figure>
+<h2 id="Tech-3"><a href="#Tech-3" class="headerlink" title="Tech 3"></a>Tech 3</h2><h3 id="Leetcode-113"><a href="#Leetcode-113" class="headerlink" title="Leetcode-113"></a>Leetcode-113</h3><p><a href="https://leetcode.com/problems/path-sum-ii/#/description" target="_blank" rel="external">https://leetcode.com/problems/path-sum-ii/#/description</a></p>
+<div class="note info"><p>Given a binary tree and a sum, find all root-to-leaf paths where each path’s sum equals the given sum.</p>
+</div>
+<p>For example: Given the below binary tree and <code>sum = 22</code>,<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">      5</div><div class="line">     / \</div><div class="line">    4   8</div><div class="line">   /   / \</div><div class="line">  11  13  4</div><div class="line"> /  \    / \</div><div class="line">7    2  5   1</div></pre></td></tr></table></figure></p>
+<p>return<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">   [5,4,11,2],</div><div class="line">   [5,8,4,5]</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pathSum</span><span class="params">(self, root, sum)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :type sum: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 3: maintain curPath in pre and post order.</span></div><div class="line">        </div><div class="line">        self.res = []</div><div class="line">        self.target = sum</div><div class="line">        self.curpath = []</div><div class="line">        self.dfs(root)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dfs</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> </div><div class="line">        self.curpath.append(node.val)</div><div class="line">        <span class="keyword">if</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">if</span> sum(self.curpath) == self.target:</div><div class="line">                self.res.append([ele <span class="keyword">for</span> ele <span class="keyword">in</span> self.curpath])</div><div class="line">        self.dfs(node.left)</div><div class="line">        self.dfs(node.right)</div><div class="line">        <span class="keyword">del</span> self.curpath[<span class="number">-1</span>]</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-114"><a href="#Leetcode-114" class="headerlink" title="Leetcode-114"></a>Leetcode-114</h3><p><a href="https://leetcode.com/problems/flatten-binary-tree-to-linked-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/flatten-binary-tree-to-linked-list/#/description</a></p>
+<div class="note warning"><p>Given a binary tree, flatten it to a linked list in-place.</p>
+</div>
+<p>For example,Given<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">    1</div><div class="line">   / \</div><div class="line">  2   5</div><div class="line"> / \   \</div><div class="line">3   4   6</div></pre></td></tr></table></figure></p>
+<p>The flattened tree should look like:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">1</div><div class="line"> \</div><div class="line">  2</div><div class="line">   \</div><div class="line">    3</div><div class="line">     \</div><div class="line">      4</div><div class="line">       \</div><div class="line">        5</div><div class="line">         \</div><div class="line">          6</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">flatten</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: void Do not return anything, modify root in-place instead.</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 3: maintain node_lst in preoder.</span></div><div class="line">        </div><div class="line">        self.node_lst = []</div><div class="line">        self.pre_dfs(root)</div><div class="line">        <span class="comment"># Note that in preorder, the last node is bound to be leaf node,</span></div><div class="line">        <span class="comment"># so you don't have to redirect its left and right.</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(self.node_lst)<span class="number">-1</span>):</div><div class="line">            self.node_lst[i].left  = <span class="keyword">None</span></div><div class="line">            self.node_lst[i].right = self.node_lst[i+<span class="number">1</span>]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pre_dfs</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.node_lst.append(node)</div><div class="line">        self.pre_dfs(node.left)</div><div class="line">        self.pre_dfs(node.right)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-257-1"><a href="#Leetcode-257-1" class="headerlink" title="Leetcode-257"></a>Leetcode-257</h3><p><a href="https://leetcode.com/problems/binary-tree-paths/" target="_blank" rel="external">https://leetcode.com/problems/binary-tree-paths/</a></p>
+<div class="note danger"><p>Given a binary tree, return all root-to-leaf paths.</p>
+</div>
+<p>For example, given the following binary tree:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">   1</div><div class="line"> /   \</div><div class="line">2     3</div><div class="line"> \</div><div class="line">  5</div></pre></td></tr></table></figure></p>
+<p>All root-to-leaf paths are:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[&quot;1-&gt;2-&gt;5&quot;, &quot;1-&gt;3&quot;]</div></pre></td></tr></table></figure></p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode:</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">binaryTreePaths</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="comment"># @param &#123;TreeNode&#125; root</span></div><div class="line">        <span class="comment"># @return &#123;string[]&#125;</span></div><div class="line">        <span class="comment"># Tech 3: pre-order add to curpath, and post-order subtract from curpath.</span></div><div class="line">        </div><div class="line">        self.paths = []</div><div class="line">        self.curpath  = <span class="string">''</span></div><div class="line">        self.treepath_predfs(root)</div><div class="line">        <span class="keyword">return</span> self.paths</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">treepath_predfs</span><span class="params">(self, node)</span>:</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="comment">####################################################</span></div><div class="line">        <span class="keyword">if</span> self.curpath == <span class="string">''</span>: self.curpath += str(node.val)</div><div class="line">        <span class="keyword">else</span>:                  self.curpath += (<span class="string">'-&gt;'</span>+str(node.val))</div><div class="line">        <span class="keyword">if</span> node.left == <span class="keyword">None</span> <span class="keyword">and</span> node.right == <span class="keyword">None</span>:</div><div class="line">            self.paths.append(self.curpath)</div><div class="line">        <span class="comment">####################################################</span></div><div class="line">        self.treepath_predfs(node.left)</div><div class="line">        self.treepath_predfs(node.right)</div><div class="line">        <span class="comment">####################################################</span></div><div class="line">        self.curpath = self.curpath.rstrip(str(node.val))</div><div class="line">        self.curpath = self.curpath.rstrip(<span class="string">'-&gt;'</span>)</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-98-1"><a href="#Leetcode-98-1" class="headerlink" title="Leetcode-98"></a>Leetcode-98</h3><p><a href="https://leetcode.com/problems/validate-binary-search-tree/" target="_blank" rel="external">https://leetcode.com/problems/validate-binary-search-tree/</a></p>
+<div class="note default"><p>Given a binary tree, determine if it is a valid binary search tree (BST).<br>Assume a BST is defined as follows:</p>
+<ul>
+<li>The left subtree of a node contains only nodes with keys <strong>less than</strong> the node’s key.</li>
+<li>The right subtree of a node contains only nodes with keys <strong>greater than</strong> the node’s key.</li>
+<li>Both the left and right subtrees must also be binary search trees.</li>
+</ul>
+</div>
+<p><strong>Example 1</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  2</div><div class="line"> / \</div><div class="line">1   3</div></pre></td></tr></table></figure></p>
+<p>Binary tree <code>[2,1,3]</code>, return true.<br><strong>Example 2</strong>:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">  1</div><div class="line"> / \</div><div class="line">2   3</div></pre></td></tr></table></figure></p>
+<p>Binary tree <code>[1,2,3]</code>, return false.</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">isValidBST</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get if child tree is bst.</span></div><div class="line">        <span class="comment"># Tech 3: bst-inorder should be &lt; (monotonic increasing).</span></div><div class="line">        </div><div class="line">        self.curval = -float(<span class="string">'inf'</span>)</div><div class="line">        <span class="keyword">return</span>  self.in_dfs(root)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_dfs</span><span class="params">(self, node)</span>:</span></div><div class="line"></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        left_bool   = self.in_dfs(node.left)</div><div class="line">        <span class="comment">####################################</span></div><div class="line">        mid_bool    = self.curval &lt; node.val</div><div class="line">        self.curval = node.val</div><div class="line">        <span class="comment">####################################</span></div><div class="line">        right_bool  = self.in_dfs(node.right)</div><div class="line">        <span class="keyword">return</span> left_bool <span class="keyword">and</span> mid_bool <span class="keyword">and</span> right_bool</div></pre></td></tr></table></figure>
+<h3 id="Leetcode-99"><a href="#Leetcode-99" class="headerlink" title="Leetcode-99"></a>Leetcode-99</h3><p><a href="https://leetcode.com/problems/recover-binary-search-tree/#/description" target="_blank" rel="external">https://leetcode.com/problems/recover-binary-search-tree/#/description</a></p>
+<div class="note primary"><p>Two elements of a binary search tree (BST) are swapped by mistake.<br>Recover the tree without changing its structure.<br><strong>Note</strong>:<br>A solution using O(n) space is pretty straight forward. Could you devise a constant space solution?</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recoverTree</span><span class="params">(self, root)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type root: TreeNode</div><div class="line">        :rtype: void Do not return anything, modify root in-place instead.</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 3: record anomaly pairs (prenode, node) using anml_pn_lst  while in-order traversal.</span></div><div class="line">        </div><div class="line">        self.prenode = <span class="keyword">None</span></div><div class="line">        self.anml_pn_lst = []</div><div class="line">        self.in_dfs(root)</div><div class="line">        <span class="keyword">if</span> len(self.anml_pn_lst) == <span class="number">1</span>:</div><div class="line">            node1,node2 = self.anml_pn_lst[<span class="number">0</span>][<span class="number">0</span>], self.anml_pn_lst[<span class="number">0</span>][<span class="number">1</span>]</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            node1,node2 = self.anml_pn_lst[<span class="number">0</span>][<span class="number">0</span>], self.anml_pn_lst[<span class="number">1</span>][<span class="number">1</span>]</div><div class="line">        node1.val, node2.val = node2.val, node1.val</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">in_dfs</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.in_dfs(node.left)</div><div class="line">        <span class="comment">######################</span></div><div class="line">        <span class="keyword">if</span> self.prenode != <span class="keyword">None</span> <span class="keyword">and</span> self.prenode.val &gt; node.val:</div><div class="line">            self.anml_pn_lst.append((self.prenode,node))</div><div class="line">        self.prenode = node</div><div class="line">        <span class="comment">#####################</span></div><div class="line">        self.in_dfs(node.right)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/18/bsearch/" rel="prev" title="B-search Summary">
+                B-search Summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Recursive-method"><span class="nav-number">1.</span> <span class="nav-text">Recursive method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Tech-1"><span class="nav-number">1.1.</span> <span class="nav-text">Tech 1</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-98"><span class="nav-number">1.1.1.</span> <span class="nav-text">Leetcode-98</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-257"><span class="nav-number">1.1.2.</span> <span class="nav-text">Leetcode-257</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-129"><span class="nav-number">1.1.3.</span> <span class="nav-text">Leetcode-129</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-112"><span class="nav-number">1.1.4.</span> <span class="nav-text">Leetcode-112</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-102"><span class="nav-number">1.1.5.</span> <span class="nav-text">Leetcode-102</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-107"><span class="nav-number">1.1.6.</span> <span class="nav-text">Leetcode-107</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-103"><span class="nav-number">1.1.7.</span> <span class="nav-text">Leetcode-103</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-105"><span class="nav-number">1.1.8.</span> <span class="nav-text">Leetcode-105</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-106"><span class="nav-number">1.1.9.</span> <span class="nav-text">Leetcode-106</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tech-2"><span class="nav-number">1.2.</span> <span class="nav-text">Tech 2</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-100"><span class="nav-number">1.2.1.</span> <span class="nav-text">Leetcode-100</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-104"><span class="nav-number">1.2.2.</span> <span class="nav-text">Leetcode-104</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-110"><span class="nav-number">1.2.3.</span> <span class="nav-text">Leetcode-110</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-111"><span class="nav-number">1.2.4.</span> <span class="nav-text">Leetcode-111</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-124"><span class="nav-number">1.2.5.</span> <span class="nav-text">Leetcode-124</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Tech-3"><span class="nav-number">1.3.</span> <span class="nav-text">Tech 3</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-113"><span class="nav-number">1.3.1.</span> <span class="nav-text">Leetcode-113</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-114"><span class="nav-number">1.3.2.</span> <span class="nav-text">Leetcode-114</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-257-1"><span class="nav-number">1.3.3.</span> <span class="nav-text">Leetcode-257</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-98-1"><span class="nav-number">1.3.4.</span> <span class="nav-text">Leetcode-98</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Leetcode-99"><span class="nav-number">1.3.5.</span> <span class="nav-text">Leetcode-99</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/09/18/tree/';
+          this.page.identifier = '2017/09/18/tree/';
+          this.page.title = 'Tree Summary';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
