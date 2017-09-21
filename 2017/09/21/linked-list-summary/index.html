@@ -1,0 +1,1021 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="leetcode, linked list," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Leetcode-86,83,82,24,23,21,206,147,143,138,237,2,92,61,25,148,109,160,141,142">
+<meta name="keywords" content="leetcode, linked list">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linked List Summary">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/09/21/linked-list-summary/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="Leetcode-86,83,82,24,23,21,206,147,143,138,237,2,92,61,25,148,109,160,141,142">
+<meta property="og:updated_time" content="2017-09-21T05:58:23.488Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Linked List Summary">
+<meta name="twitter:description" content="Leetcode-86,83,82,24,23,21,206,147,143,138,237,2,92,61,25,148,109,160,141,142">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/09/21/linked-list-summary/"/>
+
+
+
+
+
+  <title> Linked List Summary | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/09/21/linked-list-summary/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Linked List Summary
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-21T12:11:13+08:00">
+                2017-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/09/21/linked-list-summary/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/09/21/linked-list-summary/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/09/21/linked-list-summary/" class="leancloud_visitors" data-flag-title="Linked List Summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Leetcode-<code>86</code>,<code>83</code>,<code>82</code>,<code>24</code>,<code>23</code>,<code>21</code>,<code>206</code>,<code>147</code>,<code>143</code>,<code>138</code>,<code>237</code>,<code>2</code>,<code>92</code>,<code>61</code>,<code>25</code>,<code>148</code>,<code>109</code>,<code>160</code>,<code>141</code>,<code>142</code><br><a id="more"></a><br>There are a few commonly used techniques in problems related to linked list. Once you master the techniques, most problems are easy to solve.</p>
+<h1 id="While-loop-routines"><a href="#While-loop-routines" class="headerlink" title="While loop routines."></a>While loop routines.</h1><ul>
+<li><strong>steps</strong>: <code># generate</code>, <code># operate</code>, <code># move</code>  </li>
+<li><strong>variables</strong>: …<code>pparentnode</code>, <code>parentnode</code>, <code>curnode</code>, <code>childnode</code>, <code>cchildnode</code>,…  </li>
+</ul>
+<p>More specifically:</p>
+<ol>
+<li><code>(p)parenetnode</code> and <code>curnode</code> are pre-defined variables and need to be <code>move</code> inside the loop (move it in one line so that you won’t commit any mistakes due to the order of moving); </li>
+<li><code>(c)childnode</code> is <code>generate</code>d in the loop, so you don’t have to move it; </li>
+<li><code>curnode</code> (and <code>curnode.next</code> if necessary) is to control the termination of while loop.  </li>
+</ol>
+<p>You may also use <code>pnode</code>, <code>node</code>, <code>cnode</code> in replace of the above variable names.<br>Typical template:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">parentnode = dummy</div><div class="line">curnode    = dummy.next</div><div class="line"><span class="comment"># childnode  = dummy.next.next</span></div><div class="line"><span class="keyword">while</span> curnode <span class="keyword">and</span> curnode.next:</div><div class="line">    <span class="comment"># generate</span></div><div class="line">    childnode  = curnode.next</div><div class="line">    cchildnode = curnode.next.next</div><div class="line">    <span class="comment"># operate</span></div><div class="line">    ...</div><div class="line">    <span class="comment"># move</span></div><div class="line">    parentnode, curnode = curnode, childnode</div></pre></td></tr></table></figure></p>
+<p>There are some commonly used while loop routines. </p>
+<h2 id="◯-Merge-two-sorted-list"><a href="#◯-Merge-two-sorted-list" class="headerlink" title="◯ Merge two sorted list:"></a>◯ Merge two sorted list:</h2><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">def solve(self, head1, head2)</div><div class="line">    dummy = ListNode(0)</div><div class="line">    dummy.next = head</div><div class="line">    # Since l3 is to construct, l3 is always one step behind l1 and l2.</div><div class="line">    l1,l2,l3 = head1, head2, dummy</div><div class="line">    while l1 and l2:</div><div class="line">        if l1.val &lt; l2.val:</div><div class="line">            l3.next = l1</div><div class="line">            # move</div><div class="line">            l1, l3 = l1.next, l3.next</div><div class="line">        else:</div><div class="line">            l3.next = l2</div><div class="line">            # move</div><div class="line">            l2, l3 = l2.next, l3.next</div><div class="line">    if l1:</div><div class="line">        l3.next = l1</div><div class="line">    if l2:</div><div class="line">        l3.next = l2</div><div class="line"></div><div class="line">    return dummy.next</div></pre></td></tr></table></figure>
+<h2 id="◯-Reverse-list"><a href="#◯-Reverse-list" class="headerlink" title="◯ Reverse list"></a>◯ Reverse list</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, head)</span>:</span></div><div class="line">    parentnode = <span class="keyword">None</span></div><div class="line">    curnode    = head</div><div class="line">    <span class="keyword">while</span> curnode:</div><div class="line">        <span class="comment"># generate</span></div><div class="line">        childnode = curnode.next</div><div class="line">        <span class="comment"># operate</span></div><div class="line">        curnode.next = parentnode</div><div class="line">        <span class="comment"># move</span></div><div class="line">        parentnode, curnode = curnode, childnode</div><div class="line">    <span class="keyword">return</span> parentnode.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-21"><a href="#Leetcode-21" class="headerlink" title="Leetcode-21"></a>Leetcode-21</h2><p><a href="https://leetcode.com/problems/merge-two-sorted-lists/" target="_blank" rel="external">https://leetcode.com/problems/merge-two-sorted-lists/</a></p>
+<div class="note default"><p>Merge two sorted linked lists and return it as a new list. The new list should be made by splicing together the nodes of the first two lists.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeTwoLists</span><span class="params">(self, l1, l2)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type l1: ListNode</div><div class="line">        :type l2: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        dummy   = ListNode(<span class="number">0</span>)</div><div class="line">        l3 = dummy</div><div class="line">        <span class="keyword">while</span> l1 != <span class="keyword">None</span> <span class="keyword">and</span> l2 != <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">if</span> l1.val &lt;= l2.val:</div><div class="line">                l3.next = l1</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l3, l1 = l3.next, l1.next</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                l3.next = l2</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l3, l2 = l3.next, l2.next</div><div class="line">        <span class="keyword">if</span> l1 != <span class="keyword">None</span>:</div><div class="line">            l3.next = l1</div><div class="line">        <span class="keyword">if</span> l2 != <span class="keyword">None</span>:</div><div class="line">            l3.next = l2</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-206"><a href="#Leetcode-206" class="headerlink" title="Leetcode-206"></a>Leetcode-206</h2><p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="external">https://leetcode.com/problems/reverse-linked-list/</a></p>
+<div class="note primary"><p>Reverse a singly linked list.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="comment"># dummy = ListNode(0)</span></div><div class="line">        <span class="comment"># dummy.next = head</span></div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> head</div><div class="line">        parentnode = <span class="keyword">None</span></div><div class="line">        curnode    = head</div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode = curnode.next</div><div class="line">            <span class="comment"># operate</span></div><div class="line">            curnode.next = parentnode</div><div class="line">            <span class="comment"># move</span></div><div class="line">            parentnode,curnode = curnode, childnode</div><div class="line">        <span class="keyword">return</span> parentnode</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-86"><a href="#Leetcode-86" class="headerlink" title="Leetcode-86"></a>Leetcode-86</h2><p><a href="https://leetcode.com/problems/partition-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/partition-list/#/description</a></p>
+<div class="note success"><p>Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.<br>You should preserve the original relative order of the nodes in each of the two partitions.</p>
+<p>For example,<br>Given <code>1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;2</code> and x = 3, return <code>1-&gt;2-&gt;2-&gt;4-&gt;3-&gt;5</code>.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">partition</span><span class="params">(self, head, x)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :type x: int</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        dummy1 = ListNode(<span class="number">0</span>)</div><div class="line">        dummy2 = ListNode(<span class="number">0</span>)</div><div class="line">        l1, l2 = dummy1, dummy2</div><div class="line"></div><div class="line"></div><div class="line">        curnode = head</div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode = curnode.next</div><div class="line">            <span class="keyword">if</span> curnode.val &lt; x:</div><div class="line">                curnode.next = <span class="keyword">None</span></div><div class="line">                l1.next = curnode</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l1, curnode = l1.next, childnode</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                curnode.next = <span class="keyword">None</span></div><div class="line">                l2.next = curnode</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l2, curnode = l2.next, childnode </div><div class="line"></div><div class="line">        <span class="comment"># link two list.</span></div><div class="line">        l1.next = dummy2.next</div><div class="line">        <span class="keyword">return</span> dummy1.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-83"><a href="#Leetcode-83" class="headerlink" title="Leetcode-83"></a>Leetcode-83</h2><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/remove-duplicates-from-sorted-list/#/description</a></p>
+<div class="note info"><p>Given a sorted linked list, delete all duplicates such that each element appear only once.</p>
+<p>For example,<br>Given <code>1-&gt;1-&gt;2</code>, return <code>1-&gt;2</code>.<br>Given <code>1-&gt;1-&gt;2-&gt;3-&gt;3</code>, return <code>1-&gt;2-&gt;3</code>.  </p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteDuplicates</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        curnode = head</div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode = curnode.next</div><div class="line">            <span class="keyword">if</span> childnode <span class="keyword">and</span> childnode.val == curnode.val:</div><div class="line">                <span class="comment"># delete and not move</span></div><div class="line">                curnode.next = childnode.next</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="comment"># move</span></div><div class="line">                curnode = curnode.next</div><div class="line">        <span class="keyword">return</span> head</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-82"><a href="#Leetcode-82" class="headerlink" title="Leetcode-82"></a>Leetcode-82</h2><p><a href="https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/#/description" target="_blank" rel="external">https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/#/description</a></p>
+<div class="note warning"><p>Given a sorted linked list, delete all nodes that have duplicate numbers, leaving only distinct numbers from the original list.</p>
+<p>For example,<br>Given <code>1-&gt;2-&gt;3-&gt;3-&gt;4-&gt;4-&gt;5</code>, return <code>1-&gt;2-&gt;5</code>.<br>Given <code>1-&gt;1-&gt;1-&gt;2-&gt;3</code>, return <code>2-&gt;3</code>.  </p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteDuplicates</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> head</div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        dummy.next = head</div><div class="line"></div><div class="line">        parentnode = dummy</div><div class="line">        curnode    = dummy.next</div><div class="line">        <span class="comment"># childnode  = dummy.next.next</span></div><div class="line"></div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode = curnode.next</div><div class="line"></div><div class="line">            <span class="keyword">if</span> childnode <span class="keyword">and</span> childnode.val == curnode.val:</div><div class="line">                <span class="comment"># operate: delete curnode...node,childnode</span></div><div class="line">                <span class="keyword">while</span> childnode <span class="keyword">and</span> childnode.val == curnode.val:</div><div class="line">                    childnode = childnode.next</div><div class="line">                parentnode.next = childnode</div><div class="line">                <span class="comment"># move</span></div><div class="line">                curnode = childnode</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="comment"># move</span></div><div class="line">                parentnode,curnode = parentnode.next, curnode.next</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-24"><a href="#Leetcode-24" class="headerlink" title="Leetcode-24"></a>Leetcode-24</h2><div class="note danger"><p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>For example,<br>Given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&gt;1-&gt;4-&gt;3</code>.</p>
+<p>Your algorithm should use only constant space. You may <strong>not</strong> modify the values in the list, only nodes itself can be changed.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">swapPairs</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span> <span class="keyword">or</span> head.next == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> head</div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        dummy.next = head</div><div class="line"></div><div class="line">        parentnode = dummy</div><div class="line">        curnode    = dummy.next</div><div class="line">        childnode  = dummy.next.next</div><div class="line">        cchildnode = dummy.next.next.next</div><div class="line"></div><div class="line">        <span class="keyword">while</span> curnode <span class="keyword">and</span> curnode.next:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode  = curnode.next</div><div class="line">            cchildnode = curnode.next.next </div><div class="line"></div><div class="line">            <span class="comment"># operate</span></div><div class="line">            parentnode.next = childnode</div><div class="line">            curnode.next    = cchildnode</div><div class="line">            childnode.next  = curnode</div><div class="line"></div><div class="line">            <span class="comment"># move</span></div><div class="line">            parentnode,curnode = curnode,cchildnode</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-23"><a href="#Leetcode-23" class="headerlink" title="Leetcode-23"></a>Leetcode-23</h2><p><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank" rel="external">https://leetcode.com/problems/merge-k-sorted-lists/</a></p>
+<div class="note default"><p>Merge k sorted linked lists and return it as one sorted list. Analyze and describe its complexity.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergeKLists</span><span class="params">(self, lists)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type lists: List[ListNode]</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> len(lists) == <span class="number">0</span>: <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        high = len(lists) - <span class="number">1</span></div><div class="line">        low  = <span class="number">0</span></div><div class="line">        self.lists = lists</div><div class="line">        <span class="keyword">return</span> self.merge(<span class="number">0</span>, len(lists)<span class="number">-1</span>)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">merge</span><span class="params">(self, low, high)</span>:</span></div><div class="line">        <span class="keyword">if</span> low == high:</div><div class="line">            <span class="keyword">return</span> self.lists[low] </div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line"></div><div class="line">        left_list  = self.merge(low, mid) <span class="comment"># high = mid</span></div><div class="line">        right_list = self.merge(mid+<span class="number">1</span>, high) <span class="comment"># low = mid + 1</span></div><div class="line"></div><div class="line">        <span class="comment"># merge two sorted list.</span></div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        l1 = left_list</div><div class="line">        l2 = right_list</div><div class="line">        l3 = dummy</div><div class="line">        <span class="keyword">while</span> l1 <span class="keyword">and</span> l2:</div><div class="line">            <span class="keyword">if</span> l1.val &lt; l2.val:</div><div class="line">                l3.next = l1</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l1, l3 = l1.next, l3.next</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                l3.next = l2</div><div class="line">                <span class="comment"># move</span></div><div class="line">                l2, l3 = l2.next, l3.next</div><div class="line">        <span class="keyword">if</span> l1:</div><div class="line">            l3.next = l1</div><div class="line">        <span class="keyword">if</span> l2:</div><div class="line">            l3.next = l2</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-147"><a href="#Leetcode-147" class="headerlink" title="Leetcode-147"></a>Leetcode-147</h2><p><a href="https://leetcode.com/problems/insertion-sort-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/insertion-sort-list/#/description</a></p>
+<div class="note primary"><p>Sort a linked list using insertion sort.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insertionSortList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        dummy = ListNode(-float(<span class="string">'inf'</span>))</div><div class="line">        curnode = head</div><div class="line"></div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># Generate</span></div><div class="line">            childnode = curnode.next</div><div class="line">            <span class="comment"># operate, insert curnode to dummy.</span></div><div class="line">            pnode = dummy</div><div class="line">            node  = dummy.next</div><div class="line">            <span class="keyword">while</span> node <span class="keyword">and</span> node.val&lt;= curnode.val:</div><div class="line">                <span class="comment"># move</span></div><div class="line">                pnode,node = pnode.next, node.next</div><div class="line">            <span class="comment"># insert pnode, curnode, node</span></div><div class="line">            pnode.next   = curnode</div><div class="line">            curnode.next = node</div><div class="line"></div><div class="line">            <span class="comment"># move</span></div><div class="line">            curnode = childnode</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-143"><a href="#Leetcode-143" class="headerlink" title="Leetcode-143"></a>Leetcode-143</h2><p><a href="https://leetcode.com/problems/reorder-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/reorder-list/#/description</a></p>
+<div class="note success"><p>Given a singly linked list L: <code>L0→L1→…→Ln-1→Ln</code>, reorder it to: <code>L0→Ln→L1→Ln-1→L2→Ln-2→…</code>.<br>You must do this in-place without altering the nodes’ values.</p>
+<p>For example,<br>Given <code>{1,2,3,4}</code>, reorder it to <code>{1,4,2,3}</code>.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list with a random pointer.</span></div><div class="line"><span class="comment"># class RandomListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.label = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"><span class="comment">#         self.random = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">copyRandomList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: RandomListNode</div><div class="line">        :rtype: RandomListNode</div><div class="line">        """</div><div class="line">        dummy = RandomListNode(<span class="number">0</span>)</div><div class="line">        p_real  = head</div><div class="line">        p_copy  = dummy</div><div class="line">        </div><div class="line">        <span class="comment"># p_real is the reference, and p_copy is the new list, so p_copy is one step behind p_real.</span></div><div class="line">        <span class="comment"># We construct three dict to map from node-&gt;random, copy-&gt;real, real-&gt;copy.</span></div><div class="line">        rand_dict = &#123;&#125;</div><div class="line">        tocopy_dict = &#123;&#125;</div><div class="line">        toreal_dict = &#123;&#125;</div><div class="line">        <span class="keyword">while</span> p_real != <span class="keyword">None</span>:</div><div class="line">            </div><div class="line">            newnode = RandomListNode(p_real.label)</div><div class="line">            p_copy.next = newnode</div><div class="line"></div><div class="line">            rand_dict[p_real] = p_real.random</div><div class="line">            tocopy_dict[p_real] = newnode</div><div class="line">            toreal_dict[newnode] = p_real</div><div class="line"></div><div class="line">            <span class="comment">#####################</span></div><div class="line">            p_real = p_real.next</div><div class="line">            p_copy = p_copy.next</div><div class="line"></div><div class="line">        p_copy = dummy.next</div><div class="line">        <span class="keyword">while</span> p_copy:</div><div class="line">            rand_real = rand_dict[toreal_dict[p_copy]]</div><div class="line">            <span class="keyword">if</span> rand_real:</div><div class="line">                p_copy.random = tocopy_dict[rand_real]</div><div class="line">            p_copy = p_copy.next</div><div class="line"></div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-138"><a href="#Leetcode-138" class="headerlink" title="Leetcode-138"></a>Leetcode-138</h2><p><a href="https://leetcode.com/problems/copy-list-with-random-pointer/" target="_blank" rel="external">https://leetcode.com/problems/copy-list-with-random-pointer/</a></p>
+<div class="note info"><p>A linked list is given such that each node contains an additional random pointer which could point to any node in the list or null.</p>
+<p>Return a deep copy of the list.</p>
+</div>
+<hr>
+<p>We use <code>toreal_dict</code>, <code>rand_dict</code> and <code>tocopy_dict</code> sequentially to map from copynode to rand_copynode.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list with a random pointer.</span></div><div class="line"><span class="comment"># class RandomListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.label = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"><span class="comment">#         self.random = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">copyRandomList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: RandomListNode</div><div class="line">        :rtype: RandomListNode</div><div class="line">        """</div><div class="line">        dummy = RandomListNode(<span class="number">0</span>)</div><div class="line">        p_real  = head</div><div class="line">        p_copy  = dummy</div><div class="line">        </div><div class="line">        <span class="comment"># p_real is the reference, and p_copy is the new list, so p_copy is one step behind p_real.</span></div><div class="line">        <span class="comment"># We construct three dict to map from node-&gt;random, copy-&gt;real, real-&gt;copy.</span></div><div class="line">        rand_dict = &#123;&#125;</div><div class="line">        tocopy_dict = &#123;&#125;</div><div class="line">        toreal_dict = &#123;&#125;</div><div class="line">        <span class="keyword">while</span> p_real != <span class="keyword">None</span>:</div><div class="line">            </div><div class="line">            newnode = RandomListNode(p_real.label)</div><div class="line">            p_copy.next = newnode</div><div class="line"></div><div class="line">            rand_dict[p_real] = p_real.random</div><div class="line">            tocopy_dict[p_real] = newnode</div><div class="line">            toreal_dict[newnode] = p_real</div><div class="line"></div><div class="line">            <span class="comment">#####################</span></div><div class="line">            p_real = p_real.next</div><div class="line">            p_copy = p_copy.next</div><div class="line"></div><div class="line">        p_copy = dummy.next</div><div class="line">        <span class="keyword">while</span> p_copy:</div><div class="line">            rand_real = rand_dict[toreal_dict[p_copy]]</div><div class="line">            <span class="keyword">if</span> rand_real:</div><div class="line">                p_copy.random = tocopy_dict[rand_real]</div><div class="line">            p_copy = p_copy.next</div><div class="line"></div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure></p>
+<h2 id="Leetcode-237"><a href="#Leetcode-237" class="headerlink" title="Leetcode-237"></a>Leetcode-237</h2><p><a href="https://leetcode.com/problems/delete-node-in-a-linked-list/" target="_blank" rel="external">https://leetcode.com/problems/delete-node-in-a-linked-list/</a></p>
+<div class="note warning"><p>Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.</p>
+<p>Supposed the linked list is <code>1 -&gt; 2 -&gt; 3 -&gt; 4</code> and you are given the third node with value <code>3</code>, the linked list should become <code>1 -&gt; 2 -&gt; 4</code> after calling your function.</p>
+</div>
+<hr>
+<p>In this solution, we just copy <code>node.next</code> to <code>node</code>, and then delete <code>node.next</code>.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">deleteNode</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type node: ListNode</div><div class="line">        :rtype: void Do not return anything, modify node in-place instead.</div><div class="line">        """</div><div class="line">        node.val  = node.next.val</div><div class="line">        node.next = node.next.next</div></pre></td></tr></table></figure></p>
+<h2 id="Leetcode-2"><a href="#Leetcode-2" class="headerlink" title="Leetcode-2"></a>Leetcode-2</h2><p><a href="https://leetcode.com/problems/add-two-numbers/" target="_blank" rel="external">https://leetcode.com/problems/add-two-numbers/</a></p>
+<div class="note danger"><p>You are given two <strong>non-empty</strong> linked lists representing two non-negative integers. The digits are stored in reverse order and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.</p>
+<p>You may assume the two numbers do not contain any leading zero, except the number 0 itself.</p>
+<p><strong>Input</strong>: <code>(2 -&gt; 4 -&gt; 3) + (5 -&gt; 6 -&gt; 4)</code><br><strong>Output</strong>: <code>7 -&gt; 0 -&gt; 8</code></p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">addTwoNumbers</span><span class="params">(self, l1, l2)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type l1: ListNode</div><div class="line">        :type l2: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        carrier = <span class="number">0</span></div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        l3    = dummy </div><div class="line">        <span class="comment"># l1,l2 is for reference, l3 is to construct, so l3 is always one step slower than l1,l2.</span></div><div class="line">        </div><div class="line">        <span class="keyword">while</span> l1 != <span class="keyword">None</span> <span class="keyword">or</span> l2 != <span class="keyword">None</span>:</div><div class="line">            val     = self.getval(l1) + self.getval(l2) + carrier</div><div class="line">            l3.next = ListNode(val % <span class="number">10</span>)</div><div class="line">            carrier = val / <span class="number">10</span></div><div class="line"></div><div class="line">            l3 = l3.next</div><div class="line">            <span class="keyword">if</span> l1: l1 = l1.next</div><div class="line">            <span class="keyword">if</span> l2: l2 = l2.next</div><div class="line">        <span class="keyword">if</span> carrier == <span class="number">1</span>:</div><div class="line">            l3.next = ListNode(<span class="number">1</span>)</div><div class="line">        <span class="keyword">return</span> dummy.next </div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getval</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="number">0</span></div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="keyword">return</span> node.val</div></pre></td></tr></table></figure>
+<h1 id="Map-node-num"><a href="#Map-node-num" class="headerlink" title="Map (node:num)"></a>Map (node:num)</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(head)</span>:</span></div><div class="line">    <span class="comment"># map  dummy:0, head:1,..., noden:n</span></div><div class="line">    i,tail = <span class="number">1</span>,head</div><div class="line">    <span class="keyword">while</span> tail.next:</div><div class="line">        ... <span class="comment"># Note that noden:n will not be in the loop, so you may have to check that afterwards.</span></div><div class="line">        i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">    <span class="comment"># After that i = n; tail = noden</span></div></pre></td></tr></table></figure>
+<p>If you want to start up with dummy, just change the initialization.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(head)</span>:</span></div><div class="line">    dummy = ListNode(<span class="number">0</span>)</div><div class="line">    dummy.next = head</div><div class="line"></div><div class="line">    <span class="comment"># map  dummy:0, head:1,..., noden:n</span></div><div class="line">    i,tail = <span class="number">0</span>,dummy</div><div class="line">    <span class="keyword">while</span> tail.next:</div><div class="line">        ... <span class="comment"># Note that noden:n will not be in the loop, so you may have to check that afterwards.</span></div><div class="line">        i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">    <span class="comment"># After that i = n; tail = noden</span></div></pre></td></tr></table></figure></p>
+<p>Or if you want to iterate to <code>n+1</code> then <code>while tail</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(head)</span>:</span></div><div class="line">    dummy = ListNode(<span class="number">0</span>)</div><div class="line">    dummy.next = head</div><div class="line"></div><div class="line">    <span class="comment"># map  dummy:0, head:1,..., noden:n, None:n+1</span></div><div class="line">    i,tail = <span class="number">0</span>,dummy</div><div class="line">    <span class="keyword">while</span> tail:</div><div class="line">        ... <span class="comment"># Note that noden:n+1 will not be in the loop, so you may have to check that afterwards.</span></div><div class="line">        i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">    <span class="comment"># After that i = n+1; tail = None</span></div></pre></td></tr></table></figure></p>
+<h2 id="Leetcode-92"><a href="#Leetcode-92" class="headerlink" title="Leetcode-92"></a>Leetcode-92</h2><p><a href="https://leetcode.com/problems/reverse-linked-list-ii/#/description" target="_blank" rel="external">https://leetcode.com/problems/reverse-linked-list-ii/#/description</a></p>
+<div class="note default"><p>Reverse a linked list from position m to n. Do it in-place and in one-pass.</p>
+<p>For example:<br>Given <code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</code>, m = 2 and n = 4, return <code>1-&gt;4-&gt;3-&gt;2-&gt;5-&gt;NULL</code>.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseBetween</span><span class="params">(self, head, m, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :type m: int</div><div class="line">        :type n: int</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        dummy.next = head</div><div class="line">        <span class="comment"># Record ...node1,startnode,...,endnode,node2,...</span></div><div class="line">        <span class="comment"># Map: dummy:0, node1:1, ..., noden:n, None:n+1</span></div><div class="line">        i,tail = <span class="number">0</span>,dummy</div><div class="line">        <span class="keyword">while</span> tail:</div><div class="line">            <span class="keyword">if</span> i == m<span class="number">-1</span>: node1 = tail</div><div class="line">            <span class="keyword">if</span> i == m  : startnode  = tail</div><div class="line">            <span class="keyword">if</span> i == n  : endnode    = tail</div><div class="line">            <span class="keyword">if</span> i == n+<span class="number">1</span>: node2 = tail</div><div class="line">            i,tail = i+<span class="number">1</span>, tail.next</div><div class="line">        <span class="comment"># Note that node2 can be n+1, which can be out of loop.</span></div><div class="line">        <span class="keyword">if</span> i == n+<span class="number">1</span>: node2 = tail</div><div class="line"></div><div class="line">        tail    = endnode</div><div class="line">        curnode = startnode</div><div class="line">        parentnode = <span class="keyword">None</span></div><div class="line">        <span class="keyword">while</span> curnode != tail:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            childnode = curnode.next</div><div class="line">            <span class="comment"># operate</span></div><div class="line">            curnode.next = parentnode</div><div class="line">            <span class="comment"># move</span></div><div class="line">            parentnode,curnode = curnode,childnode</div><div class="line"></div><div class="line">        curnode.next = parentnode</div><div class="line"></div><div class="line">        node1.next     = endnode</div><div class="line">        startnode.next = node2</div><div class="line"></div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-61"><a href="#Leetcode-61" class="headerlink" title="Leetcode-61"></a>Leetcode-61</h2><p><a href="https://leetcode.com/problems/rotate-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/rotate-list/#/description</a></p>
+<div class="note primary"><p>Given a list, rotate the list to the right by k places, where k is non-negative.</p>
+<p>For example:<br>Given <code>1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL</code> and <code>k = 2</code>, return <code>4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL</code>.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotateRight</span><span class="params">(self, head, k)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :type k: int</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="comment"># map head:1,...,noden:</span></div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        i,tail = <span class="number">1</span>,head</div><div class="line">        <span class="keyword">while</span> tail.next:</div><div class="line">            i, tail = i+<span class="number">1</span>, tail.next</div><div class="line">        n = i</div><div class="line">        k = k % n</div><div class="line">        <span class="keyword">if</span> k == <span class="number">0</span>: <span class="keyword">return</span> head</div><div class="line"></div><div class="line">        <span class="comment"># there are k elements from [n-k+1] to [n].</span></div><div class="line">        idx_1 = n - k </div><div class="line">        idx_2 = n - k + <span class="number">1</span></div><div class="line"></div><div class="line">        <span class="comment"># map head:1,...,noden:n</span></div><div class="line">        i,tail = <span class="number">1</span>,head</div><div class="line">        <span class="keyword">while</span> tail.next:</div><div class="line">          <span class="keyword">if</span> i == idx_1: node1 = tail</div><div class="line">          <span class="keyword">if</span> i == idx_2: node2 = tail</div><div class="line">          i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">        <span class="comment"># n,noden won't get into the loop, so node2 could be None.</span></div><div class="line">        <span class="keyword">if</span> i == idx_2: node2 = tail</div><div class="line"></div><div class="line">        <span class="comment"># head,...,node1,node2,...tail.</span></div><div class="line">        node1.next = <span class="keyword">None</span></div><div class="line">        tail.next = head</div><div class="line">        <span class="keyword">return</span> node2</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-25"><a href="#Leetcode-25" class="headerlink" title="Leetcode-25"></a>Leetcode-25</h2><p><a href="https://leetcode.com/problems/reverse-nodes-in-k-group/#/description" target="_blank" rel="external">https://leetcode.com/problems/reverse-nodes-in-k-group/#/description</a></p>
+<div class="note danger"><p>Given a linked list, reverse the nodes of a linked list k at a time and return its modified list.</p>
+<p>k is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of k then left-out nodes in the end should remain as it is.</p>
+<p>You may not alter the values in the nodes, only nodes itself may be changed.</p>
+<p>Only constant memory is allowed.</p>
+<p>For example,<br>Given this linked list: <code>1-&gt;2-&gt;3-&gt;4-&gt;5</code><br>For k = 2, you should return: <code>2-&gt;1-&gt;4-&gt;3-&gt;5</code><br>For k = 3, you should return: <code>3-&gt;2-&gt;1-&gt;4-&gt;5</code>  </p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseKGroup</span><span class="params">(self, head, k)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :type k: int</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        dummy.next = head</div><div class="line"></div><div class="line">        parentnode = dummy</div><div class="line">        curnode    = dummy.next</div><div class="line">        <span class="keyword">while</span> curnode:</div><div class="line">            <span class="comment"># generate</span></div><div class="line">            head = curnode</div><div class="line">            <span class="comment"># map curnode:1,node2:2,...,nodek:k</span></div><div class="line">            i,tail = <span class="number">1</span>,curnode</div><div class="line">            <span class="keyword">while</span> tail <span class="keyword">and</span> i &lt; k: <span class="comment"># i=k after the loop.</span></div><div class="line">                i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">            <span class="keyword">if</span> tail == <span class="keyword">None</span>: </div><div class="line">                <span class="comment"># length &lt; k, so link the rest and break.</span></div><div class="line">                parentnode.next = curnode</div><div class="line">                <span class="keyword">break</span></div><div class="line">            </div><div class="line">            <span class="comment"># cut tail.</span></div><div class="line">            childnode = tail.next</div><div class="line">            tail.next = <span class="keyword">None</span> </div><div class="line">            </div><div class="line">            <span class="comment"># reverse head...tail</span></div><div class="line">            pnode = <span class="keyword">None</span></div><div class="line">            node = head</div><div class="line">            <span class="keyword">while</span> node:</div><div class="line">                <span class="comment"># generate</span></div><div class="line">                cnode = node.next</div><div class="line">                <span class="comment"># operate</span></div><div class="line">                node.next = pnode</div><div class="line">                <span class="comment"># move</span></div><div class="line">                pnode, node = node, cnode</div><div class="line"></div><div class="line">            <span class="comment"># link tail...head to parent node</span></div><div class="line">            parentnode.next = tail</div><div class="line">            </div><div class="line"></div><div class="line">            <span class="comment"># move</span></div><div class="line">            parentnode, curnode = head ,childnode</div><div class="line"></div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-160"><a href="#Leetcode-160" class="headerlink" title="Leetcode-160"></a>Leetcode-160</h2><p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/#/description" target="_blank" rel="external">https://leetcode.com/problems/intersection-of-two-linked-lists/#/description</a></p>
+<div class="note success"><p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+</div>
+<p>For example, the following two linked lists:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">A:          a1 → a2</div><div class="line">                   ↘</div><div class="line">                     c1 → c2 → c3</div><div class="line">                   ↗            </div><div class="line">B:     b1 → b2 → b3</div></pre></td></tr></table></figure></p>
+<p>begin to intersect at node c1.</p>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span><span class="params">(self, headA, headB)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head1, head1: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> headA == <span class="keyword">None</span> <span class="keyword">or</span> headB == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        head1 = headA</div><div class="line">        head2 = headB</div><div class="line"></div><div class="line">        <span class="comment"># Check if head1 and head2 have same tail</span></div><div class="line">        <span class="comment"># map head:1,node2:2...noden:n</span></div><div class="line">        i, tail1 = <span class="number">1</span>, head1</div><div class="line">        <span class="keyword">while</span> tail1.next:</div><div class="line">            i,tail1 = i+<span class="number">1</span>,tail1.next</div><div class="line">        n1 = i</div><div class="line">        </div><div class="line">        i,tail2 = <span class="number">1</span>,head2</div><div class="line">        <span class="keyword">while</span> tail2.next:</div><div class="line">            i,tail2 = i+<span class="number">1</span>,tail2.next</div><div class="line">        n2 = i</div><div class="line"></div><div class="line">        <span class="comment"># If there's no common node.</span></div><div class="line">        <span class="keyword">if</span> tail1 != tail2:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        </div><div class="line">        <span class="comment"># get lists with same length.</span></div><div class="line">        <span class="keyword">while</span> n1 &gt; n2:</div><div class="line">            n1,head1 = n1<span class="number">-1</span>, head1.next</div><div class="line">        <span class="keyword">while</span> n2 &gt; n1:</div><div class="line">            n2,head2 = n2<span class="number">-1</span>, head2.next</div><div class="line">        <span class="comment"># get lists with same node</span></div><div class="line">        <span class="keyword">while</span> head1 != head2:</div><div class="line">            head1, head2 = head1.next, head2.next </div><div class="line"></div><div class="line">        <span class="keyword">return</span> head1</div></pre></td></tr></table></figure>
+<h1 id="Fast-slow"><a href="#Fast-slow" class="headerlink" title="Fast slow"></a>Fast slow</h1><p>Remember in the former blog, we have discussed the <code>b-search</code> problems. Fast-slow technique in linked list is to simulate the process of <code>mid = (low + high)/2</code> in <code>b-search</code>. There are two approach to get <code>slow</code> in linked list equals to <code>mid</code> in array.</p>
+<h2 id="◯-Dummy-start-None-end"><a href="#◯-Dummy-start-None-end" class="headerlink" title="◯ Dummy start, None end."></a>◯ Dummy start, None end.</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(head)</span>:</span></div><div class="line">    dummy = ListNode(<span class="number">0</span>)</div><div class="line">    dummy.next = head</div><div class="line"></div><div class="line">    fast,slow = dummy</div><div class="line">    <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</div><div class="line">        fast = fast.next.next</div><div class="line">        slow = slow.next</div><div class="line">    <span class="comment"># After that slow = mid</span></div></pre></td></tr></table></figure>
+<p>To illustrate that:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f0----------&gt; f1----------&gt; f2</div><div class="line">dummy, node1, node2, node3, node4, None</div><div class="line">s0---&gt; s1---&gt; s2 </div><div class="line"></div><div class="line">mid = (low+high) / 2 = (0+3)/2 = 1 # (node2)</div></pre></td></tr></table></figure></p>
+<h2 id="◯-Head-start-tail-end"><a href="#◯-Head-start-tail-end" class="headerlink" title="◯ Head start, tail end."></a>◯ Head start, tail end.</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(head, tail)</span>:</span></div><div class="line">    fast, slow = head, head</div><div class="line">    <span class="keyword">while</span> fast != tail <span class="keyword">and</span> fast.next != tail:</div><div class="line">        fast = fast.next.next</div><div class="line">        slow = slow.next</div><div class="line">    <span class="comment"># After that slow = mid</span></div></pre></td></tr></table></figure>
+<p>To illustrate that:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">f0----------&gt; f1</div><div class="line">node1, node2, node3, node4</div><div class="line">s0---&gt; s1</div><div class="line"></div><div class="line">mid = (low+high) / 2 = (0+3)/2 = 1 # (node2)</div></pre></td></tr></table></figure></p>
+<p>Like that in <code>b-search</code> if we use<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">high = mid    # i.e. func(head, slow)       or func(head) </div><div class="line">low  = mid+1  # i.e. func(slow.next, tail)  or func(slow.next)</div></pre></td></tr></table></figure></p>
+<p>transformation, the corresponding termination condition is <code>while low &lt; high</code> and as we can see from the table, there can’t be a dead loop when <code>head != tail</code>(low + 1 &lt;= high). So termination of recursion is <code>if head == tail: return head</code> or <code>if head==None or head.next==None: return head</code>.  </p>
+<p>To summarize, recursive framework of dummy-start-none-end:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, head)</span>:</span></div><div class="line">    </div><div class="line">    self.recur(head)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, head)</span>:</span></div><div class="line">    <span class="comment"># termination condition</span></div><div class="line">    <span class="keyword">if</span> head==<span class="keyword">None</span> <span class="keyword">or</span> head.next == <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span> head</div><div class="line"></div><div class="line">    dummy = ListNode(<span class="number">0</span>)</div><div class="line">    dummy.next = head</div><div class="line">    fast,slow = dummy, dummy</div><div class="line">    <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</div><div class="line">        fast = fast.next.next</div><div class="line">        slow = slow.next</div><div class="line">    <span class="comment"># after that slow = mid.</span></div><div class="line">    <span class="comment"># cut the list from slow,node1</span></div><div class="line">    node1 = slow.next; slow.next = <span class="keyword">None</span></div><div class="line"></div><div class="line">    xxx = self.recur(head) <span class="comment"># tail = slow, i.e. high = mid</span></div><div class="line">    ooo = self.recur(node1)<span class="comment"># head = node1,i.e. low  = mid + 1</span></div><div class="line">    ...</div><div class="line">    <span class="keyword">return</span> xoxoxo</div></pre></td></tr></table></figure></p>
+<p>recursive framework of head-start-tail-end:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, head)</span>:</span></div><div class="line">    ...get tail</div><div class="line">    self.recur(head, tail)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, head, tail)</span>:</span></div><div class="line">    <span class="comment"># termination condition.</span></div><div class="line">    <span class="keyword">if</span> head == tail:</div><div class="line">        <span class="keyword">return</span> head</div><div class="line"></div><div class="line">    fast,slow = head, head</div><div class="line">    <span class="keyword">while</span> fast != tail <span class="keyword">and</span> fast.next != tail:</div><div class="line">        fast = fast.next.next</div><div class="line">        slow = slow.next</div><div class="line">    <span class="comment"># after that slow = mid</span></div><div class="line">    <span class="comment"># cut the list from slow,node1</span></div><div class="line">    node1 = slow.next; slow.next = <span class="keyword">None</span></div><div class="line"></div><div class="line">    xxx = self.recur(head, slow) <span class="comment"># i.e. high = mid</span></div><div class="line">    ooo = self.recur(node1, tail)<span class="comment"># i.e. low  = mid + 1</span></div><div class="line">    ...</div><div class="line">    <span class="keyword">return</span> xoxoxo</div></pre></td></tr></table></figure></p>
+<p>If we use termination condition 3 (<code>low = mid</code>) in the recursion, there’s a change to get into a dead loop:<br>Consider a situation when <code>head.next = tail</code>(1) <code>head.next != None</code>(2) in <code>self.recur()</code>, which won’t terminate in the current loop. Then in next second recursion, because of <code>low = mid</code>,  still there’s still a chance <code>node1.next = tail</code>(1) <code>node1.next != None</code>(2), which indicates a dead loop.</p>
+<p>If you want to use <code>b-search</code> set 1, i.e. <code>high = mid-1; low = mid+1</code>, which has a chance that <code>low &gt; high</code> without <code>low = high</code>, then you kind of have to use the aforementioned <code>tail</code> suite, rather than the <code>dummy</code> suite, because if there’s not a <code>tail</code> variable, how can you tell the situation <code>low &gt; high</code> from <code>low = high</code> when <code>[low] = head</code> (you have to return <code>head</code> when <code>low = high</code> and return <code>None</code> when <code>low &gt; high</code>)? So you have to use a <code>tail</code> variable to distinguish them. Here is the <code>head-start-tail-end</code> method for <code>b-search</code> set 1.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, head)</span>:</span></div><div class="line">    ...get tail</div><div class="line">    self.recur(head, tail)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, head, tail)</span>:</span></div><div class="line">    <span class="comment"># termination condition.</span></div><div class="line">    <span class="keyword">if</span> head == <span class="keyword">None</span> <span class="keyword">or</span> tail == <span class="keyword">None</span>:</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line"></div><div class="line">    fast,slow,pslow = head, head, <span class="keyword">None</span></div><div class="line">    <span class="keyword">while</span> fast != tail <span class="keyword">and</span> fast.next != tail:</div><div class="line">        fast = fast.next.next</div><div class="line">        pslow,slow = slow,slow.next</div><div class="line">    <span class="comment"># after that slow = mid</span></div><div class="line">    <span class="comment"># head...pslow,slow,node1...tail</span></div><div class="line">    <span class="comment"># cut the list from pslow,slow,node1</span></div><div class="line">    node1 = slow.next; slow.next = <span class="keyword">None</span></div><div class="line">    <span class="keyword">if</span> pslow: pslow.next = <span class="keyword">None</span></div><div class="line"></div><div class="line">    xxx = self.recur(head, pslow) <span class="comment"># i.e. high = mid</span></div><div class="line">    ooo = self.recur(node1, tail)<span class="comment"># i.e. low  = mid + 1</span></div><div class="line">    ...</div><div class="line">    <span class="keyword">return</span> xoxoxo</div></pre></td></tr></table></figure>
+<p>Note here We use <code>pslow</code> to indicate the parent of slow.</p>
+<h2 id="Leetcode-148"><a href="#Leetcode-148" class="headerlink" title="Leetcode-148"></a>Leetcode-148</h2><p><a href="https://leetcode.com/problems/sort-list/#/description" target="_blank" rel="external">https://leetcode.com/problems/sort-list/#/description</a></p>
+<div class="note default"><p>Sort a linked list in O(n log n) time using constant space complexity.</p>
+</div>
+<hr>
+<p>This solution uses <code>dummy-start-None-end</code> method.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="comment"># tail = head</span></div><div class="line">        <span class="comment"># while tail.next:</span></div><div class="line">        <span class="comment">#   tail = tail.next</span></div><div class="line">        <span class="keyword">return</span> self.mergesort(head)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">mergesort</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="comment"># Merge sort head to tail including tail.</span></div><div class="line">        <span class="keyword">if</span> head==<span class="keyword">None</span> <span class="keyword">or</span> head.next==<span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> head</div><div class="line"></div><div class="line">        <span class="comment"># Get start1,2 and end1,2.</span></div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        dummy.next = head</div><div class="line">        fast,slow = dummy,dummy</div><div class="line">        <span class="keyword">while</span> fast <span class="keyword">and</span> fast.next:</div><div class="line">            fast = fast.next.next</div><div class="line">            slow = slow.next</div><div class="line">        <span class="comment"># slow = mid = (head+tail)/2</span></div><div class="line">        <span class="comment"># start1, end1 = head, slow # high = mid</span></div><div class="line">        <span class="comment"># start2, end2 = slow.next, tail # low = mid + 1</span></div><div class="line"></div><div class="line">        <span class="comment"># To make sure the two list is not connected, we need to partition it from slow.</span></div><div class="line">        node1 = slow.next</div><div class="line">        slow.next = <span class="keyword">None</span></div><div class="line"></div><div class="line">        list1 = self.mergesort(head)</div><div class="line">        list2 = self.mergesort(node1)</div><div class="line"></div><div class="line">        <span class="comment"># Merge two sorted list.</span></div><div class="line">        dummy = ListNode(<span class="number">0</span>)</div><div class="line">        list3 = dummy</div><div class="line">        <span class="keyword">while</span> list1 <span class="keyword">and</span> list2:</div><div class="line">            <span class="keyword">if</span> list1.val &lt; list2.val:</div><div class="line">                list3.next = list1</div><div class="line">                <span class="comment"># move</span></div><div class="line">                list1,list3 = list1.next, list3.next</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                list3.next = list2</div><div class="line">                <span class="comment"># move</span></div><div class="line">                list2,list3 = list2.next, list3.next</div><div class="line">        <span class="keyword">if</span> list1:</div><div class="line">            list3.next = list1</div><div class="line">        <span class="keyword">if</span> list2:</div><div class="line">            list3.next = list2</div><div class="line">        <span class="keyword">return</span> dummy.next</div></pre></td></tr></table></figure></p>
+<h2 id="Leetcode-109"><a href="#Leetcode-109" class="headerlink" title="Leetcode-109"></a>Leetcode-109</h2><p><a href="https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/#/solutions" target="_blank" rel="external">https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/#/solutions</a></p>
+<div class="note primary"><p>Given a singly linked list where elements are sorted in ascending order, convert it to a height balanced BST.</p>
+</div>
+<hr>
+<p>This solution uses <code>head-start-tail-end</code> method for <code>b-search</code> set 1.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortedListToBST</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: TreeNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> head</div><div class="line">        tail = head</div><div class="line">        <span class="keyword">while</span> tail.next:</div><div class="line">            tail = tail.next</div><div class="line">        <span class="keyword">return</span> self.tobst(head, tail)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tobst</span><span class="params">(self, head, tail)</span>:</span></div><div class="line">        <span class="comment"># do not let None into the func.</span></div><div class="line">        <span class="keyword">if</span> tail == <span class="keyword">None</span> <span class="keyword">or</span> head == <span class="keyword">None</span>:</div><div class="line">            <span class="comment"># low &gt; high equals to tail == None or head == None.</span></div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        fast,slow,pslow = head,head,<span class="keyword">None</span></div><div class="line">        <span class="keyword">while</span> fast!= tail <span class="keyword">and</span> fast.next != tail:</div><div class="line">            fast = fast.next.next</div><div class="line">            pslow,slow = slow,slow.next</div><div class="line">        <span class="comment"># after that pslow = mid-1, slow = mid</span></div><div class="line">        <span class="comment"># cut pslow,slow,node1</span></div><div class="line">        node1 = slow.next; slow.next = <span class="keyword">None</span>; </div><div class="line">        <span class="keyword">if</span> pslow: pslow.next = <span class="keyword">None</span></div><div class="line">        <span class="comment"># head...pslow,slow,node1...tail.</span></div><div class="line">        <span class="comment">##################################</span></div><div class="line">        left_node = self.tobst(head, pslow) <span class="comment"># high = mid - 1, which indicates that head and tail could be None.</span></div><div class="line">        right_node = self.tobst(node1, tail)<span class="comment"># low = mid + 1</span></div><div class="line">        <span class="comment">##################################</span></div><div class="line">        mid_node  = TreeNode(slow.val)</div><div class="line">        mid_node.left  = left_node</div><div class="line">        mid_node.right = right_node</div><div class="line">        <span class="keyword">return</span> mid_node</div></pre></td></tr></table></figure></p>
+<p>You can also do it with number, but you have to maintain a global variable <code>curnode</code> to traverse list in order.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="comment"># Definition for a binary tree node.</span></div><div class="line"><span class="comment"># class TreeNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.left = None</span></div><div class="line"><span class="comment">#         self.right = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">sortedListToBST</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: TreeNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="comment"># map head:1, node2:2, ...., noden:n</span></div><div class="line">        i,tail = <span class="number">1</span>,head</div><div class="line">        <span class="keyword">while</span> tail.next:</div><div class="line">            i,tail = i+<span class="number">1</span>,tail.next</div><div class="line">        <span class="comment"># after that i = n; tail = noden</span></div><div class="line">        n = i</div><div class="line">        self.curNode = head</div><div class="line">        <span class="keyword">return</span> self.tobst(<span class="number">1</span>, n)</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">tobst</span><span class="params">(self, low, high)</span>:</span></div><div class="line">        <span class="keyword">if</span> low &gt; high:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        mid = (low + high)/<span class="number">2</span></div><div class="line">        <span class="comment">##################################</span></div><div class="line">        left_node = self.tobst(low, mid<span class="number">-1</span>)  <span class="comment"># high = mid-1</span></div><div class="line">        mid_node  = TreeNode(self.curNode.val)</div><div class="line">        self.curNode = self.curNode.next</div><div class="line">        righ_node = self.tobst(mid+<span class="number">1</span>, high) <span class="comment"># low = mid+1</span></div><div class="line">        <span class="comment">##################################</span></div><div class="line">        mid_node.left  = left_node</div><div class="line">        mid_node.right = righ_node</div><div class="line">        <span class="keyword">return</span> mid_node</div></pre></td></tr></table></figure></p>
+<h1 id="Recursive-method"><a href="#Recursive-method" class="headerlink" title="Recursive method"></a>Recursive method</h1><p>Linked list can be regarded as single-tree, so recursive techniques in tree is still applicable here, but no commonly used.</p>
+<h2 id="Leetcode-24-1"><a href="#Leetcode-24-1" class="headerlink" title="Leetcode-24"></a>Leetcode-24</h2><div class="note success"><p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>For example, given <code>1-&gt;2-&gt;3-&gt;4</code>, you should return the list as <code>2-&gt;1-&gt;4-&gt;3</code>.</p>
+<p>Your algorithm should use only constant space. You may <strong>not</strong> modify the values in the list, only nodes itself can be changed.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">swapPairs</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: return the swapped root.</span></div><div class="line">        </div><div class="line">        head = self.recursive(head)</div><div class="line">        <span class="keyword">return</span> head</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recursive</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="comment"># Recursive method in linked list often return node itself (or the related node) after modification.</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span> <span class="keyword">or</span> node.next == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> node</div><div class="line">        <span class="comment"># generate</span></div><div class="line">        childnode  = node.next</div><div class="line">        cchildnode = self.recursive(childnode.next)</div><div class="line">        </div><div class="line">        <span class="comment"># operate</span></div><div class="line">        childnode.next = node</div><div class="line">        node.next      = cchildnode</div><div class="line">        <span class="keyword">return</span> childnode</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-206-1"><a href="#Leetcode-206-1" class="headerlink" title="Leetcode-206"></a>Leetcode-206</h2><p><a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" rel="external">https://leetcode.com/problems/reverse-linked-list/</a></p>
+<div class="note info"><p>Reverse a singly linked list.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverseList</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="comment"># Tech 2: get reversed linked list from child.</span></div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>: <span class="keyword">return</span> head</div><div class="line">        tail = head</div><div class="line">        <span class="keyword">while</span> tail.next != <span class="keyword">None</span>:</div><div class="line">            tail = tail.next</div><div class="line">        self.reverse(head)</div><div class="line">        <span class="keyword">return</span> tail</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, node)</span>:</span></div><div class="line">        <span class="keyword">if</span> node == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="comment"># generate </span></div><div class="line">        childnode = self.reverse(node.next)</div><div class="line">        <span class="comment"># operate</span></div><div class="line">        <span class="keyword">if</span> childnode:</div><div class="line">            childnode.next = node</div><div class="line">        <span class="comment"># cut list</span></div><div class="line">        node.next = <span class="keyword">None</span></div><div class="line">        <span class="keyword">return</span> node</div></pre></td></tr></table></figure>
+<h1 id="Circle-related"><a href="#Circle-related" class="headerlink" title="Circle related"></a>Circle related</h1><p>Circle related problems can often be solved with <code>slow</code> <code>fast</code> iteration. Here are some leetcode examples.</p>
+<h2 id="Leetcode-141"><a href="#Leetcode-141" class="headerlink" title="Leetcode-141"></a>Leetcode-141</h2><div class="note warning"><p>Given a linked list, determine if it has a cycle in it.</p>
+<p>Follow up:<br>Can you solve it without using extra space?</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">hasCycle</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: bool</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">False</span></div><div class="line">        fast,slow = head,head</div><div class="line">        <span class="keyword">while</span> fast != <span class="keyword">None</span> <span class="keyword">and</span> fast.next != <span class="keyword">None</span>:</div><div class="line">            fast = fast.next.next</div><div class="line">            slow  = slow.next</div><div class="line">            <span class="keyword">if</span> fast == slow:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">True</span></div><div class="line">        <span class="keyword">return</span> <span class="keyword">False</span></div></pre></td></tr></table></figure>
+<h2 id="leetcode-142"><a href="#leetcode-142" class="headerlink" title="leetcode-142"></a>leetcode-142</h2><p><a href="https://leetcode.com/problems/linked-list-cycle-ii/#/description" target="_blank" rel="external">https://leetcode.com/problems/linked-list-cycle-ii/#/description</a></p>
+<div class="note danger"><p>Given a linked list, return the node where the cycle begins. If there is no cycle, return <code>null</code>.</p>
+<p><strong>Note</strong>: Do not modify the linked list.</p>
+</div>
+<hr>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">detectCycle</span><span class="params">(self, head)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> head == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        fast,slow = head, head</div><div class="line">        <span class="keyword">while</span> fast != <span class="keyword">None</span> <span class="keyword">and</span> fast.next != <span class="keyword">None</span>:</div><div class="line">            fast = fast.next.next</div><div class="line">            slow = slow.next</div><div class="line">            <span class="keyword">if</span> fast == slow:</div><div class="line">                <span class="comment"># Assume there's an axis: x0,..., -2,-1,0,1,2,3,...,n-1</span></div><div class="line">                <span class="comment"># slow_0 = fast_0 = head</span></div><div class="line">                <span class="comment"># slow_n = slow_n-1 + 1</span></div><div class="line">                <span class="comment"># fast_n = fast_n-1 + 2</span></div><div class="line">                <span class="comment"># So when slow and fast encounter.</span></div><div class="line">                <span class="comment"># slow_t = fast_t, i.e. (x0 + t)%n = (x0 + 2t)%n</span></div><div class="line">                <span class="comment"># Assume that x0 + 2t = an + c, x0+ t = bn + c.</span></div><div class="line">                <span class="comment"># so t = (a-b)n + c, then x0 = (2b-a)n + c (Note that x0 &lt; 0)</span></div><div class="line">                <span class="comment"># finally fast ==&gt; (c - x0) %n = 0 = (x0 - x0) %n &lt;== slow.   </span></div><div class="line">                slow = head</div><div class="line">                <span class="keyword">while</span> fast != slow:</div><div class="line">                    fast = fast.next</div><div class="line">                    slow = slow.next</div><div class="line">                <span class="keyword">return</span> slow</div><div class="line">        <span class="keyword">return</span> <span class="keyword">None</span></div></pre></td></tr></table></figure>
+<h2 id="Leetcode-160-1"><a href="#Leetcode-160-1" class="headerlink" title="Leetcode-160"></a>Leetcode-160</h2><p><a href="https://leetcode.com/problems/intersection-of-two-linked-lists/#/description" target="_blank" rel="external">https://leetcode.com/problems/intersection-of-two-linked-lists/#/description</a></p>
+<div class="note default"><p>Write a program to find the node at which the intersection of two singly linked lists begins.</p>
+</div>
+<p>For example, the following two linked lists:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">A:          a1 → a2</div><div class="line">                   ↘</div><div class="line">                     c1 → c2 → c3</div><div class="line">                   ↗            </div><div class="line">B:     b1 → b2 → b3</div></pre></td></tr></table></figure></p>
+<p>begin to intersect at node c1.</p>
+<hr>
+<p>We have to first got two list of same length, so we traverse two list at the same pace, and when the shorter one finished, we redirect it to the longer one.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Definition for singly-linked list.</span></div><div class="line"><span class="comment"># class ListNode(object):</span></div><div class="line"><span class="comment">#     def __init__(self, x):</span></div><div class="line"><span class="comment">#         self.val = x</span></div><div class="line"><span class="comment">#         self.next = None</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getIntersectionNode</span><span class="params">(self, headA, headB)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type head1, head1: ListNode</div><div class="line">        :rtype: ListNode</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> headA == <span class="keyword">None</span> <span class="keyword">or</span> headB == <span class="keyword">None</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        head1 = headA</div><div class="line">        head2 = headB</div><div class="line"></div><div class="line">        <span class="comment"># Check if head1 and head2 have same tail</span></div><div class="line">        tail1 = head1</div><div class="line">        <span class="keyword">while</span> tail1.next:</div><div class="line">            tail1 = tail1.next</div><div class="line">        tail2 = head2</div><div class="line">        <span class="keyword">while</span> tail2.next:</div><div class="line">            tail2 = tail2.next</div><div class="line">        <span class="keyword">if</span> tail1 != tail2:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        tail = tail1</div><div class="line"></div><div class="line">        <span class="comment"># Redirect the short list to the head of long list.</span></div><div class="line">        <span class="keyword">while</span> head1 != tail <span class="keyword">and</span> head2 != tail:</div><div class="line">            head1 = head1.next</div><div class="line">            head2 = head2.next</div><div class="line">        <span class="keyword">if</span> head1 == tail:</div><div class="line">            <span class="comment"># head1 is shorter, redirect head1 and continue iteration.</span></div><div class="line">            head1 = headB</div><div class="line">            <span class="keyword">while</span> head2 != tail:</div><div class="line">                <span class="comment"># When head2 == tail, head1 == start2.</span></div><div class="line">                head1 = head1.next</div><div class="line">                head2 = head2.next</div><div class="line">            start1 = headA</div><div class="line">            start2 = head1</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># head2 is shorter, redirect head2 and continue iteration.</span></div><div class="line">            head2 = headA</div><div class="line">            <span class="keyword">while</span> head1 != tail:</div><div class="line">                <span class="comment"># When head1 == tail, head2 == start1.</span></div><div class="line">                head1 = head1.next</div><div class="line">                head2 = head2.next</div><div class="line">            start1 = head2</div><div class="line">            start2 = headB</div><div class="line"></div><div class="line">        <span class="comment"># Iterate start1 and start2, find the first common element.</span></div><div class="line">        <span class="keyword">while</span> start1 != start2:</div><div class="line">            start1 = start1.next</div><div class="line">            start2 = start2.next</div><div class="line">        <span class="keyword">return</span> start1</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/leetcode-linked-list/" rel="tag"># leetcode, linked list</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/09/19/tree-2/" rel="prev" title="Tree Summary 2">
+                Tree Summary 2 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#While-loop-routines"><span class="nav-number">1.</span> <span class="nav-text">While loop routines.</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#◯-Merge-two-sorted-list"><span class="nav-number">1.1.</span> <span class="nav-text">◯ Merge two sorted list:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#◯-Reverse-list"><span class="nav-number">1.2.</span> <span class="nav-text">◯ Reverse list</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-21"><span class="nav-number">1.3.</span> <span class="nav-text">Leetcode-21</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-206"><span class="nav-number">1.4.</span> <span class="nav-text">Leetcode-206</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-86"><span class="nav-number">1.5.</span> <span class="nav-text">Leetcode-86</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-83"><span class="nav-number">1.6.</span> <span class="nav-text">Leetcode-83</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-82"><span class="nav-number">1.7.</span> <span class="nav-text">Leetcode-82</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-24"><span class="nav-number">1.8.</span> <span class="nav-text">Leetcode-24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-23"><span class="nav-number">1.9.</span> <span class="nav-text">Leetcode-23</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-147"><span class="nav-number">1.10.</span> <span class="nav-text">Leetcode-147</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-143"><span class="nav-number">1.11.</span> <span class="nav-text">Leetcode-143</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-138"><span class="nav-number">1.12.</span> <span class="nav-text">Leetcode-138</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-237"><span class="nav-number">1.13.</span> <span class="nav-text">Leetcode-237</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-2"><span class="nav-number">1.14.</span> <span class="nav-text">Leetcode-2</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Map-node-num"><span class="nav-number">2.</span> <span class="nav-text">Map (node:num)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-92"><span class="nav-number">2.1.</span> <span class="nav-text">Leetcode-92</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-61"><span class="nav-number">2.2.</span> <span class="nav-text">Leetcode-61</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-25"><span class="nav-number">2.3.</span> <span class="nav-text">Leetcode-25</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-160"><span class="nav-number">2.4.</span> <span class="nav-text">Leetcode-160</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Fast-slow"><span class="nav-number">3.</span> <span class="nav-text">Fast slow</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#◯-Dummy-start-None-end"><span class="nav-number">3.1.</span> <span class="nav-text">◯ Dummy start, None end.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#◯-Head-start-tail-end"><span class="nav-number">3.2.</span> <span class="nav-text">◯ Head start, tail end.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-148"><span class="nav-number">3.3.</span> <span class="nav-text">Leetcode-148</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-109"><span class="nav-number">3.4.</span> <span class="nav-text">Leetcode-109</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Recursive-method"><span class="nav-number">4.</span> <span class="nav-text">Recursive method</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-24-1"><span class="nav-number">4.1.</span> <span class="nav-text">Leetcode-24</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-206-1"><span class="nav-number">4.2.</span> <span class="nav-text">Leetcode-206</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Circle-related"><span class="nav-number">5.</span> <span class="nav-text">Circle related</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-141"><span class="nav-number">5.1.</span> <span class="nav-text">Leetcode-141</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-142"><span class="nav-number">5.2.</span> <span class="nav-text">leetcode-142</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-160-1"><span class="nav-number">5.3.</span> <span class="nav-text">Leetcode-160</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/09/21/linked-list-summary/';
+          this.page.identifier = '2017/09/21/linked-list-summary/';
+          this.page.title = 'Linked List Summary';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
