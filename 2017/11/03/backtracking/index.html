@@ -1,0 +1,913 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Leetcode-90,40,47,51,52,78,39,216,46,17.">
+<meta name="keywords">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backtracking summary">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/11/03/backtracking/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="Leetcode-90,40,47,51,52,78,39,216,46,17.">
+<meta property="og:updated_time" content="2017-11-02T17:04:30.433Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Backtracking summary">
+<meta name="twitter:description" content="Leetcode-90,40,47,51,52,78,39,216,46,17.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/11/03/backtracking/"/>
+
+
+
+
+
+  <title> Backtracking summary | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/11/03/backtracking/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Backtracking summary
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-03T00:53:37+08:00">
+                2017-11-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/03/backtracking/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/03/backtracking/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/03/backtracking/" class="leancloud_visitors" data-flag-title="Backtracking summary">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>Leetcode-<code>90</code>,<code>40</code>,<code>47</code>,<code>51</code>,<code>52</code>,<code>78</code>,<code>39</code>,<code>216</code>,<code>46</code>,<code>17</code>.<br><a id="more"></a></p>
+<h1 id="Without-Cutting"><a href="#Without-Cutting" class="headerlink" title="Without Cutting"></a>Without Cutting</h1><p>The stereotype for backtracking problems without cutting.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.nums = nums</div><div class="line">        self.res = []</div><div class="line">        self.recur(<span class="number">0</span>, [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, cur_res)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums):</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_num = nums[cur_idx]</div><div class="line">        self.recur(cur_idx+<span class="number">1</span>, cur_res)</div><div class="line">        self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num])</div></pre></td></tr></table></figure></p>
+<h2 id="leetcode-78"><a href="#leetcode-78" class="headerlink" title="leetcode-78"></a>leetcode-78</h2><p><a href="https://leetcode.com/problems/subsets/description/" target="_blank" rel="external">https://leetcode.com/problems/subsets/description/</a><br><div class="note primary"><p>Given a set of <strong>distinct</strong> integers, nums, return all possible subsets.<br><strong>Note</strong>: The solution set must not contain duplicate subsets.</p>
+<p>For example, if <strong>nums</strong> = <code>[1,2,3]</code>, a solution is:</p>
+</div></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  [3],</div><div class="line">  [1],</div><div class="line">  [2],</div><div class="line">  [1,2,3],</div><div class="line">  [1,3],</div><div class="line">  [2,3],</div><div class="line">  [1,2],</div><div class="line">  []</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsets</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.nums = nums</div><div class="line">        self.res = []</div><div class="line">        self.recur(<span class="number">0</span>, [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, cur_res)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums):</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_num = nums[cur_idx]</div><div class="line">        self.recur(cur_idx+<span class="number">1</span>, cur_res)</div><div class="line">        self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num])</div><div class="line">        </div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    slt = Solution()</div><div class="line">    nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line">    <span class="keyword">print</span> slt.subsets(nums)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-39"><a href="#Leetcode-39" class="headerlink" title="Leetcode-39"></a>Leetcode-39</h2><p><a href="https://leetcode.com/problems/combination-sum/description/" target="_blank" rel="external">https://leetcode.com/problems/combination-sum/description/</a></p>
+<div class="note primary"><p>Given a <strong>set</strong> of candidate numbers (<strong>C</strong>) (<strong>without duplicates</strong>) and a target number (<strong>T</strong>), find all unique combinations in <strong>C</strong> where the candidate numbers sums to <strong>T</strong>.<br>The <strong>same</strong> repeated number may be chosen from <strong>C</strong> unlimited number of times.<br><strong>Note:</strong></p>
+<ul>
+<li>All numbers (including target) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">For example, given candidate set `[2, 3, 6, 7]` and target `7`, </div><div class="line">A solution set is: </div><div class="line">[</div><div class="line">  [7],</div><div class="line">  [2, 2, 3]</div><div class="line">]</div></pre></td></tr></table></figure>
+<p>Every time just add multiple <code>cur_val</code>, until <code>target &lt; 0</code> </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type candidates: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        self.nums = candidates</div><div class="line">        self.recur(<span class="number">0</span>, target, [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, target, cur_res)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> target == <span class="number">0</span>:</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums) <span class="keyword">or</span> target &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_val = nums[cur_idx]</div><div class="line">        <span class="keyword">while</span> target &gt;= <span class="number">0</span>:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, target, cur_res[:])</div><div class="line">            target  -= cur_val</div><div class="line">            cur_res += [cur_val]</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    candidates,target = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">7</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.combinationSum(candidates, target)</div></pre></td></tr></table></figure>
+<p>Every time add a <code>val</code>, no matter the position, but <code>idx</code> has to be greater than <code>cur_idx</code> to avoid repetition.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum</span><span class="params">(self, candidates, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type candidates: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        self.nums = candidates</div><div class="line">        self.recur(<span class="number">0</span>, target, [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, start_idx, target, cur_res)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> target == <span class="number">0</span>:</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> target &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> range(start_idx, len(nums)):</div><div class="line">            val = nums[idx]</div><div class="line">            self.recur(idx, target-val, cur_res+[val])</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    candidates,target = [<span class="number">2</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>], <span class="number">7</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.combinationSum(candidates, target)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-216"><a href="#Leetcode-216" class="headerlink" title="Leetcode-216"></a>Leetcode-216</h2><p><a href="https://leetcode.com/problems/combination-sum-iii/description/" target="_blank" rel="external">https://leetcode.com/problems/combination-sum-iii/description/</a></p>
+<div class="note primary"><p>Find all possible combinations of <strong>k</strong> numbers that add up to a number <strong>n</strong>, given that only numbers from 1 to 9 can be used and each combination should be a unique set of numbers.</p>
+</div>
+<p><strong>Example 1:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Input: **k** = 3, **n** = 7</div><div class="line"></div><div class="line">Output:</div><div class="line">[[1,2,4]]</div></pre></td></tr></table></figure></p>
+<p><strong>Example 2:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Input: **k** = 3, **n** = 9</div><div class="line"></div><div class="line">Output:</div><div class="line">[[1,2,6], [1,3,5], [2,3,4]]</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum3</span><span class="params">(self, k, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type k: int</div><div class="line">        :type n: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        <span class="comment"># self.n = n</span></div><div class="line">        self.recur(<span class="number">1</span>, n, k, [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_val, target, num_left, cur_res)</span>:</span></div><div class="line">        <span class="keyword">if</span> target == <span class="number">0</span> <span class="keyword">and</span> num_left == <span class="number">0</span>:</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span> </div><div class="line">        <span class="keyword">if</span> cur_val &gt; <span class="number">9</span> <span class="keyword">or</span> target &lt; <span class="number">0</span> <span class="keyword">or</span> num_left &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        self.recur(cur_val+<span class="number">1</span>, target-cur_val, num_left<span class="number">-1</span>, cur_res+[cur_val])</div><div class="line">        self.recur(cur_val+<span class="number">1</span>, target, num_left, cur_res)</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    k,n = <span class="number">3</span>,<span class="number">9</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.combinationSum3(k,n)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-46"><a href="#Leetcode-46" class="headerlink" title="Leetcode-46"></a>Leetcode-46</h2><p><a href="https://leetcode.com/problems/permutations/description/" target="_blank" rel="external">https://leetcode.com/problems/permutations/description/</a></p>
+<div class="note primary"><p>Given a collection of <strong>distinct</strong> numbers, return all possible permutations.</p>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">For example,</div><div class="line">`[1,2,3]`` have the following permutations:</div><div class="line">[</div><div class="line">  [1,2,3],</div><div class="line">  [1,3,2],</div><div class="line">  [2,1,3],</div><div class="line">  [2,3,1],</div><div class="line">  [3,1,2],</div><div class="line">  [3,2,1]</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permute</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        self.nums = nums</div><div class="line">        self.recur(range(len(nums)), [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, idxs, cur_res)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> len(idxs) == <span class="number">0</span>:</div><div class="line">            self.res.append(cur_res)</div><div class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> idxs:</div><div class="line">            cur_val, cur_idxs = nums[idx], idxs[:]</div><div class="line">            <span class="keyword">del</span> cur_idxs[cur_idxs.index(idx)]</div><div class="line">            self.recur(cur_idxs, cur_res+[cur_val])</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>]</div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.permute(nums)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-17"><a href="#Leetcode-17" class="headerlink" title="Leetcode-17"></a>Leetcode-17</h2><p><a href="https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/" target="_blank" rel="external">https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/</a></p>
+<div class="note primary"><p>Given a digit string, return all possible letter combinations that the number could represent.</p>
+<p>A mapping of digit to letters (just like on the telephone buttons) is given below.</p>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Input:Digit string &quot;23&quot;</div><div class="line">Output: [&quot;ad&quot;, &quot;ae&quot;, &quot;af&quot;, &quot;bd&quot;, &quot;be&quot;, &quot;bf&quot;, &quot;cd&quot;, &quot;ce&quot;, &quot;cf&quot;].</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">letterCombinations</span><span class="params">(self, digits)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type digits: str</div><div class="line">        :rtype: List[str]</div><div class="line">        """</div><div class="line">        <span class="keyword">if</span> digits == <span class="string">''</span>: <span class="keyword">return</span> []</div><div class="line">        self.numDict = &#123;<span class="string">'0'</span>:[<span class="string">' '</span>], <span class="string">'1'</span>:[<span class="string">'*'</span>], <span class="string">'2'</span>:[<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>], <span class="string">'3'</span>:[<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>], \</div><div class="line">                        <span class="string">'4'</span>:[<span class="string">'g'</span>, <span class="string">'h'</span>, <span class="string">'i'</span>], <span class="string">'5'</span>:[<span class="string">'j'</span>, <span class="string">'k'</span>, <span class="string">'l'</span>], <span class="string">'6'</span>:[<span class="string">'m'</span>, <span class="string">'n'</span>, <span class="string">'o'</span>], \</div><div class="line">                        <span class="string">'7'</span>:[<span class="string">'p'</span>, <span class="string">'q'</span>, <span class="string">'r'</span>, <span class="string">'s'</span>], <span class="string">'8'</span>:[<span class="string">'t'</span>, <span class="string">'u'</span>, <span class="string">'v'</span>], <span class="string">'9'</span>:[<span class="string">'w'</span>, <span class="string">'x'</span>, <span class="string">'y'</span>, <span class="string">'z'</span>]&#125;</div><div class="line">        self.res = []</div><div class="line">        self.digits = digits </div><div class="line">        self.recur(<span class="number">0</span>, <span class="string">''</span>)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, cur_res)</span>:</span></div><div class="line">        digits = self.digits</div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(digits):</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_digit = digits[cur_idx]</div><div class="line">        cur_list = self.numDict[cur_digit]</div><div class="line">        <span class="keyword">for</span> each_str <span class="keyword">in</span> cur_list:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res+each_str)</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    digits = <span class="string">'23'</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.letterCombinations(digits)</div></pre></td></tr></table></figure>
+<h1 id="With-cutting"><a href="#With-cutting" class="headerlink" title="With cutting"></a>With cutting</h1><p>The stereotype for backtracking problems with cutting.<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solve</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.nums = nums</div><div class="line">        self.res = []</div><div class="line">        self.recur(<span class="number">0</span>, [], &#123;&#125;)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, cur_res, ref_dict)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums):</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_num = nums[cur_idx]</div><div class="line">        <span class="keyword">if</span> ref_dict.get(cur_num) == <span class="keyword">None</span>:</div><div class="line">            <span class="comment"># If there's cur_num before</span></div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res, ref_dict)</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num], dict(ref_dict.items() + [(cur_num, cur_idx)]))</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            <span class="comment"># if there's no cur_num before.</span></div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num], dict(ref_dict.items() + [(cur_num, cur_idx)]))</div></pre></td></tr></table></figure></p>
+<h2 id="leetcode-90"><a href="#leetcode-90" class="headerlink" title="leetcode-90"></a>leetcode-90</h2><p><a href="https://leetcode.com/problems/subsets-ii/description/" target="_blank" rel="external">https://leetcode.com/problems/subsets-ii/description/</a></p>
+<div class="note primary"><p>Given a collection of integers that might contain duplicates, nums, return all possible subsets.</p>
+<p>Note: The solution set must not contain duplicate subsets.</p>
+</div>
+<p>For example,<br>If nums = [1,2,2], a solution is:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">[</div><div class="line">  [2],</div><div class="line">  [1],</div><div class="line">  [1,2,2],</div><div class="line">  [2,2],</div><div class="line">  [1,2],</div><div class="line">  []</div><div class="line">]</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">subsetsWithDup</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        nums = sorted(nums)</div><div class="line">        self.res = []</div><div class="line">        self.nums = nums</div><div class="line">        self.recur(<span class="number">0</span>, [], &#123;&#125;)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, cur_res, ref_dict)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums):</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_num = nums[cur_idx]</div><div class="line">        <span class="keyword">if</span> ref_dict.get(cur_num) == <span class="keyword">None</span>:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res, ref_dict)</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num], dict(ref_dict.items() + [(cur_num, cur_idx)]))</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, cur_res+[cur_num], dict(ref_dict.items() + [(cur_num, cur_idx)]))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    slt = Solution()</div><div class="line">    nums = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">2</span>]</div><div class="line">    <span class="keyword">print</span> slt.subsetsWithDup(nums)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-40"><a href="#Leetcode-40" class="headerlink" title="Leetcode-40"></a>Leetcode-40</h2><p><a href="https://leetcode.com/problems/combination-sum-ii/description/" target="_blank" rel="external">https://leetcode.com/problems/combination-sum-ii/description/</a></p>
+<div class="note primary"><p>Given a collection of candidate numbers (<strong>C</strong>) and a target number (<strong>T</strong>), find all unique combinations in <strong>C</strong> where the candidate numbers sums to <strong>T</strong>.<br>Each number in <strong>C</strong> may only be used <strong>once</strong> in the combination.<br><strong>Note:</strong></p>
+<ul>
+<li>All numbers (including target) will be positive integers.</li>
+<li>The solution set must not contain duplicate combinations.</li>
+</ul>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">For example, given candidate set `[10, 1, 2, 7, 6, 1, 5]` and target `8`, </div><div class="line">A solution set is: </div><div class="line">[</div><div class="line">  [1, 7],</div><div class="line">  [1, 2, 5],</div><div class="line">  [2, 6],</div><div class="line">  [1, 1, 6]</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">combinationSum2</span><span class="params">(self, candidates, target)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type candidates: List[int]</div><div class="line">        :type target: int</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        nums = sorted(candidates)</div><div class="line">        self.nums = nums</div><div class="line">        self.recur(<span class="number">0</span>, target, [], &#123;&#125;)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, cur_idx, target, cur_res, ref_dict)</span>:</span></div><div class="line">        <span class="comment"># print cur_idx, target, ref_dict</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> cur_idx == len(nums) <span class="keyword">and</span> target == <span class="number">0</span>:</div><div class="line">        <span class="comment"># Must wait for the end of the process.</span></div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">if</span> cur_idx &gt;= len(nums) <span class="keyword">or</span> target &lt; <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span></div><div class="line">        cur_val = nums[cur_idx]</div><div class="line">        <span class="keyword">if</span> ref_dict.get(cur_val) == <span class="keyword">None</span>:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, target, cur_res, ref_dict)</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, target-cur_val, cur_res+[cur_val], dict(ref_dict.items()+[(cur_val, cur_idx)]))</div><div class="line">        <span class="keyword">else</span>:</div><div class="line">            self.recur(cur_idx+<span class="number">1</span>, target-cur_val, cur_res+[cur_val], dict(ref_dict.items()+[(cur_val, cur_idx)]))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    candidates,target = [<span class="number">1</span>],<span class="number">1</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.combinationSum2(candidates, target)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-47"><a href="#Leetcode-47" class="headerlink" title="Leetcode-47"></a>Leetcode-47</h2><p><a href="https://leetcode.com/problems/permutations-ii/description/" target="_blank" rel="external">https://leetcode.com/problems/permutations-ii/description/</a></p>
+<div class="note primary"><p>Given a collection of numbers that might contain duplicates, return all possible unique permutations.</p>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">For example,</div><div class="line">`[1,1,2]` have the following unique permutations:</div><div class="line">[</div><div class="line">  [1,1,2],</div><div class="line">  [1,2,1],</div><div class="line">  [2,1,1]</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">permuteUnique</span><span class="params">(self, nums)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type nums: List[int]</div><div class="line">        :rtype: List[List[int]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        self.nums = nums</div><div class="line">        self.recur(range(len(nums)), [], &#123;&#125;)</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, idxs, cur_res, cur_dict)</span>:</span></div><div class="line">        nums = self.nums</div><div class="line">        <span class="keyword">if</span> len(idxs) == <span class="number">0</span>:</div><div class="line">            self.res.append(cur_res)</div><div class="line">            <span class="keyword">return</span> </div><div class="line">        <span class="keyword">for</span> idx <span class="keyword">in</span> idxs:</div><div class="line">            cur_val,cur_idxs = nums[idx], idxs[:]</div><div class="line">            <span class="keyword">del</span> cur_idxs[idxs.index(idx)]</div><div class="line"></div><div class="line">            <span class="keyword">if</span> cur_dict.get(cur_val, <span class="number">-1</span>) &lt; idx:</div><div class="line">                <span class="comment"># Maintaining the original order, so that there's no repetition.</span></div><div class="line">                self.recur(cur_idxs, cur_res+[cur_val], dict(cur_dict.items() + [(cur_val,idx)]))</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    nums = [<span class="number">1</span>,<span class="number">1</span>,<span class="number">2</span>]</div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.permuteUnique(nums)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-51"><a href="#Leetcode-51" class="headerlink" title="Leetcode-51"></a>Leetcode-51</h2><p><a href="https://leetcode.com/problems/n-queens/description/" target="_blank" rel="external">https://leetcode.com/problems/n-queens/description/</a></p>
+<div class="note primary"><p>The n-queens puzzle is the problem of placing n queens on an n×n chessboard such that no two queens attack each other.<br>Given an integer n, return all distinct solutions to the n-queens puzzle.<br>Each solution contains a distinct board configuration of the n-queens’ placement, where <code>&#39;Q&#39;</code> and <code>&#39;.&#39;</code> both indicate a queen and an empty space respectively.</p>
+</div>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">For example,</div><div class="line">There exist two distinct solutions to the 4-queens puzzle:</div><div class="line">[</div><div class="line"> [&quot;.Q..&quot;,  // Solution 1</div><div class="line">  &quot;...Q&quot;,</div><div class="line">  &quot;Q...&quot;,</div><div class="line">  &quot;..Q.&quot;],</div><div class="line"></div><div class="line"> [&quot;..Q.&quot;,  // Solution 2</div><div class="line">  &quot;Q...&quot;,</div><div class="line">  &quot;...Q&quot;,</div><div class="line">  &quot;.Q..&quot;]</div><div class="line">]</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">solveNQueens</span><span class="params">(self, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type n: int</div><div class="line">        :rtype: List[List[str]]</div><div class="line">        """</div><div class="line">        self.res = []</div><div class="line">        self.n = n</div><div class="line">        self.recur([], [], [])</div><div class="line">        <span class="comment"># Transform res to ['..Q..']</span></div><div class="line">        <span class="keyword">return</span> [[<span class="string">'.'</span>*i+<span class="string">'Q'</span>+<span class="string">'.'</span>*(n-i<span class="number">-1</span>) <span class="keyword">for</span> i <span class="keyword">in</span> each_sol] <span class="keyword">for</span> each_sol <span class="keyword">in</span> self.res]</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, vertical, diff, sum_)</span>:</span></div><div class="line">        <span class="comment"># vertical is to check the vertical line.</span></div><div class="line">        <span class="comment"># diff is to check the left bottom - right top line.</span></div><div class="line">        <span class="comment"># sum_ is to check the left top - right bottom line.</span></div><div class="line">        n = self.n</div><div class="line">        level = len(vertical)</div><div class="line">        <span class="keyword">if</span> level == n:</div><div class="line">            self.res.append(vertical)</div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> vertical <span class="keyword">and</span> level-i <span class="keyword">not</span> <span class="keyword">in</span> diff <span class="keyword">and</span> level+i <span class="keyword">not</span> <span class="keyword">in</span> sum_:</div><div class="line">                self.recur(vertical+[i], diff+[level-i], sum_+[level+i])</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    n = <span class="number">5</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.solveNQueens(n)</div></pre></td></tr></table></figure>
+<h2 id="Leetcode-52"><a href="#Leetcode-52" class="headerlink" title="Leetcode-52"></a>Leetcode-52</h2><p><a href="https://leetcode.com/problems/n-queens-ii/description/" target="_blank" rel="external">https://leetcode.com/problems/n-queens-ii/description/</a><br><div class="note primary"><p>Follow up for N-Queens problem.<br>Now, instead outputting board configurations, return the total number of distinct solutions.  </p>
+</div></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span><span class="params">(object)</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">totalNQueens</span><span class="params">(self, n)</span>:</span></div><div class="line">        <span class="string">"""</span></div><div class="line">        :type n: int</div><div class="line">        :rtype: int</div><div class="line">        """</div><div class="line">        self.res = <span class="number">0</span></div><div class="line">        self.n = n</div><div class="line">        self.recur([], [], [])</div><div class="line">        <span class="keyword">return</span> self.res</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">recur</span><span class="params">(self, vertical, diff, sum_)</span>:</span></div><div class="line">        n = self.n</div><div class="line">        level = len(vertical)</div><div class="line">        <span class="keyword">if</span> level == n:</div><div class="line">            self.res += <span class="number">1</span></div><div class="line">            <span class="keyword">return</span></div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n):</div><div class="line">            <span class="keyword">if</span> i <span class="keyword">not</span> <span class="keyword">in</span> vertical <span class="keyword">and</span> level-i <span class="keyword">not</span> <span class="keyword">in</span> diff <span class="keyword">and</span> level+i <span class="keyword">not</span> <span class="keyword">in</span> sum_:</div><div class="line">                self.recur(vertical+[i], diff+[level-i], sum_+[level+i])</div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    n = <span class="number">5</span></div><div class="line">    slt = Solution()</div><div class="line">    <span class="keyword">print</span> slt.totalNQueens(n)</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/11/dp/" rel="prev" title="dynamic programming summary">
+                dynamic programming summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Without-Cutting"><span class="nav-number">1.</span> <span class="nav-text">Without Cutting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-78"><span class="nav-number">1.1.</span> <span class="nav-text">leetcode-78</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-39"><span class="nav-number">1.2.</span> <span class="nav-text">Leetcode-39</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-216"><span class="nav-number">1.3.</span> <span class="nav-text">Leetcode-216</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-46"><span class="nav-number">1.4.</span> <span class="nav-text">Leetcode-46</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-17"><span class="nav-number">1.5.</span> <span class="nav-text">Leetcode-17</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#With-cutting"><span class="nav-number">2.</span> <span class="nav-text">With cutting</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#leetcode-90"><span class="nav-number">2.1.</span> <span class="nav-text">leetcode-90</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-40"><span class="nav-number">2.2.</span> <span class="nav-text">Leetcode-40</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-47"><span class="nav-number">2.3.</span> <span class="nav-text">Leetcode-47</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-51"><span class="nav-number">2.4.</span> <span class="nav-text">Leetcode-51</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Leetcode-52"><span class="nav-number">2.5.</span> <span class="nav-text">Leetcode-52</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/11/03/backtracking/';
+          this.page.identifier = '2017/11/03/backtracking/';
+          this.page.title = 'Backtracking summary';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+<!--added-->
+
+
+</body>
+</html>
