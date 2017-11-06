@@ -1,0 +1,1005 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="machine learning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="SVM, logistic regression and Kernel trick; Decision tree, Random forest Adaboost and GBDT; VC dimension.">
+<meta name="keywords" content="machine learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine learning (a)">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/11/06/machine-learning-a/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="SVM, logistic regression and Kernel trick; Decision tree, Random forest Adaboost and GBDT; VC dimension.">
+<meta property="og:updated_time" content="2017-11-06T09:01:08.107Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine learning (a)">
+<meta name="twitter:description" content="SVM, logistic regression and Kernel trick; Decision tree, Random forest Adaboost and GBDT; VC dimension.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/11/06/machine-learning-a/"/>
+
+
+
+
+
+  <title> Machine learning (a) | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/11/06/machine-learning-a/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Machine learning (a)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-06T13:50:58+08:00">
+                2017-11-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/06/machine-learning-a/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/06/machine-learning-a/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/06/machine-learning-a/" class="leancloud_visitors" data-flag-title="Machine learning (a)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>SVM</code>, <code>logistic regression</code> and <code>Kernel trick</code>; <code>Decision tree</code>, <code>Random forest</code> <code>Adaboost</code> and <code>GBDT</code>; <code>VC dimension</code>.<br><a id="more"></a></p>
+<h1 id="SVM-logistic-regression-and-Kernel-trick"><a href="#SVM-logistic-regression-and-Kernel-trick" class="headerlink" title="SVM, logistic regression and Kernel trick"></a>SVM, logistic regression and Kernel trick</h1><p>The definition of hyperplane: $w^Tx + b = 0$.<br>Assumption of linear separable: $y_i (w^T x_i + b) &gt; 0$.<br>Scale $w$ and $b$ to let $y_i (w^T x_i + b) \geq 1$.<br>The distance between point and line: $r = \frac{yi (w^T x_i + b)}{\Vert w \Vert}$<br>Minimum distance between point and line: $\frac{1}{\Vert w \Vert}$</p>
+<h2 id="SVM-and-kernel"><a href="#SVM-and-kernel" class="headerlink" title="SVM and kernel"></a>SVM and kernel</h2><h3 id="Without-slack-variables"><a href="#Without-slack-variables" class="headerlink" title="Without slack variables"></a>Without slack variables</h3><p>Original problem:<br>$$\min_{w,b} \frac{1}{2} \Vert w \Vert^2 \\ s.t. y_i (w^T x_i + b) \geq 1, i=1,2,\dots,n$$</p>
+<p>Definition of Lagrange Function:<br>$$L(w, b, a) = \frac{1}{2} \Vert w \Vert^2 - \sum_{i=1}^n \alpha_i (y_i (w^T x +b) - 1)$$</p>
+<p>Original problem $\implies$:<br>$$\min_{w,b} \max_{\alpha \geq 0} L(w, b, a)$$</p>
+<p>With KKT condition you can switch $\max$ and $\min$:<br>$$\max_{\alpha \geq 0} \min_{w,b} L(w,b,\alpha) $$</p>
+<p>Derivative w.r.t $w$ and $b$:<br>$$\frac{\partial L}{\partial w} = 0 \implies w = \sum_{i=1}^n \alpha_i y_i x_i$$</p>
+<p>$$\frac{\partial L}{\partial w} = 0 \implies \sum_{i=1}^n \alpha_i y_i = 0$$</p>
+<p>Replace $w$ with the above term in $L$:<br>$$L(\alpha) = L(w,b,\alpha) = \sum_{i=1}^n \alpha_i - \frac{1}{2} \sum_{i,j=1}^n \alpha_i \alpha_j y_i y_j x_i^T x_j$$</p>
+<p>So original problem $\implies$<br>$$\max \sum_{i = 1}^n \alpha_i - \frac{1}{2} \alpha_i \alpha_j y_i y_j x_i^T  x_j \ s.t. \alpha \geq 0, i = 1, \dots, n \ \sum_{i=1}^n \alpha_i y_i = 0$$</p>
+<ul>
+<li>For points where $\alpha = 0$, $y_i (w^T x_i + b) - 1 &gt; 0$. They are too far from decision plane, so they are not supporting vectors.</li>
+<li>For points where $\alpha &gt; 0$, $y_i (w^T x_i + b) - 1 = 0$. Their distances to decision plane is 1, so they are supporting vectors.</li>
+</ul>
+<h3 id="With-slack-variables"><a href="#With-slack-variables" class="headerlink" title="With slack variables"></a>With slack variables</h3><p>Original problems:<br>$$\min \frac{1}{2} \Vert w \Vert^2 + c \sum_{i=1}^n \epsilon_i \ s.t. y_i (w^T x_i + b) \geq 1 - \epsilon_i \<br>\epsilon_i \geq 0$$</p>
+<p>Or you can write it like this:<br>$$\min_{b,w} \frac{1}{2} w^Tw + C \sum_{n=1}^N \max(1 - y_n w^T z_n, 0)$$</p>
+<p>$\implies$<br>$$\min_{b, w} \frac{1}{2} w^T w + C \hat{E}_{SVM} (y, w^T x)$$</p>
+<p>Definition of Lagrangian Function:<br>$$L(\alpha, \beta, w, b, \epsilon) = \frac{1}{2} \Vert w \Vert + c \sum_{i=1}^n \epsilon_i  - \sum_{i=1}^n \alpha_i (y_i (w^T x_i + b)-1 + \epsilon_i) -\sum_{i=1}^n \beta_i \epsilon_i$$</p>
+<p>Original problems $\implies$<br>$$\min_{\epsilon, w, b} \max_{\alpha \geq, \beta \geq 0} L(\alpha, \beta, w, b, \epsilon_i)$$ </p>
+<p>With KKT condition:<br>$$\max_{\alpha\ geq 0, \beta \geq 0} \min_{\epsilon, w,b} L(\alpha, \beta, w, b, \epsilon)$$</p>
+<p>Take derivative w.r.t $w$, $b$, $\epsilon_i$:<br>$$\frac{\partial L}{\partial w} = 0 \implies w = \sum_{i=1}^n \alpha_i y_i x_i$$<br>$$\frac{\partial L}{\partial w} = 0 \implies  \sum_{i=1}^n \alpha_i y_i = 0$$<br>$$\frac{\partial L}{\partial \epsilon} = 0 \implies c - \alpha_i - \beta_i = 0$$</p>
+<p>Using the above terms to substitute terms in original problems:<br>$$<br>\max_{\alpha} \sum \alpha_i - \frac{1}{2} \sum_{i,j = 1}^n \alpha_i \alpha_j y_i y_j x_i^T x_j \<br>s.t. c \geq \alpha_i \geq 0 \<br>\sum_i \alpha_i y_i = 0<br>$$</p>
+<ul>
+<li>For points where $\alpha_i = 0$, $y_i (w^T x_i + b) &gt; 1 - \epsilon_i$. So they are not supporting vectors.</li>
+<li>For points where $\alpha_i &gt; 0$, $y_i (w^T x_i + b) = 1 - \epsilon_i$, So they are supporting vectors.</li>
+</ul>
+<h3 id="To-solve-it-and-predict"><a href="#To-solve-it-and-predict" class="headerlink" title="To solve it and predict"></a>To solve it and predict</h3><p>The above QP problems can be solved using SMO algorithms.<br>After getting $\alpha$, $w$ can be gotten through $w = \sum_{i=1}^n \alpha_i y_i x_i$.  </p>
+<ul>
+<li>Without slack variables：$b = y_k  - \sum \alpha_i y_i x_i^T x_k$ ( Using $\forall k, s.t. \alpha_k &gt; 0$)  </li>
+<li>With slack variables：$b = y_k - \sum \alpha_i y_i x_i^T x_k$ ( Using $\forall k, s.t. c \geq \alpha_k &gt; 0$)</li>
+</ul>
+<p>After introducing kernel function, here are several things to change:</p>
+<ul>
+<li><p>$$\max_{\alpha} \sum \alpha_i - \frac{1}{2} \sum_{i,j=1}^n \alpha_i \alpha_j y_i y_j x_i^T x_j \\ s.t. c \geq \alpha_i \geq 0 \ \sum \alpha_i y_i = 0$$<br>$\implies$<br>$$\max_{\alpha} \sum \alpha_i - \frac{1}{2} \sum_{i,j=1}^n \alpha_i \alpha_j y_i y_j k(x_i, x_j) \\ s.t. c \geq \alpha_i \geq 0 \ \sum \alpha_i y_i = 0$$</p>
+</li>
+<li><p>To calculate $b$:<br>$$b = y_k - \sum \alpha_i y_i x_i^T x_k \implies b = y_k - \sum \alpha_i y_i k(x_i, x_k)$$</p>
+</li>
+<li>To predict the value $f(x) = w^T x +b$, $$f(x) = \sum_{i=1}^n \alpha_i y_i x_i^T x  + b \implies f(x) = \sum_{i=1}^n \alpha_i y_i k(x_i, x) + b$$</li>
+</ul>
+<h2 id="LR-and-kernel"><a href="#LR-and-kernel" class="headerlink" title="LR and kernel"></a>LR and kernel</h2><h3 id="Logistic-regression-error"><a href="#Logistic-regression-error" class="headerlink" title="Logistic regression error"></a>Logistic regression error</h3><p>Maximum likelihood of logistic regression<br>$$\max_{w} \prod_{n=1}^N \theta(y_n w^T x_n)$$<br>$\theta(a) = \frac{1}{1+\exp(-a)}$ is the sigmoid function.<br>To be specific, terms are like</p>
+<p>$$<br>\begin{cases}<br>\theta(w^T x_n), \text{ if } y_n w^T x_n &lt; 0\\<br>1 - \theta(w^T x_n ), \text{ if } y_n w^T x_n &gt;0<br>\end{cases}$$</p>
+<p>$\min$ - log likelihood: $\implies$<br>$$\min_w \frac{1}{N} \sum_{n=1}^N - \ln \theta (y_n w^T x_n)$$</p>
+<p>Replace $\theta(\cdot)$ with its definition: $\implies$<br>$$\min_w \frac{1}{N} \sum_{n=1}^N \ln(1 + \exp(- y_n w^T x_n))$$</p>
+<p>Using the definition of $E_{CE}(w, x, y) = \ln(1 + \exp(-yw^Tx))$ (cross entropy error):<br>$$\min_w \frac{1}{N} \sum_{n=1}^N E_{CE}(w, x_n, y_n)$$</p>
+<h3 id="Representer-therom"><a href="#Representer-therom" class="headerlink" title="Representer therom"></a>Representer therom</h3><p>Claim: for any L2-regularized linear model<br>$$\min_w \frac{\lambda}{N} w^T w + \frac{1}{N} \sum_{n=1}^N err(y_n, w^T x_n)$$</p>
+<p>Optimal $w^* = \sum_{n=1}^N \beta_n x_n$<br>即所有二次规范的线性模型，不论选择什么损失函数，最优参数都可以表示为样本点的线性组合。<br>Proof:<br>假设$w^* = w_{\perp}  + w_{\parallel}$.<br>分别用$w^*$和$w_{\perp}$计算上面的值，右边一项都一样，但左边一项$w_{\perp}$有可能更小，所以$w^* = w_{\perp}$</p>
+<p>于是我们可以用kernel trick解所有的二次规范的线性模型，将他们变为非线性的。</p>
+<p>将$w = \sum_{n=1}^N \beta_n x_n$带入原式得：<br>$$\min_{\beta} \frac{\lambda}{N} \beta^T K \beta + \sum_{n=1}^N err(y_n, \sum_{m=1}^N \beta_n K(x_n, x_m))$$</p>
+<ul>
+<li>如果选择$err = E_{CE}$ (cross entropy), 得到 kernel logistic regression (not sparse).</li>
+<li>如果选择$err = E_{SVM}$ (hinge loss), 得到soft margin SVM (sparse).</li>
+<li>如果选择$err = E_{LS}$ (least square), 得到 kernel ridge regression (not sparse).</li>
+<li>如果选择$err = E_{Tube}$ (tube error), 得到SVR (sparse).</li>
+</ul>
+<p>$E_{Tube}$ is used for tube regression $E_{Tube} = \max(\vert s - y \vert - \epsilon, 0)$, also known as $\epsilon$-insensitive error with $\epsilon &gt; 0$</p>
+<p>如果得到sparse的解，一般都需要分段函数，但这会导致原问题不可分，需要先转换成约束优化问题，再转化成对应的对偶问题(QP规划)来解。</p>
+<h1 id="GBDT"><a href="#GBDT" class="headerlink" title="GBDT"></a>GBDT</h1><h2 id="Decision-Tree-and-Ensemble"><a href="#Decision-Tree-and-Ensemble" class="headerlink" title="Decision Tree and Ensemble"></a>Decision Tree and Ensemble</h2><ul>
+<li><strong>Gini index</strong> — CART (binary tree) (average for regression, mode for classification).</li>
+</ul>
+<p>$$Gini(D) = 1 - \sum_i p_i ^2$$<br>$$Gini_R(D) = \frac{\vert D_1 \vert}{\vert D \vert} Gini(D_1) + \frac{\vert D_2 \vert }{\vert D \vert} Gini(D_2) $$<br>选择Gini系数最大的属性R切分<br>$$\arg\max_R Gini(D) - Gini_R(D)$$</p>
+<ul>
+<li><p><strong>Information gain</strong> — ID3.<br>Entropy<br>$$E(D) = - \sum_i p_i \log p_i$$<br>Information gain<br>$$IG_R(D) = E(D) - \sum \frac{\vert D_i \vert }{\vert D \vert} E(D_i)$$</p>
+</li>
+<li><p><strong>Information gain rate</strong> — C4.5.<br>$$E_D = - \sum \frac{\vert D_i \vert}{\vert D \vert} \log \frac{\vert D_i \vert}{\vert D \vert}$$<br>Information gain rate:<br>$$IGR = \frac{IG}{E_D}$$</p>
+</li>
+</ul>
+<h2 id="Random-forest"><a href="#Random-forest" class="headerlink" title="Random forest"></a>Random forest</h2><p>To construct a forest with $T$ trees, and $M$ features.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">1. Bootstrapping (Bagging) from D to gain D_i (i = 1,...,T), and for each i:</div><div class="line">    2. Randomly choose m features from M features.</div><div class="line">    3. Construct CART tree to minimal depth.</div><div class="line">4. For prediction, given x to label, vote for the final result.</div></pre></td></tr></table></figure>
+<h3 id="Feature-importance-and-OOB-error"><a href="#Feature-importance-and-OOB-error" class="headerlink" title="Feature importance and OOB error."></a>Feature importance and OOB error.</h3><p>OOB — out of bag error: validation using out of bag examples.<br>$$ E_{OOB} = \sum_{n=1}^N I[T_{-}(x_n) \neq y_n]$$</p>
+<p>Permutation test: shuffle the feature inside entire $D$.<br>$$\begin{align*}<br>importance(i) &amp;= performance(D) - performance(D^{(p)})\\<br>&amp;= E_{OOB}(G) - E_{OOB}(G^{(p)})\\<br>&amp;= E_{OOB}(G) - E_{OOB}^{(p)}(G)<br>\end{align*}$$ </p>
+<h2 id="Adaboost-and-Gradientboost"><a href="#Adaboost-and-Gradientboost" class="headerlink" title="Adaboost and Gradientboost"></a>Adaboost and Gradientboost</h2><h3 id="Adaboost"><a href="#Adaboost" class="headerlink" title="Adaboost"></a>Adaboost</h3><p>样本权重：$u^{(t)}_n$, 分类器权重: $\alpha_t$<br>错误率：$\epsilon_t = \sum_n u_t I[g_t(x_n) \neq y_n]$</p>
+<p>$$\alpha_t = \ln \sqrt \frac{1 - \epsilon_t}{\epsilon_t} $$</p>
+<p>$$u^{(t+1)}_n = \begin{cases}<br>u^{(t)}_n / \sqrt \frac{1 - \epsilon_t}{\epsilon_t}, \text{ if }g_t(x_n) = y_n\\<br>u^{(t)}_n \cdot \sqrt \frac{1 - \epsilon_t}{\epsilon_t}, \text{ if }g_t(x_n) \neq y_n<br>\end{cases}$$</p>
+<p>$$u_n^{(t+1)} = u_n^{(t)} \exp(- y_n \alpha_t g_t(x_n)) = \dots = \frac{1}{N} \exp( - y_n \sum_{t = 1}^T \alpha_t g_t(x_n))$$</p>
+<p>最终的决定函数：<br>$$G(x) = sign(\sum^T_{t=1} \alpha_t g_t(x))$$</p>
+<p>优化观点下的Adaboost:<br>$$E_{ADA}(y_n, s_n) = \exp(-y_n s_n)$$</p>
+<p>$$\begin{align*}<br>\min_{\eta} \min_{h} \hat{E}_{ADA} (y, s+\eta h) &amp;= \frac{1}{N} \sum_{n=1}^NE_{ADA}(y_n, s_n + \eta h)\\<br>&amp;= \frac{1}{N} \sum_{n=1}^N E_{ADA}(y_n, s) E_{ADA}(y_n, \eta h)\\<br>&amp;= \frac{1}{N} \sum_{t=1}^N u_n^{(t)} E_{ADA}(y_n, \eta h)<br>\end{align*}<br>$$</p>
+<p>对于选择$h$ (即$\min_h$) 的问题，我们用更新后的$u_n^{(t)}$ 训练得到$h$ 作为$g_t$.</p>
+<p>对于选择$\eta$ (即$\min_{\eta}$)的问题，解优化问题：</p>
+<p>$$\min_{\eta} \frac{1}{N} \sum_{n=1}^N u_n^{(t)} \exp(- y_n  \eta g_t(x_n))$$<br>简化得<br>$$\min_{\eta} \frac{1}{N} \epsilon_t \exp(\eta) + (1 - \epsilon_t) \exp(- \eta)$$</p>
+<p>解得：$\eta = \ln \sqrt \frac{1 - \epsilon_t}{\epsilon_t}$</p>
+<h3 id="Gradientboost"><a href="#Gradientboost" class="headerlink" title="Gradientboost"></a>Gradientboost</h3><p>损失函数：$E_{err} (y, s) = (y-s)^2$ </p>
+<p>$$\begin{align*}<br>\min_{\eta} \min_h \hat{E}_{err}(y, s+\eta h) &amp;= \frac{1}{N} E_{err}(y_n, s_n+\eta h(X_n))\\<br>&amp;= \frac{1}{N} E_{err} (y_n - s_n, \eta h(x_n))<br>\end{align*}$$</p>
+<p>对于选择$h$ (即$\min_h$)的问题，是一个linear regression on $\{(x_n, y_n - s_n)\}$，得$h(x)$作为$g_t(x)$</p>
+<p>对于选择$\eta$ (即$\min_{\eta}$)的问题，是一个单变量linear regression on $\{(g_t(x_n), y_n - s_n) \}$, 得到$\eta$</p>
+<h1 id="VC-dimension"><a href="#VC-dimension" class="headerlink" title="VC dimension"></a>VC dimension</h1><h2 id="Hoeffding-Inequality"><a href="#Hoeffding-Inequality" class="headerlink" title="Hoeffding Inequality"></a>Hoeffding Inequality</h2><p>二分问题中从一个分布中抽取$N$个样本估计，用频率$v$估计概率$p$的效果：<br>$$p[\vert v - p \vert &gt; \epsilon] \leq 2 \exp(-2\epsilon^2 N)$$<br>定义：<br>$$E_{out}(h) = \epsilon_{x \sim p} [h(x) \neq f(x)]$$</p>
+<p>$$E_{in}(h) = \frac{1}{N} \sum_{n=1}^N [h(x_n \neq y_n)]$$</p>
+<p>于是:<br>$$p[\vert E_{in}(h) - E_{out}(h) \vert &gt; \epsilon] \leq 2 \exp(-2\epsilon^2 N)$$</p>
+<p>对于假设空间中的每一个$h_i$, 我们要选训练集$D_j$来计算$E_{in}$, 我们定义BAD事件为$ \vert E_{in} - E_{out} \vert &gt; \epsilon $, 对于每个给定的$h_i$, 随机抽取$D_j$发生BAD的概率为：$2 \exp(-2\epsilon^2)$</p>
+<table>
+<thead>
+<tr>
+<th>$H$</th>
+<th>$D_1$</th>
+<th>$D_2$</th>
+<th>$\dots$</th>
+<th>Hoeffding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$h_1$</td>
+<td>BAD</td>
+<td>not BAD</td>
+<td>$\dots$</td>
+<td>$p_D [\text{BAD D for } h_1] &lt; 2 \exp(-2 \epsilon ^2 N)$</td>
+</tr>
+<tr>
+<td>$h_2$</td>
+<td>Not BAD</td>
+<td>Not BAD</td>
+<td>$\dots$</td>
+<td>$p_D [\text{BAD D for } h_2] &lt; 2 \exp(-2 \epsilon ^2 N)$</td>
+</tr>
+<tr>
+<td>$\dots$</td>
+<td>…</td>
+<td>…</td>
+<td>$\dots$</td>
+<td>…</td>
+</tr>
+<tr>
+<td>$h_M$</td>
+<td>BAD</td>
+<td>Not BAD</td>
+<td>$\dots$</td>
+<td>$p_D [\text{BAD D for } h_M] &lt; 2 \exp(-2 \epsilon ^2 N)$</td>
+</tr>
+<tr>
+<td>$\exists h_i$</td>
+<td>BAD</td>
+<td>Not BAD</td>
+<td>$\dots$</td>
+<td>$p_D [\exists h_i\text{BAD D for } h_i] &lt; 2 M \exp(-2 \epsilon ^2 N)$</td>
+</tr>
+</tbody>
+</table>
+<p>Effective number of lines:<br>maximum kinds of lines with respect to $N$ inputs $x_1$, $x_2$, $\dots$, $x_N$.</p>
+<p><strong>Def</strong>:<br>A dichotomy:<br>$h(x_1, x_2, \dots, x_n) = (h(x_1), h(x_2), \dots, h(x_n)) \in \{-1, +1\}^N$<br>即hypothesis limited to the eyes of $x_1, x_2,\dots,x_n $</p>
+<p><strong>Def</strong>:<br>Growth function: $$ m_H(N) =  \max_{x_1, x_2, \dots, x_N \in X}\vert H(x_1, x_2, \dots, x_N) \vert$$</p>
+<p>claim: $m_H(k) &lt; 2^k$</p>
+<h2 id="VC-bound-and-VC-dimension"><a href="#VC-bound-and-VC-dimension" class="headerlink" title="VC bound and VC dimension"></a>VC bound and VC dimension</h2><p>Bounding function:<br>maximum possible $m_H(N)$ where break point = $k$.<br>$$B(N, K) \leq B(N-1, k) + B(N-1, k-1)$$</p>
+<p>$B(N, K) \leq \sum_{i=1}^N C_N^i$</p>
+<p>也就是说当给定K时，Bounding function $B(N, k)$被$N$的$k-1$次多项式bound住。接下来用$E_{in}’$来代替$E_{out}$.<br>$$p[ \exists h \in H \text{ s.t. } \vert E_{in}(h) - E_{out}(h) \vert &gt; \epsilon]<br>\leq 2 p[\exists h \in H \text{ s.t. } \vert E_{in}(h) - E_{in}’(h) \vert &gt; \epsilon /2]$$<br>即：<br>$$BAD \leq 2 p[\exists h \in H \text{ s.t. } \vert E_{in}(h) - E_{in}’(h) \vert &gt; \epsilon /2]$$<br>有多少种$E_{in}$和$E_{in}’$的组合即$H$有多少种在$x_1, x_2, \dots, x_N,x_1’, x_2’, \dots, x_N’$上的表现：$\vert H(x_1, x_2, \dots, x_N, x_1’, x_2’, \dots, x_N’) \vert$即$m_H(2N)$, 然而这还不能用Hoeffding, 需要将$E_{in}’$转换为所有样本(包括训练和验证样本)上的错误率。</p>
+<p>$$\vert E_{in} - E_{in}’ \vert &gt; \frac{\epsilon}{2} \iff \vert E_{in} - \frac{E_{in} + E_{in}’}{2} \vert &gt; \frac{\epsilon}{4}$$</p>
+<p>综合以上过程得到$VC bound $:<br>$$P[\exists h \in H, \text{ s.t. } \vert E_{in}(h) - E_{out}(h) \vert &gt; \epsilon ] \leq  4 m_H(2N) \exp(- \frac{1}{8} \epsilon^2 N)$$</p>
+<p>vc-dimension $d_{vc}$ $\implies$ maximum non-break point.</p>
+<p>用$d_{vc}$写$$p[\vert E_{in}(g) - E_{out}(g) \vert &gt; \epsilon ] \leq 4 (2N)^{d_{vc}} \exp(- \frac{1}{8} \epsilon^2 N)$$</p>
+<p>定义不等式右边为$\delta$, 原式可以写为 with probability $\geq 1 - \delta$, GOOD will happen i.e. $\vert E_{in}(g) - E_{out}(g) \vert \leq \epsilon $,<br>其中$$\epsilon = \sqrt{\frac{8}{N} \ln (\frac{4(2N)^{d_{vc}}}{\delta})}$$<br>即<br>$$E_{in} - \sqrt{\frac{8}{N} \ln (\frac{4(2N)^{d_{vc}}}{\delta})} \leq E_{out} \leq E_{in} + \sqrt{\frac{8}{N} \ln (\frac{4(2N)^{d_{vc}}}{\delta})}$$</p>
+<p>$\sqrt{\frac{8}{N} \ln (\frac{4(2N)^{d_{vc}}}{\delta})}$ is often referred as model complexity.</p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=28830410&auto=1&height=66"></iframe>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/03/backtracking/" rel="prev" title="Backtracking summary">
+                Backtracking summary <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVM-logistic-regression-and-Kernel-trick"><span class="nav-number">1.</span> <span class="nav-text">SVM, logistic regression and Kernel trick</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#SVM-and-kernel"><span class="nav-number">1.1.</span> <span class="nav-text">SVM and kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Without-slack-variables"><span class="nav-number">1.1.1.</span> <span class="nav-text">Without slack variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#With-slack-variables"><span class="nav-number">1.1.2.</span> <span class="nav-text">With slack variables</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#To-solve-it-and-predict"><span class="nav-number">1.1.3.</span> <span class="nav-text">To solve it and predict</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LR-and-kernel"><span class="nav-number">1.2.</span> <span class="nav-text">LR and kernel</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Logistic-regression-error"><span class="nav-number">1.2.1.</span> <span class="nav-text">Logistic regression error</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Representer-therom"><span class="nav-number">1.2.2.</span> <span class="nav-text">Representer therom</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GBDT"><span class="nav-number">2.</span> <span class="nav-text">GBDT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Decision-Tree-and-Ensemble"><span class="nav-number">2.1.</span> <span class="nav-text">Decision Tree and Ensemble</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Random-forest"><span class="nav-number">2.2.</span> <span class="nav-text">Random forest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Feature-importance-and-OOB-error"><span class="nav-number">2.2.1.</span> <span class="nav-text">Feature importance and OOB error.</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Adaboost-and-Gradientboost"><span class="nav-number">2.3.</span> <span class="nav-text">Adaboost and Gradientboost</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Adaboost"><span class="nav-number">2.3.1.</span> <span class="nav-text">Adaboost</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Gradientboost"><span class="nav-number">2.3.2.</span> <span class="nav-text">Gradientboost</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VC-dimension"><span class="nav-number">3.</span> <span class="nav-text">VC dimension</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Hoeffding-Inequality"><span class="nav-number">3.1.</span> <span class="nav-text">Hoeffding Inequality</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VC-bound-and-VC-dimension"><span class="nav-number">3.2.</span> <span class="nav-text">VC bound and VC dimension</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/11/06/machine-learning-a/';
+          this.page.identifier = '2017/11/06/machine-learning-a/';
+          this.page.title = 'Machine learning (a)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+<!--added-->
+
+
+</body>
+</html>
