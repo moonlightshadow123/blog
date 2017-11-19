@@ -1,0 +1,952 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="machine learning," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="NNet RbfNet; LSA, pLSA, PCA; PCA, LDA; EM, k-means.">
+<meta name="keywords" content="machine learning">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Machine learning (b)">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/11/09/machine-learning2/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="NNet RbfNet; LSA, pLSA, PCA; PCA, LDA; EM, k-means.">
+<meta property="og:updated_time" content="2017-11-12T09:03:52.906Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Machine learning (b)">
+<meta name="twitter:description" content="NNet RbfNet; LSA, pLSA, PCA; PCA, LDA; EM, k-means.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/11/09/machine-learning2/"/>
+
+
+
+
+
+  <title> Machine learning (b) | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/11/09/machine-learning2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Machine learning (b)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-09T15:15:19+08:00">
+                2017-11-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/09/machine-learning2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/09/machine-learning2/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/09/machine-learning2/" class="leancloud_visitors" data-flag-title="Machine learning (b)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>NNet</code> <code>RbfNet</code>; <code>LSA</code>, <code>pLSA</code>, <code>PCA</code>; <code>PCA</code>, <code>LDA</code>; <code>EM</code>, <code>k-means</code>.<br><a id="more"></a></p>
+<h1 id="Nnet-and-RBFnet"><a href="#Nnet-and-RBFnet" class="headerlink" title="Nnet and RBFnet"></a>Nnet and RBFnet</h1><h2 id="Backprop-on-Nnet"><a href="#Backprop-on-Nnet" class="headerlink" title="Backprop on Nnet"></a>Backprop on Nnet</h2><p>Initiate all weights $w_{ij}^{(l)}$</p>
+<ol>
+<li>If stochastic: randomly pick $n \in {1,2, \dots, N}$.</li>
+<li>Forward: compute all $x_{i}^{(l)}$ with $x^{(0)} = x_n$.</li>
+<li>Backward: compute all $\sigma_j^{(l)}$ subject to $x^{(0)} = x_n$.</li>
+<li>Gradient descent: $w<em>{ij}^{(l)} \leftarrow w</em>{ij}^{(l)} - \eta x^{(l-1)}_j \sigma_j^{(l)}$ </li>
+</ol>
+<p>Return $g_{nnet}(x) = \tanh( \sum_j w_{jk}^{(2)} \cdot \tanh( \sum_i w_{ij}^{(1)} x_j))$</p>
+<h2 id="RBFnet"><a href="#RBFnet" class="headerlink" title="RBFnet"></a>RBFnet</h2><p>$$h(x) = output(\sum_{m=1}^M \beta_m RBF(x, \mu_m))$$</p>
+<ul>
+<li>Full RBF M=N and $\mu_m = x_m$ 有多少数据就有多少样本中心，然后根据距离中心的远近投票。极端情况 — 只用一个投票： nearest neighbor.</li>
+<li>SVM $$g_{svm}(x) = sign(\sum_{SV} \alpha_m y_m \exp(- r \Vert x - x_m \Vert^2 +b))$$<br>只用 support vector 作为中心 $\mu_m$.</li>
+<li><p>RBF network with k-means:</p>
+<ol>
+<li>run k-means with $K=M$ to get ${\mu_m}$.</li>
+<li>construct transform $\phi(x)$ from RBF(say, Gaussian) at $\mu_m$.<br>$\phi(x) = [RBF(x, \mu_1), RBF(x, \mu_2), \dots, RBF(x, \mu_m)]$</li>
+<li>run linear model on ${(\phi(x_n), y_n)}$ to get $\beta$.</li>
+<li>return $g_{rbfnet}(x) = LinearHypothesis(\beta, \phi(x))$.</li>
+</ol>
+</li>
+</ul>
+<h1 id="LSA-pLSA-and-LDA"><a href="#LSA-pLSA-and-LDA" class="headerlink" title="LSA, pLSA and LDA"></a>LSA, pLSA and LDA</h1><h2 id="LSA"><a href="#LSA" class="headerlink" title="LSA"></a>LSA</h2><table>
+<thead>
+<tr>
+<th></th>
+<th>cat</th>
+<th>dog</th>
+<th>computer</th>
+<th>internet</th>
+<th>rabbit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$D_1$</td>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>2</td>
+</tr>
+<tr>
+<td>$D_2$</td>
+<td>3</td>
+<td>2</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+<td>…</td>
+</tr>
+<tr>
+<td>$D_5$</td>
+<td>2</td>
+<td>1</td>
+<td>0</td>
+<td>0</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>Document-term matrix $X \in R^{m \times n}$.<br>$X \approx U_t \Sigma_t V_t^T, U_t \in R^{m \times t}, V_t \in R^{n \times t}$</p>
+<h2 id="pLSA"><a href="#pLSA" class="headerlink" title="pLSA"></a>pLSA</h2><p>$d$ — docoment; $c$ — topic; $w$ — word.<br>$$p(w \vert d) = p(d) \sum_c p(c \vert d) p(w \vert c)$$<br>$p(c \vert d)$ — multi-nominal distribution.<br>$p(w \vert c)$ — multi-nominal distribution.</p>
+<h2 id="LDA"><a href="#LDA" class="headerlink" title="LDA"></a>LDA</h2><p>$i$ — document; $k$ — topic; $v$ — word.<br>$\theta_{i} = [\theta_{i,1},\theta_{i,2},\dots, \theta_{i,K}]$ — document-topic distribution of document $i$.<br>$\phi_{k} = [\phi_{k,1}, \phi_{k,2}, \dots, \phi_{k,V}]$ — word-topic distribution of topic $k$.</p>
+<p>Generative process of $w_{ij}$,</p>
+<ol>
+<li>Choose $\theta_i \sim Dir(\alpha)$, $i = 1, \dots, M$, $\theta_{i,k}$ = probability  that  document $i \in {1, \dots, M}$ has topic $k \in {1, \dots, K}$.</li>
+<li>Choose $\phi_k \sim Dir(\beta)$, $k = 1, \dots, K $, $\phi_{k,v}$ = probability of word $v \in {1, \dots, V}$ in topic $k \in {1,\dots, K}$.</li>
+<li>Choose $c_{ij} \sim Polynominal(\theta_i)$ (where $c_{ij} \in {1,\dots, K}$).<br>Choose $w_{ij} \sim Polynominal(\phi_{c_{ij}})$ (where $w_{ij} \in {1, \dots, V}$).</li>
+</ol>
+<h1 id="PCA-LDA"><a href="#PCA-LDA" class="headerlink" title="PCA LDA"></a>PCA LDA</h1><h2 id="LDA-Linear-Discrimination-Analysis"><a href="#LDA-Linear-Discrimination-Analysis" class="headerlink" title="LDA (Linear Discrimination Analysis)"></a>LDA (Linear Discrimination Analysis)</h2><p>定义：<br>$E_{X \vert Y}[X \vert Y = i] = \mu_i$<br>$E_{X \vert Y}[(X - \mu_i)(X - \mu_i)^{-1}] = \Sigma_i$<br>$Z = w^T X$<br>The gist of LDA:<br>$$\max = \frac{\text{between class scatter}}{\text{within class scatter}} = \frac{\left(E_{Z \vert Y}[ Z \vert Y = 1] - E_{Z \vert Y}[ Z \vert Y = 0]\right)^2}{Var[Z \vert Y = 1] + Var[Z sss\vert Y = 0]}$$</p>
+<p>其中：<br>$\left(E_{Z \vert Y}[Z \vert Y = 1] - E_{Z \vert Y}[Z \vert Y = 0]\right)^2 = (w^T(\mu_1 - \mu_0))^2 = w^T (\mu_1 - \mu_0)^T(\mu_1 - \mu_0) w$<br>$Var[Z \vert Y = i] = E_{Z \vert Y = i}[ \left(Z - \mu_i\right)^2 \vert Y = i] = w^T \Sigma_i w$<br>$$\begin{align*}<br>J(w) &amp;= \frac{\left(E_{Z \vert Y}[Z \vert Y=1] - E_{Z \vert Y}[Z \vert Y = 0]\right)^2}{Var[Z \vert Y = 1] + Var[Z \vert Y=0]} \<br>&amp;= \frac{w^T (\mu_1 - \mu_0)(\mu_1 -\mu_0)^T w}{w^T (\Sigma_1 + \Sigma_0)w} \<br>&amp;= \frac{w^T S_B w}{w^T S_w w}<br>\end{align*}$$<br>其中：<br>$S_B = (\mu_1 - \mu_0)^T (\mu_1 = \mu_0)$  — between class scatter.<br>$S_w = \Sigma_1 + \Sigma_0$ — within class scatter.<br>解优化问题：<br>$$\max_w w^T S_B w\<br>s.t. w^T S_w w = k<br>$$<br>Language 函数：<br>$$L = w^T S_B w - \lambda (w^T S_w w - k)$$<br>对$w$求导得：<br>$$2 S_B w = 2 \lambda S_w w\<br>\implies S_w^{-1} S_B w = \lambda w<br>$$<br>可知$w$是$S_w^{-1} S_B$的特征值. 而$S_B = (\mu_1 - \mu_0)^T (\mu_1 - \mu_0)$是一个秩一矩阵，于是$S_w^{-1} S_B$唯一的特征值为$S_w^{(-1)} (\mu_1 - \mu_0)$</p>
+<p>$A\alpha \alpha^T$的秩为1且唯一特征向量为$A\alpha$</p>
+<p>于是$w^* = S_w^{-1}(\mu_1 - \mu_0) = (\Sigma_0 + \Sigma_1)^{-1} (\mu_1 - \mu_0)$ </p>
+<h2 id="PCA-Principle-Component-Analysis"><a href="#PCA-Principle-Component-Analysis" class="headerlink" title="PCA (Principle Component Analysis)"></a>PCA (Principle Component Analysis)</h2><p>$X = X - \bar{X}$ is 0 mean.<br>$\Sigma = X X^T$ is the covariance matrix.<br>Objective: transform $X$ to $AX$ with largest covariance. For a single vector $\alpha$.<br>$$\max \alpha X X^T \alpha^T\<br>s.t. \alpha^T \alpha = 1$$  </p>
+<p>So $\alpha$ is the eigenvector with the largest eigenvalue. For a matrix like $A$, we can choose top $k$ largest eigenvector.</p>
+<h3 id="PCA-through-SVD"><a href="#PCA-through-SVD" class="headerlink" title="PCA through SVD"></a>PCA through SVD</h3><p>SVD the matrix $X$:<br>$XX^T = C$, $D = PCP^T$ is a square diagonal matrix. Choose the top $k$ eigenvector in $P$ to be the $A$ matrix. </p>
+<h1 id="EM-and-k-means"><a href="#EM-and-k-means" class="headerlink" title="EM and k-means"></a>EM and k-means</h1><h2 id="EM-algorithm"><a href="#EM-algorithm" class="headerlink" title="EM algorithm"></a>EM algorithm</h2><p>For each $i$, let $Q_i$ be some distribution over the $z$’s ($\sum_z Q_i(z) = 1, Q_i(z) \geq 0$)<br>$$\begin{align*}<br>\sum_i \log p(x^{(i)}; \theta) &amp;= \sum_i \log \sum_{z^{(i)}} p(x^{(i)}, z^{(i)} ;\theta)\<br>&amp;= \sum_i \log \sum_{z^{(i)}} Q_i(z^{(i)}) \frac{p(x^{(i)}, z^{(i)} ; \theta)}{Q_i(z^{(i)})}\<br>&amp; \geq \sum_i \sum_{z^{(i)}} Q_i(z^{(i)})<br>\end{align*}$$<br>The last step of the above equation: </p>
+<p>$$\log E_{z^{(i)}\sim Q_i} \left[\frac{p(x^{(i)}, z^{(i)} ; \theta)}{Q_i(z^{(i)})}\right] \geq E_{z^{(i)} \sim Q_i}\left[ \log \frac{p(x^{(i)}, z^{(i)} ; \theta)}{Q_i(z^{(i)}) } \right]$$</p>
+<p>找到一个$Q_i$去极大化左边变成了找到一个$Q_i$去极大化右边，即极大化log期望的下限，当且仅当$\frac{p(x^{(i)}, z^{(i)}; \theta)}{Q_i(z^{(i)})}=c$ 时等号成立，所以 $ Q_i(z^{(i)}) \propto p(x^{(i)}, z^{(i)}; \theta)$</p>
+<p>$$\begin{align*}<br>Q_i(z^{(i)}) &amp;= \frac{p(x^{(i)}, z^{(i)}; \theta)}{\sum_z p(x^{(i)}, z^{(i)}; \theta)}\<br>&amp;= \frac{p(x^{(i)}, z^{(i)}; \theta)}{p(x^{(i)}; \theta)}\<br>&amp;= p(z^{(i)} \vert x^{(i)} ; \theta)<br>\end{align*}$$</p>
+<p>So, 总结起来：<br>E-step:<br>$$Q_i(z^{(i)}) := p(z^{(i)} \vert x^{(i)}; \theta)$$<br>M-step:<br>Maximize log似然的下限：<br>$$\theta:= \arg\max_{\theta} \sum_i \sum_{z^{(i)}} Q_i(z^{(i)}) \log \frac{p(x^{i}, z^{(i)}; \theta)}{Q_i(z^{(i)})}$$</p>
+<h2 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a>k-means</h2><ol>
+<li>随机选取K个聚类质心点(cluster centroids)为$\mu_1, \mu_2, \dots, \mu_k \in R^n$.</li>
+<li>重复下面过程直到收敛<br> 对于每个样例$i$, 计算其应该属于的类：<br> $$c^{(i)} := \arg\min_j \Vert x^{(i)} -\mu_j \Vert^2$$<br> 对于每一个类$j$,重新计算该类的质心<br> $$\mu_j = \frac{\sum^m_{i=1} I{ c^{(i)}=j } x^{(j)}}{\sum^m_{i=1} I{ c^{(i)} = j}}$$</li>
+</ol>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/machine-learning/" rel="tag"># machine learning</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/20/design-pattern/" rel="next" title="Design pattern">
+                <i class="fa fa-chevron-left"></i> Design pattern
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/06/machine-learning-a/" rel="prev" title="Machine learning (a)">
+                Machine learning (a) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Nnet-and-RBFnet"><span class="nav-number">1.</span> <span class="nav-text">Nnet and RBFnet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Backprop-on-Nnet"><span class="nav-number">1.1.</span> <span class="nav-text">Backprop on Nnet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#RBFnet"><span class="nav-number">1.2.</span> <span class="nav-text">RBFnet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#LSA-pLSA-and-LDA"><span class="nav-number">2.</span> <span class="nav-text">LSA, pLSA and LDA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LSA"><span class="nav-number">2.1.</span> <span class="nav-text">LSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pLSA"><span class="nav-number">2.2.</span> <span class="nav-text">pLSA</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LDA"><span class="nav-number">2.3.</span> <span class="nav-text">LDA</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#PCA-LDA"><span class="nav-number">3.</span> <span class="nav-text">PCA LDA</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LDA-Linear-Discrimination-Analysis"><span class="nav-number">3.1.</span> <span class="nav-text">LDA (Linear Discrimination Analysis)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PCA-Principle-Component-Analysis"><span class="nav-number">3.2.</span> <span class="nav-text">PCA (Principle Component Analysis)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#PCA-through-SVD"><span class="nav-number">3.2.1.</span> <span class="nav-text">PCA through SVD</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#EM-and-k-means"><span class="nav-number">4.</span> <span class="nav-text">EM and k-means</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#EM-algorithm"><span class="nav-number">4.1.</span> <span class="nav-text">EM algorithm</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#k-means"><span class="nav-number">4.2.</span> <span class="nav-text">k-means</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/11/09/machine-learning2/';
+          this.page.identifier = '2017/11/09/machine-learning2/';
+          this.page.title = 'Machine learning (b)';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+<!--added-->
+
+
+</body>
+</html>

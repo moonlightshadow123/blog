@@ -1,0 +1,921 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="design pattern," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="strategy, observer, factory, factory method, abstract factory, decorator, singleton, command, adapter, facade, proxy, bridge.">
+<meta name="keywords" content="design pattern">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Design pattern">
+<meta property="og:url" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/index.html">
+<meta property="og:site_name" content="Small&Big">
+<meta property="og:description" content="strategy, observer, factory, factory method, abstract factory, decorator, singleton, command, adapter, facade, proxy, bridge.">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/strategy.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/observer.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/factory_method.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/abstract_factory.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/decorator.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/singleton.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/command.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/adapter.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/facade.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/proxy.png">
+<meta property="og:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/bridge.png">
+<meta property="og:updated_time" content="2017-11-19T17:35:32.346Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Design pattern">
+<meta name="twitter:description" content="strategy, observer, factory, factory method, abstract factory, decorator, singleton, command, adapter, facade, proxy, bridge.">
+<meta name="twitter:image" content="http://moonlightshadow123.github.io/2017/11/20/design-pattern/strategy.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://moonlightshadow123.github.io/2017/11/20/design-pattern/"/>
+
+
+
+
+
+  <title> Design pattern | Small&Big </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Small&Big</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://moonlightshadow123.github.io/2017/11/20/design-pattern/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiaoda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Small&Big">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Design pattern
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-20T01:16:26+08:00">
+                2017-11-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/11/20/design-pattern/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/11/20/design-pattern/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/11/20/design-pattern/" class="leancloud_visitors" data-flag-title="Design pattern">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">Visitors </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><code>strategy</code>, <code>observer</code>, <code>factory</code>, <code>factory method</code>, <code>abstract factory</code>, <code>decorator</code>, <code>singleton</code>, <code>command</code>, <code>adapter</code>, <code>facade</code>, <code>proxy</code>, <code>bridge</code>.<br><a id="more"></a></p>
+<h1 id="Strategy-pattern"><a href="#Strategy-pattern" class="headerlink" title="Strategy pattern"></a>Strategy pattern</h1><p><img src="strategy.png" alt=""><br>IBark.java — The bark behavior interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IBark</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BarkLoudly</span> <span class="keyword">implements</span> <span class="title">IBark</span></span>&#123;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"It's barking loudly."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BarkQuietly</span> <span class="keyword">implements</span> <span class="title">IBark</span></span>&#123;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">bark</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"it's barking quietly."</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>IRun — The run behavior interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IRun</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span></span>;<span class="comment">//定义run行为</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunQuickly</span> <span class="keyword">implements</span> <span class="title">IRun</span></span>&#123;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"it's running quicky."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RunSlowly</span> <span class="keyword">implements</span> <span class="title">IRun</span></span>&#123;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"it's running slowly."</span>);</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Dog.java — The dog class that has all the behaviors aforementioned.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Dog</span> </span>&#123;</div><div class="line">    IBark bark;</div><div class="line">    IRun run;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span></span>;<span class="comment">//显示Dog的外形</span></div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> IBark <span class="title">getBark</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> bark;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBark</span><span class="params">(IBark bark)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.bark = bark;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> IRun <span class="title">getRun</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> run;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setRun</span><span class="params">(IRun run)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.run = run;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlackDog</span> <span class="keyword">extends</span> <span class="title">Dog</span></span>&#123;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">BlackDog</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.setRun(<span class="keyword">new</span> RunQuickly());</div><div class="line">        <span class="keyword">super</span>.setBark(<span class="keyword">new</span> BarkLoudly());</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"This is a black dog."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedDog</span> <span class="keyword">extends</span> <span class="title">Dog</span></span>&#123;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RedDog</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.setRun(<span class="keyword">new</span> RunSlowly());</div><div class="line">        <span class="keyword">super</span>.setBark(<span class="keyword">new</span> BarkQuietly());</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"This is a red dog."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">ToyDog</span> <span class="keyword">extends</span> <span class="title">Dog</span></span>&#123;</div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ToyDog</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">super</span>.setRun(<span class="keyword">new</span> RunSlowly());</div><div class="line">        <span class="keyword">super</span>.setBark(<span class="keyword">new</span> BarkLoudly());</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">display</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"This is a toy dog."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>Test.java — The test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line"> </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * <span class="doctag">@param</span> args</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"------- 创造一只Red Dog -------"</span>);</div><div class="line">        Dog redDog = <span class="keyword">new</span> RedDog();</div><div class="line">        showDogInfo(redDog);</div><div class="line">         </div><div class="line">        System.out.println(<span class="string">"\n------- 创造一只Black Dog -------"</span>);</div><div class="line">        Dog blackDog = <span class="keyword">new</span> BlackDog();</div><div class="line">        showDogInfo(blackDog);</div><div class="line">         </div><div class="line">        System.out.println(<span class="string">"\n------- 创造一只Toy Dog -------"</span>);</div><div class="line">        Dog toyDog = <span class="keyword">new</span> ToyDog();</div><div class="line">        showDogInfo(toyDog);</div><div class="line">         </div><div class="line">        System.out.println(<span class="string">"\n------- 技术革新，现在Toy Dog可以小声叫了 -------"</span>);</div><div class="line">        toyDog.setBark(<span class="keyword">new</span> BarkQuietly());</div><div class="line">        showDogInfo(toyDog);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">showDogInfo</span><span class="params">(Dog dog)</span></span></div><div class="line">    &#123;</div><div class="line">        dog.display();</div><div class="line">        dog.run.run();</div><div class="line">        dog.bark.bark();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">------- 创造一只Red Dog -------</div><div class="line">This is a red dog.</div><div class="line">it&apos;s running slowly.</div><div class="line">it&apos;s barking quietly.</div><div class="line"></div><div class="line">------- 创造一只Black Dog -------</div><div class="line">This is a black dog.</div><div class="line">it&apos;s running quicky.</div><div class="line">It&apos;s barking loudly.</div><div class="line"></div><div class="line">------- 创造一只Toy Dog -------</div><div class="line">This is a toy dog.</div><div class="line">it&apos;s running slowly.</div><div class="line">It&apos;s barking loudly.</div><div class="line"></div><div class="line">------- 技术革新，现在Toy Dog可以小声叫了 -------</div><div class="line">This is a toy dog.</div><div class="line">it&apos;s running slowly.</div><div class="line">it&apos;s barking quietly.</div><div class="line">[Finished in 1.6s]</div></pre></td></tr></table></figure></p>
+<h1 id="Observer-pattern"><a href="#Observer-pattern" class="headerlink" title="Observer pattern"></a>Observer pattern</h1><p><img src="observer.png" alt=""><br>Observable.java — Game server is an observable.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Observable</span> </span>&#123;</div><div class="line">    ArrayList&lt;Observer&gt; observers = <span class="keyword">new</span> ArrayList&lt;Observer&gt;();</div><div class="line">     </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Register an observer</div><div class="line">     * <span class="doctag">@param</span> o </div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registObserver</span><span class="params">(Observer o)</span></span></div><div class="line">    &#123;</div><div class="line">        observers.add(o);</div><div class="line">        System.out.println(o.toString() + <span class="string">" has registered!!!"</span>);</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Delete an observer</div><div class="line">     * <span class="doctag">@param</span> o</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reomveObserver</span><span class="params">(Observer o)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">int</span> index = observers.indexOf(o);</div><div class="line">        observers.remove(index);</div><div class="line">        System.out.println(o.toString() + <span class="string">" has been removed!!!"</span>);</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Notify all the observers.</div><div class="line">     * <span class="doctag">@param</span> arg </div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">notifyObservers</span><span class="params">(Object arg)</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="keyword">for</span>(Observer o : observers)</div><div class="line">            o.update(arg);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GameServer</span> <span class="keyword">extends</span> <span class="title">Observable</span></span>&#123;</div><div class="line">    Question ques;<span class="comment">//定义题目</span></div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> Question <span class="title">getQues</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> ques;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setQues</span><span class="params">(Question q)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.ques = q;</div><div class="line">         </div><div class="line">        <span class="keyword">super</span>.notifyObservers(ques);<span class="comment">//调用父类方法通知所有Observer</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Observer.java — playerA, playerB and playerC are observers.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</div><div class="line">    Observable observable = <span class="keyword">null</span>;<span class="comment">//定义该Observer所关注的Subject</span></div><div class="line">     </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Object arg)</span></span>;<span class="comment">//定义Observer的更新接口</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlayerA</span> <span class="keyword">extends</span> <span class="title">Observer</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PlayerA</span><span class="params">(Observable obj)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.observable = obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"PlayerA"</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Object arg)</span> </span>&#123;</div><div class="line">        Question q = (Question)arg;</div><div class="line">        System.out.println(<span class="keyword">this</span>+<span class="string">" received "</span> + q.toString());</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlayerB</span> <span class="keyword">extends</span> <span class="title">Observer</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PlayerB</span><span class="params">(Observable obj)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.observable = obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"PlayerB"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Object arg)</span> </span>&#123;</div><div class="line">        Question q = (Question)arg;</div><div class="line">        System.out.println(<span class="keyword">this</span>+<span class="string">" received "</span> + q.toString());</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PlayerC</span> <span class="keyword">extends</span> <span class="title">Observer</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PlayerC</span><span class="params">(Observable obj)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.observable = obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"PlayerC"</span>;</div><div class="line">    &#125;</div><div class="line"> </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">update</span><span class="params">(Object arg)</span> </span>&#123;</div><div class="line">        Question q = (Question)arg;</div><div class="line">        System.out.println(<span class="keyword">this</span>+<span class="string">" received "</span> + q.toString());</div><div class="line">    &#125;</div><div class="line">     </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"答题活动即将开始。。"</span>);</div><div class="line">        <span class="comment">//创建服务器</span></div><div class="line">        GameServer gs = <span class="keyword">new</span> GameServer();</div><div class="line">        <span class="comment">//创建玩家ABC</span></div><div class="line">        Observer playerA = <span class="keyword">new</span> PlayerA(gs);</div><div class="line">        Observer playerB = <span class="keyword">new</span> PlayerB(gs);</div><div class="line">        Observer playerC = <span class="keyword">new</span> PlayerC(gs);</div><div class="line">        <span class="comment">//为AB注册Observer，C对答题不感兴趣，拒绝注册</span></div><div class="line">        gs.registObserver(playerA);</div><div class="line">        gs.registObserver(playerB);</div><div class="line">        <span class="comment">// System.out.println("玩家AB成功参与答题活动。。");</span></div><div class="line">        <span class="comment">// System.out.println("答题活动正式开始。。");</span></div><div class="line">        gs.setQues(<span class="keyword">new</span> Question(<span class="number">1</span>, <span class="string">"第一题"</span>));</div><div class="line">        gs.setQues(<span class="keyword">new</span> Question(<span class="number">2</span>, <span class="string">"第二题"</span>));</div><div class="line">        <span class="comment">// System.out.println("玩家A不想玩了，退出答题活动。。");</span></div><div class="line">        gs.reomveObserver(playerA);</div><div class="line">        gs.setQues(<span class="keyword">new</span> Question(<span class="number">3</span>, <span class="string">"第三题"</span>));</div><div class="line">        <span class="comment">// System.out.println("玩家C想中途加入活动");</span></div><div class="line">        gs.registObserver(playerC);</div><div class="line">        gs.setQues(<span class="keyword">new</span> Question(<span class="number">4</span>, <span class="string">"第四题"</span>));</div><div class="line">        System.out.println(<span class="string">"答题活动结束。。"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">答题活动即将开始。。</div><div class="line">PlayerA has registered!!!</div><div class="line">PlayerB has registered!!!</div><div class="line">PlayerA received 第一题</div><div class="line">PlayerB received 第一题</div><div class="line">PlayerA received 第二题</div><div class="line">PlayerB received 第二题</div><div class="line">PlayerA has been removed!!!</div><div class="line">PlayerB received 第三题</div><div class="line">PlayerC has registered!!!</div><div class="line">PlayerB received 第四题</div><div class="line">PlayerC received 第四题</div><div class="line">答题活动结束。。</div><div class="line">[Finished in 1.8s]</div></pre></td></tr></table></figure></p>
+<h1 id="Factory-pattern"><a href="#Factory-pattern" class="headerlink" title="Factory pattern"></a>Factory pattern</h1><p>ICustomer.java — gold customers and silver customers are ICustomer.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICustomer</span></span>&#123;        </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoldCustomer</span> <span class="keyword">implements</span> <span class="title">ICustomer</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Gold Customer - Points Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Gold Customer - Discount Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GoldOperation</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Operation specific to Gold Customer"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SilverCustomer</span> <span class="keyword">implements</span> <span class="title">ICustomer</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Silver Customer -  Points Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Silver Customer - Discount Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SilverOperation</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Operation specific to Silver Customer"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>CustomerFactory.java — a factory class that manufactures both gold and silver customers.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerFactory</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ICustomer <span class="title">GetCustomer</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;       </div><div class="line">        <span class="keyword">switch</span> (i)&#123;</div><div class="line">            <span class="keyword">case</span> <span class="number">1</span>:</div><div class="line">                GoldCustomer goldCustomer = <span class="keyword">new</span> GoldCustomer();</div><div class="line">                goldCustomer.GoldOperation();</div><div class="line">                goldCustomer.AddPoints();</div><div class="line">                goldCustomer.AddDiscount();</div><div class="line">                <span class="keyword">return</span> goldCustomer;               </div><div class="line">            <span class="keyword">case</span> <span class="number">2</span>:</div><div class="line">                SilverCustomer silverCustomer = <span class="keyword">new</span> SilverCustomer();</div><div class="line">                silverCustomer.SilverOperation();</div><div class="line">                silverCustomer.AddPoints();</div><div class="line">                silverCustomer.AddDiscount();</div><div class="line">                <span class="keyword">return</span> silverCustomer;</div><div class="line">            <span class="keyword">default</span>: <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">        &#125;      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ICustomer c1 = CustomerFactory.GetCustomer(<span class="number">1</span>);</div><div class="line">        ICustomer c2 = CustomerFactory.GetCustomer(<span class="number">2</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Operation specific to Gold Customer</div><div class="line">Gold Customer - Points Added</div><div class="line">Gold Customer - Discount Added</div><div class="line">Operation specific to Silver Customer</div><div class="line">Silver Customer -  Points Added</div><div class="line">Silver Customer - Discount Added</div><div class="line">[Finished in 0.7s]</div></pre></td></tr></table></figure></p>
+<h1 id="Factory-method-pattern"><a href="#Factory-method-pattern" class="headerlink" title="Factory method pattern"></a>Factory method pattern</h1><p><img src="factory_method.png" alt=""><br>ICustomer.java — gold customer and silver customer are ICustomers.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICustomer</span></span>&#123;</div><div class="line">        </div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoldCustomer</span> <span class="keyword">implements</span> <span class="title">ICustomer</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Gold Customer - Points Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Gold Customer - Discount Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">GoldOperation</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Operation specific to Gold Customer"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SilverCustomer</span> <span class="keyword">implements</span> <span class="title">ICustomer</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddPoints</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Silver Customer -  Points Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">AddDiscount</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Silver Customer - Discount Added"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SilverOperation</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Operation specific to Silver Customer"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>BaseCustomerFactory.java — gold custom factory and silver custom factory are base customer factories.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseCustomerFactory</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> ICustomer <span class="title">GetCustomer</span><span class="params">()</span></span>&#123;</div><div class="line">        ICustomer myCust = <span class="keyword">this</span>.CreateCustomer();</div><div class="line">        myCust.AddPoints();</div><div class="line">        myCust.AddDiscount();</div><div class="line">        <span class="keyword">return</span> myCust;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> ICustomer <span class="title">CreateCustomer</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GoldCustomerFactory</span> <span class="keyword">extends</span> <span class="title">BaseCustomerFactory</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ICustomer <span class="title">CreateCustomer</span><span class="params">()</span></span>&#123;</div><div class="line">        GoldCustomer objCust = <span class="keyword">new</span> GoldCustomer();</div><div class="line">        objCust.GoldOperation();</div><div class="line">        <span class="keyword">return</span> objCust;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SilverCustomerFactory</span> <span class="keyword">extends</span> <span class="title">BaseCustomerFactory</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> ICustomer <span class="title">CreateCustomer</span><span class="params">()</span></span>&#123;</div><div class="line">        SilverCustomer objCust = <span class="keyword">new</span> SilverCustomer();</div><div class="line">        objCust.SilverOperation();</div><div class="line">        <span class="keyword">return</span> objCust;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        BaseCustomerFactory f1 = <span class="keyword">new</span> GoldCustomerFactory();<span class="comment">// Or new SilverCustomerFactory();</span></div><div class="line">        ICustomer c1 = f1.GetCustomer();</div><div class="line"></div><div class="line">        BaseCustomerFactory f2 = <span class="keyword">new</span> SilverCustomerFactory();<span class="comment">// Or new SilverCustomerFactory();</span></div><div class="line">        ICustomer c2 = f2.GetCustomer();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Operation specific to Gold Customer</div><div class="line">Gold Customer - Points Added</div><div class="line">Gold Customer - Discount Added</div><div class="line">Operation specific to Silver Customer</div><div class="line">Silver Customer -  Points Added</div><div class="line">Silver Customer - Discount Added</div><div class="line">[Finished in <span class="number">0.8</span>s]</div></pre></td></tr></table></figure></p>
+<h1 id="Abstract-factory-pattern"><a href="#Abstract-factory-pattern" class="headerlink" title="Abstract factory pattern"></a>Abstract factory pattern</h1><p><img src="abstract_factory.png" alt=""><br>IAircondition.java — AirconditionA is for BMW320 and AirconditionB is for BMW523.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//空调以及型号    </span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IAircondition</span> </span>&#123;    </div><div class="line">  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AirconditionA</span> <span class="keyword">implements</span> <span class="title">IAircondition</span></span>&#123;    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AirconditionA</span><span class="params">()</span></span>&#123;    </div><div class="line">        System.out.println(<span class="string">"制造--&gt;AirconditionA"</span>);    </div><div class="line">    &#125;    </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AirconditionB</span> <span class="keyword">implements</span> <span class="title">IAircondition</span></span>&#123;    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AirconditionB</span><span class="params">()</span></span>&#123;    </div><div class="line">        System.out.println(<span class="string">"制造--&gt;AirconditionB"</span>);    </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>IEngine.java — EngineA is for BMW320 and EngineB is for BMW523.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//发动机以及型号    </span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IEngine</span> </span>&#123;    </div><div class="line">  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EngineA</span> <span class="keyword">implements</span> <span class="title">IEngine</span></span>&#123;    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EngineA</span><span class="params">()</span></span>&#123;    </div><div class="line">        System.out.println(<span class="string">"制造--&gt;EngineA"</span>);    </div><div class="line">    &#125;    </div><div class="line">&#125;    </div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">EngineB</span> <span class="keyword">implements</span> <span class="title">IEngine</span></span>&#123;    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">EngineB</span><span class="params">()</span></span>&#123;    </div><div class="line">        System.out.println(<span class="string">"制造--&gt;EngineB"</span>);    </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>IBaseFactory.java — FactoryBMW320 and FactoryBMW523 are IBaseFactories.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//创建工厂的接口    </span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IBaseFactory</span> </span>&#123;    </div><div class="line">    <span class="comment">//制造发动机  </span></div><div class="line">    <span class="function"><span class="keyword">public</span> IEngine <span class="title">createEngine</span><span class="params">()</span></span>;  </div><div class="line">    <span class="comment">//制造空调   </span></div><div class="line">    <span class="function"><span class="keyword">public</span> IAircondition <span class="title">createAircondition</span><span class="params">()</span></span>;   </div><div class="line">&#125;    </div><div class="line">  </div><div class="line">  </div><div class="line"><span class="comment">//为宝马320系列生产配件    </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FactoryBMW320</span> <span class="keyword">implements</span> <span class="title">IBaseFactory</span></span>&#123;    </div><div class="line">        </div><div class="line">    <span class="meta">@Override</span>    </div><div class="line">    <span class="function"><span class="keyword">public</span> IEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;      </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineA();    </div><div class="line">    &#125;    </div><div class="line">    <span class="meta">@Override</span>    </div><div class="line">    <span class="function"><span class="keyword">public</span> IAircondition <span class="title">createAircondition</span><span class="params">()</span> </span>&#123;    </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AirconditionA();    </div><div class="line">    &#125;    </div><div class="line">&#125; </div><div class="line"></div><div class="line"><span class="comment">//宝马523系列  </span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">FactoryBMW523</span> <span class="keyword">implements</span> <span class="title">IBaseFactory</span> </span>&#123;    </div><div class="line">    </div><div class="line">     <span class="meta">@Override</span>    </div><div class="line">    <span class="function"><span class="keyword">public</span> IEngine <span class="title">createEngine</span><span class="params">()</span> </span>&#123;      </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> EngineB();    </div><div class="line">    &#125;    </div><div class="line">    <span class="meta">@Override</span>    </div><div class="line">    <span class="function"><span class="keyword">public</span> IAircondition <span class="title">createAircondition</span><span class="params">()</span> </span>&#123;    </div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> AirconditionB();    </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;    </div><div class="line">        <span class="comment">//生产宝马320系列配件  </span></div><div class="line">        FactoryBMW320 factoryBMW320 = <span class="keyword">new</span> FactoryBMW320();    </div><div class="line">        factoryBMW320.createEngine();  </div><div class="line">        factoryBMW320.createAircondition();  </div><div class="line">            </div><div class="line">        <span class="comment">//生产宝马523系列配件    </span></div><div class="line">        FactoryBMW523 factoryBMW523 = <span class="keyword">new</span> FactoryBMW523();    </div><div class="line">        factoryBMW523.createEngine();  </div><div class="line">        factoryBMW523.createAircondition();  </div><div class="line">    &#125;    </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">制造--&gt;EngineA</div><div class="line">制造--&gt;AirconditionA</div><div class="line">制造--&gt;EngineB</div><div class="line">制造--&gt;AirconditionB</div><div class="line">[Finished in 0.8s]</div></pre></td></tr></table></figure></p>
+<h1 id="Decorator-pattern"><a href="#Decorator-pattern" class="headerlink" title="Decorator pattern"></a>Decorator pattern</h1><p><img src="decorator.png" alt=""><br>Food.java — food is component, sichuanfood and guangdongfood are food.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//部件(Component)</span></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Food</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SichuanFood</span> <span class="keyword">extends</span> <span class="title">Food</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Cooked some sichuan food!!!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">GuangdongFood</span> <span class="keyword">extends</span> <span class="title">Food</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Cooked some guangdong food!!!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Decorator.java — decorators are component, and they have a component property. AddSoup and AddFruit are decorators.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Decorator</span> <span class="keyword">extends</span> <span class="title">Food</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">protected</span> Food food;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Decorator</span><span class="params">(Food food)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.food = food;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddSoup</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AddSoup</span><span class="params">(Food food)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(food);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.food.cook();</div><div class="line">        System.out.println(<span class="string">"Add a soup."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">AddFruit</span> <span class="keyword">extends</span> <span class="title">Decorator</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">AddFruit</span><span class="params">(Food food)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(food);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">cook</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.food.cook();</div><div class="line">        System.out.println(<span class="string">"Add a fruit."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Food scFood = <span class="keyword">new</span> SichuanFood();</div><div class="line">        Food gdFood = <span class="keyword">new</span> GuangdongFood();</div><div class="line">        Food soup_scFood = <span class="keyword">new</span> AddSoup(scFood);</div><div class="line">        Food fruit_scFood = <span class="keyword">new</span> AddFruit(soup_scFood);</div><div class="line">        Food fruit_gdfood = <span class="keyword">new</span> AddFruit(gdFood);</div><div class="line">        fruit_scFood.cook();</div><div class="line">        fruit_gdfood.cook();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Cooked some sichuan food!!!</div><div class="line">Add a soup.</div><div class="line">Add a fruit.</div><div class="line">Cooked some guangdong food!!!</div><div class="line">Add a fruit.</div><div class="line">[Finished in 0.9s]</div></pre></td></tr></table></figure></p>
+<h1 id="Singleton-pattern"><a href="#Singleton-pattern" class="headerlink" title="Singleton pattern"></a>Singleton pattern</h1><p><img src="singleton.png" alt=""><br>Singleton.java — the plain way of singleton.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Singleton innerInstance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(innerInstance == <span class="keyword">null</span>)&#123;</div><div class="line">            innerInstance = <span class="keyword">new</span> Singleton();</div><div class="line">            System.out.println(<span class="string">"A new instance has been created!!!"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> innerInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>SynSingleton.java — synchronized singleton to avoid multi-thread causing multi-creation. But since creation is not often, it will cause unnecessary performance decline.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SynSingleton</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SynSingleton innerInstance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">SynSingleton</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">synchronized</span> SynSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(innerInstance == <span class="keyword">null</span>)&#123;</div><div class="line">            innerInstance = <span class="keyword">new</span> SynSingleton();</div><div class="line">            System.out.println(<span class="string">"A new instance has been created!!!"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> innerInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>DCLSingleton.java — double check locking singleton to both ensure thread safety and high performance.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DCLSingleton</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DCLSingleton innerInstance = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="title">DCLSingleton</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> DCLSingleton <span class="title">getInstance</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(innerInstance == <span class="keyword">null</span>)&#123;</div><div class="line">            <span class="keyword">synchronized</span>(DCLSingleton.class)&#123;</div><div class="line">                <span class="keyword">if</span>(innerInstance == <span class="keyword">null</span>)&#123;</div><div class="line">                    innerInstance = <span class="keyword">new</span> DCLSingleton();</div><div class="line">                    System.out.println(<span class="string">"A new instance has been created!!!"</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> innerInstance;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="Command-pattern"><a href="#Command-pattern" class="headerlink" title="Command pattern"></a>Command pattern</h1><p><img src="command.png" alt=""><br>Invoker.java — remote control. Ground control to major Tom :)<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//可以看作是遥控器吧</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Invoker</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> ICommand onCommand, offCommand, changeChannel;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Invoker</span><span class="params">(ICommand on, ICommand off, ICommand channel)</span> </span>&#123;</div><div class="line">        onCommand = on;</div><div class="line">        offCommand = off;</div><div class="line">        changeChannel = channel;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOn</span><span class="params">()</span> </span>&#123;</div><div class="line">        onCommand.execute();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOff</span><span class="params">()</span> </span>&#123;</div><div class="line">        offCommand.execute();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeChannel</span><span class="params">()</span> </span>&#123;</div><div class="line">        changeChannel.execute();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>ICommand.java — command on, command off, command change are ICommands.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//执行命令的接口</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICommand</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//开机命令</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandOn</span> <span class="keyword">implements</span> <span class="title">ICommand</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Tv myTv;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CommandOn</span><span class="params">(Tv tv)</span> </span>&#123;</div><div class="line">        myTv = tv;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</div><div class="line">        myTv.turnOn();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//关机命令</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandOff</span> <span class="keyword">implements</span> <span class="title">ICommand</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Tv myTv;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CommandOff</span><span class="params">(Tv tv)</span> </span>&#123;</div><div class="line">        myTv = tv;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</div><div class="line">        myTv.turnOff();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//频道切换命令</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">CommandChange</span> <span class="keyword">implements</span> <span class="title">ICommand</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Tv myTv;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> channel;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">CommandChange</span><span class="params">(Tv tv, <span class="keyword">int</span> channel)</span> </span>&#123;</div><div class="line">        myTv = tv;</div><div class="line">        <span class="keyword">this</span>.channel = channel;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">()</span> </span>&#123;</div><div class="line">        myTv.changeChannel(channel);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Tv.java — tv is the receiver of commands.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//命令接收者</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tv</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">int</span> currentChannel = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOn</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"The televisino is on."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">turnOff</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"The television is off."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">changeChannel</span><span class="params">(<span class="keyword">int</span> channel)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.currentChannel = channel;</div><div class="line">        System.out.println(<span class="string">"Now TV channel is "</span> + channel);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// 命令接收者</span></div><div class="line">        Tv myTv = <span class="keyword">new</span> Tv();</div><div class="line">        <span class="comment">// 开机命令</span></div><div class="line">        CommandOn on = <span class="keyword">new</span> CommandOn(myTv);</div><div class="line">        <span class="comment">// 关机命令</span></div><div class="line">        CommandOff off = <span class="keyword">new</span> CommandOff(myTv);</div><div class="line">        <span class="comment">// 频道切换命令</span></div><div class="line">        CommandChange channel = <span class="keyword">new</span> CommandChange(myTv, <span class="number">2</span>);</div><div class="line">        <span class="comment">// 命令控制对象</span></div><div class="line">        Invoker invoker = <span class="keyword">new</span> Invoker(on, off, channel);</div><div class="line"></div><div class="line">        <span class="comment">// 开机</span></div><div class="line">        invoker.turnOn();</div><div class="line">        <span class="comment">// 切换频道</span></div><div class="line">        invoker.changeChannel();</div><div class="line">        <span class="comment">// 关机</span></div><div class="line">        invoker.turnOff();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">The televisino is on.</div><div class="line">Now TV channel is 2</div><div class="line">The television is off.</div><div class="line">[Finished in 0.7s]</div></pre></td></tr></table></figure></p>
+<h1 id="Adapter-pattern"><a href="#Adapter-pattern" class="headerlink" title="Adapter pattern"></a>Adapter pattern</h1><p><img src="adapter.png" alt=""><br>ITarget.java — Adapter is an ITarget.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ITarget</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">request</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Adapter</span> <span class="keyword">implements</span> <span class="title">ITarget</span></span>&#123;</div><div class="line">    <span class="keyword">private</span> Adaptee adaptee = <span class="keyword">new</span> Adaptee();</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">request</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Request !!"</span>);</div><div class="line">        <span class="keyword">this</span>.adaptee.specificRequest();</div><div class="line">    &#125; </div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Adaptee.java — Adaptee is for specific request.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Adaptee</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">specificRequest</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Specific request !!!"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        ITarget t = <span class="keyword">new</span> Adapter();</div><div class="line">        t.request();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Request !!</div><div class="line">Specific request !!!</div><div class="line">[Finished in 0.8s]</div></pre></td></tr></table></figure></p>
+<h1 id="Facade-pattern"><a href="#Facade-pattern" class="headerlink" title="Facade pattern"></a>Facade pattern</h1><p><img src="facade.png" alt=""><br>FacadePhone.java — the facade class of all the sub-modules.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FacadePhone</span></span></div><div class="line">&#123;</div><div class="line">    SetHardware setHardware = <span class="keyword">null</span>;</div><div class="line">    SetSoftware setSoftware = <span class="keyword">null</span>;</div><div class="line">    PhoneTest phoneTest = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FacadePhone</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        setHardware = <span class="keyword">new</span> SetHardware();</div><div class="line">        setSoftware = <span class="keyword">new</span> SetSoftware();</div><div class="line">        phoneTest = <span class="keyword">new</span> PhoneTest();</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/// &lt;summary&gt;</span></div><div class="line">    <span class="comment">/// 生产N8</span></div><div class="line">    <span class="comment">/// &lt;/summary&gt;</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">CreateN8</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        <span class="comment">//安装主板</span></div><div class="line">        setHardware.setMb();</div><div class="line">        <span class="comment">//安装CPU</span></div><div class="line">        setHardware.setCpu();</div><div class="line">        <span class="comment">//安装系统软件</span></div><div class="line">        setSoftware.setSystem();</div><div class="line">        <span class="comment">//安装应用软件</span></div><div class="line">        setSoftware.setApp();</div><div class="line">        <span class="comment">//测试</span></div><div class="line">        phoneTest.phoneTest();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Modules.java — all the sub-modules.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/// &lt;summary&gt;</span></div><div class="line"><span class="comment">/// 子系统模块 安装硬件</span></div><div class="line"><span class="comment">/// &lt;/summary&gt;</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SetHardware</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setMb</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"安装主板"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCpu</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"安装CPU"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/// &lt;summary&gt;</span></div><div class="line"><span class="comment">/// 子系统模块 安装软件</span></div><div class="line"><span class="comment">/// &lt;/summary&gt;</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">SetSoftware</span></span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setSystem</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"安装系统软件"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApp</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"安装应用软件"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/// &lt;summary&gt;</span></div><div class="line"><span class="comment">///  子系统模块 测试</span></div><div class="line"><span class="comment">/// &lt;/summary&gt;</span></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">PhoneTest</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">phoneTest</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        System.out.println(<span class="string">"测试手机"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        </div><div class="line">        FacadePhone fp = <span class="keyword">new</span> FacadePhone();</div><div class="line">        fp.CreateN8();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">安装主板</div><div class="line">安装CPU</div><div class="line">安装系统软件</div><div class="line">安装应用软件</div><div class="line">测试手机</div><div class="line">[Finished in 0.8s]</div></pre></td></tr></table></figure></p>
+<h1 id="Proxy-pattern"><a href="#Proxy-pattern" class="headerlink" title="Proxy pattern"></a>Proxy pattern</h1><p><img src="proxy.png" alt=""><br>IPerson.java — ISubject interface.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IPerson</span></span>&#123;</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">buyProduct</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>RealSubject.java — real subject is an IPerson.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RealSubject</span> <span class="keyword">implements</span> <span class="title">IPerson</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyProduct</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"帮我买一部iphone和mac."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Proxy.java — the proxy has a real subject, and some other stuff.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Proxy</span> <span class="keyword">implements</span> <span class="title">IPerson</span></span>&#123;</div><div class="line"></div><div class="line">    RealSubject realsubject = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">buyProduct</span><span class="params">()</span></span>&#123;</div><div class="line"></div><div class="line">        <span class="keyword">if</span>(realsubject == <span class="keyword">null</span>)&#123;</div><div class="line">            realsubject = <span class="keyword">new</span> RealSubject();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.preBuyProduct();</div><div class="line">        realsubject.buyProduct();</div><div class="line">        <span class="keyword">this</span>.postBuyProduct();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">preBuyProduct</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"我怕弄糊涂了，需要列一张清单，张三：要带相机，李四：要带Iphone..........."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postBuyProduct</span><span class="params">()</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"终于买完了，现在要对东西分一下，相机是张三的；Iphone是李四的.........."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        IPerson proxy = <span class="keyword">new</span> Proxy();</div><div class="line">        proxy.buyProduct();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">我怕弄糊涂了，需要列一张清单，张三：要带相机，李四：要带Iphone...........</div><div class="line">帮我买一部iphone和mac.</div><div class="line">终于买完了，现在要对东西分一下，相机是张三的；Iphone是李四的..........</div><div class="line">[Finished in 0.8s]</div></pre></td></tr></table></figure></p>
+<h1 id="Bridge-pattern"><a href="#Bridge-pattern" class="headerlink" title="Bridge pattern"></a>Bridge pattern</h1><p><img src="bridge.png" alt=""><br>Abstraction.java — Circle is a concrete abstraction.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Abstraction</span></span>&#123;</div><div class="line">    Implementor implementor;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Abstraction</span><span class="params">(Implementor implementor)</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.implementor = implementor;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Abstraction</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">int</span> radius;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Circle</span><span class="params">(<span class="keyword">int</span> radius, Implementor implementor)</span></span>&#123;</div><div class="line">        <span class="keyword">super</span>(implementor);</div><div class="line">        <span class="keyword">this</span>.radius = radius;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">this</span>.implementor.operation(<span class="keyword">this</span>.radius);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Implementor.java — RedCircle and BlackCircle are concrete implementors.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Implementor</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> radius)</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">RedCircle</span> <span class="keyword">implements</span> <span class="title">Implementor</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> radius)</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Draw a red circle with radius="</span>+radius);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">BlackCircle</span> <span class="keyword">implements</span> <span class="title">Implementor</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">operation</span><span class="params">(<span class="keyword">int</span> radius)</span></span>&#123;</div><div class="line">        System.out.println(<span class="string">"Draw a black circle with radius="</span>+radius);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Test.java — test class.<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        Abstraction redcircle = <span class="keyword">new</span> Circle(<span class="number">5</span>, <span class="keyword">new</span> RedCircle());</div><div class="line">        Abstraction blackcircle = <span class="keyword">new</span> Circle(<span class="number">8</span>, <span class="keyword">new</span> BlackCircle());</div><div class="line">        redcircle.operation();</div><div class="line">        blackcircle.operation();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>Output:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Draw a red circle with radius=5</div><div class="line">Draw a black circle with radius=8</div><div class="line">[Finished in 0.8s]</div></pre></td></tr></table></figure></p>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=19830032&auto=1&height=66"></iframe>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/design-pattern/" rel="tag"># design pattern</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/09/machine-learning2/" rel="prev" title="Machine learning (b)">
+                Machine learning (b) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="Xiaoda" />
+          <p class="site-author-name" itemprop="name">Xiaoda</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Strategy-pattern"><span class="nav-number">1.</span> <span class="nav-text">Strategy pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Observer-pattern"><span class="nav-number">2.</span> <span class="nav-text">Observer pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Factory-pattern"><span class="nav-number">3.</span> <span class="nav-text">Factory pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Factory-method-pattern"><span class="nav-number">4.</span> <span class="nav-text">Factory method pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Abstract-factory-pattern"><span class="nav-number">5.</span> <span class="nav-text">Abstract factory pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Decorator-pattern"><span class="nav-number">6.</span> <span class="nav-text">Decorator pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Singleton-pattern"><span class="nav-number">7.</span> <span class="nav-text">Singleton pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Command-pattern"><span class="nav-number">8.</span> <span class="nav-text">Command pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Adapter-pattern"><span class="nav-number">9.</span> <span class="nav-text">Adapter pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Facade-pattern"><span class="nav-number">10.</span> <span class="nav-text">Facade pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Proxy-pattern"><span class="nav-number">11.</span> <span class="nav-text">Proxy pattern</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Bridge-pattern"><span class="nav-number">12.</span> <span class="nav-text">Bridge pattern</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiaoda</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://moonlightshadow123.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://moonlightshadow123.github.io/2017/11/20/design-pattern/';
+          this.page.identifier = '2017/11/20/design-pattern/';
+          this.page.title = 'Design pattern';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://moonlightshadow123.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.1.js"></script>
+  <script>AV.initialize("XY6vdtoqDFVM67G1RoBikwMO-gzGzoHsz", "7CParPLMe084qw0noRhpWBOF");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+
+<!--added-->
+
+
+</body>
+</html>
